@@ -1,0 +1,46 @@
+img#top_id{
+    width: auto;
+    height: auto;
+}
+
+div#title_id{
+    font-family: 'Megrim', cursive;
+    font-size: 50px;
+    font-style: normal;
+    color: #DB560E;
+}
+
+body {
+    background-color: #3B1D70;
+}
+div#cipher_id{
+    /*break-wordは単語の途中でも改行する*/
+    word-wrap: break-word;
+    color: white;
+}
+
+div#composite_id{
+    /*normalは単語の途中で改行しない*/
+    word-break: normal;
+    color: white;
+}
+
+input#name_id{
+    border-radius: 7px;
+}
+
+/*
+div#radio_id{
+ラジオボタンのデザインが入るよん
+}
+*/
+
+button#room_make{
+    color:white;
+    background-color:#DB560E;
+    border-radius:7px;
+}
+
+p{
+    color: white;
+}
