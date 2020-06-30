@@ -22,12 +22,12 @@
     </div>
 
     <!--ヘルプボタンの実装が入る-->
-1
 
     <!--↓アクションのところに遷移先-->
-    <form action="" method="post">
+    <form action="" method="GET">
         <p>部屋名</p>
-        <input type="text" id="roomid" placeholder="宇宙船">
+        
+        <input type="text" id="roomid" name="roomid" placeholder="宇宙船">
         <p>制限時間</p>
         <div id="radio_id">
             <input type="radio" name="time" id="r1" value="time1" checked="">
@@ -42,13 +42,9 @@
             <label for="r5">3時間</label>
         </div>
         <div id="makeroom">
-            <button id="room_make" type="submit"　onclick="location.href='./index.html'">部屋をつくる</button>
+            <button id="room_make" type="submit"　onclick="location.href='./HP.html'">部屋をつくる</button>
         </div>
         <script type="text/javascript" src="HP.js"></script>
-        <?php
-        $comment = $_GET[‘roomid’];
-        echo $roomid;
-        ?>
     </form>
 </body>
 </html>
