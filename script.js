@@ -20,7 +20,8 @@ const Peer = window.Peer;
   var count = 0;  // カウント
   const remoteVideos = document.getElementById('js-remote-streams'+count);
 
-  
+  //追加機能の変数
+  const share = document.getElementById('newfunc-share');
 
   metainnerText = `
     
@@ -152,6 +153,13 @@ const Peer = window.Peer;
       messages.textContent += `${peer.id}: ${localText.value}\n`;
       localText.value = '';
     }
+  });
+
+  //追加機能share
+  var copy_text = "youtube"
+  share.addEventListener('click',function(){
+    var shared_url = window.jsLib.shared_url_copy(copy_text);
+    alert("コピーできました");
   });
 
   peer.on('error', console.error);
