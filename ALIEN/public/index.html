@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scale=yes, maximum-scale=5.0">
     <title>SkyWay - Room example</title>
-    <link rel="stylesheet" href="../_shared/style.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
   </head>
   <body onload="getDeviceList()">
     <div class="container">
@@ -39,8 +39,20 @@
         </div>
 
         <div class="remote-streams" id="js-remote-streams"></div>
-
-        <div>
+      </div>
+-->
+    　<p></p>
+        <!-- ルーム検索 -->
+      <div>
+        <input type="text" placeholder="Room Name" id="js-room-id">
+        <!-- ルームに接続 -->
+        <button id="js-join-trigger">Join</button>
+        <button id="js-leave-trigger">Leave</button>
+        <button id="js-share-trigger">share</button>
+      </div>
+    </div>
+    
+<!--        <div>
           <pre class="messages" id="js-messages"></pre>
           <input type="text" id="js-local-text">
           <button id="js-send-trigger">Send</button>
@@ -151,7 +163,8 @@ function addDevice(device) {
 
     </script>
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-    <script src="../_shared/key.js"></script>
-    <script src="./script.js"></script>
+    <script src="./key.js"></script>
+    <script src="./javascripts/SharedUrl.js"></script>
+    <script src="./javascripts/script.js"></script>
   </body>
 </html>

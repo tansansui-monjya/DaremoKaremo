@@ -7,43 +7,22 @@ const Peer = window.Peer;
   const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
-  const localText = document.getElementById('js-local-text');
-  const sendTrigger = document.getElementById('js-send-trigger');
-  const messages = document.getElementById('js-messages');
+
+  //今回使用していないのでコメントアウトする
+  // const localText = document.getElementById('js-local-text');
+  // const sendTrigger = document.getElementById('js-send-trigger');
+  // const messages = document.getElementById('js-messages');
+
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+  
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
-  
-//スピーカー
-// const devices = await navigator.mediaDevices.enumerateDevices();
-// const [{ deviceId }] = devices.filter(device => device.kind === 'audiooutput');
-// const $audio = document.createElement('audio');
-// await $audio.setSinkId(deviceId);
 
-//読み込んだデバイス情報を格納
-// function addDevice(device){
-//   if(device.kind === 'audioinput') {
-//     var id = device.deviceId;
-//     var label = device.label || 'microphone';
-//     var option = document.createElement('option');
-//     option.setAttribute('value',id);
-//     option.innerHTML = label + '(' + id + ')';;
-//     micList.appendChild(option);
-//   }
-//   else if(device.kind === 'audiooutput'){
-//     var id = device.deviceId;
-//     var label = device.label || 'speaker';
-
-//     var option = document.createElement('option');
-//     option.setAttribute('value',id);
-//     option.innerHTML = label + '(' + id + ')';
-//     speakerList.appendChild(option);
-//   }
-//   else{
-//     console.error('UNKNOWN Device kind:' + device.kind);
-//   }
-// }
+  var count = 0;  // カウント
+  const remoteVideos = document.getElementById('js-remote-streams'+count);
+  //共有機能の変数
+  const shareTrigger = document.getElementById('js-share-trigger');
 
 //ページ読み込み完了時に動作する内容
 document.addEventListener("DOMContentLoaded",function(){
@@ -148,11 +127,12 @@ toggleMicrophone.addEventListener('click', () => {
       remoteVideos.append(newVideo);
       await newVideo.play().catch(console.error);
     });
-
-    room.on('data', ({ data, src }) => {
-      // Show a message sent to the room and who sent
-      messages.textContent += `${src}: ${data}\n`;
-    });
+    
+    //今回変数messagesをindex.htmlで使用していないためコメントアウトする
+    // room.on('data', ({ data, src }) => {
+    //   // Show a message sent to the room and who sent
+    //   messages.textContent += `${src}: ${data}\n`;
+    // });
 
     // for closing room members
     room.on('peerLeave', peerId => {
@@ -168,8 +148,10 @@ toggleMicrophone.addEventListener('click', () => {
 
     // for closing myself
     room.once('close', () => {
-      sendTrigger.removeEventListener('click', onClickSend);
-      messages.textContent += '== You left ===\n';
+      //今回sendTriggerおよびmessagesを使用していないためコメントアウトする
+      // メッセージ送信ボタンを押せなくする
+      // sendTrigger.removeEventListener('click', onClickSend);
+      // messages.textContent += '== You left ===\n';
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
@@ -177,16 +159,31 @@ toggleMicrophone.addEventListener('click', () => {
       });
     });
 
-    sendTrigger.addEventListener('click', onClickSend);
-    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
+    // ボタン（sendTrigger）を押すとonClickSendを発動
+    // sendTrigger.addEventListener('click', onClickSend);
+    // ボタン（leaveTrigger）を押すとroom.close()を発動
+    leaveTrigger.addEventListener('click', () => {
+      room.close();
+      //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
+      window.open('https://www.google.com/', '_self').close();
+    }, 
+    { once: true });
 
-    function onClickSend() {
-      // Send message to all of the peers in the room via websocket
-      room.send(localText.value);
+    //今回テキストメッセージを送信しないのでコメントアウトする
+    // テキストメッセージを送る処理
+    // function onClickSend() {
+    //   // Send message to all of the peers in the room via websocket
+    //   room.send(localText.value);
+    //   messages.textContent += `${peer.id}: ${localText.value}\n`;
+    //   localText.value = '';
+    // }
 
-      messages.textContent += `${peer.id}: ${localText.value}\n`;
-      localText.value = '';
-    }
+    //追加機能share
+    var copy_url = document.URL
+    shareTrigger.addEventListener('click',function(){
+      var shared_url = window.jsLib.shared_url_copy(copy_url);
+      alert("コピーできました");
+    });
   });
 
   peer.on('error', console.error);
