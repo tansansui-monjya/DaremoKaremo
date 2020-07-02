@@ -19,6 +19,8 @@ const Peer = window.Peer;
 
   var count = 0;  // カウント
   const remoteVideos = document.getElementById('js-remote-streams'+count);
+  //共有機能の変数
+  const shareTrigger = document.getElementById('js-share-trigger');
 
   
 
@@ -143,7 +145,12 @@ const Peer = window.Peer;
     // ボタン（sendTrigger）を押すとonClickSendを発動
     sendTrigger.addEventListener('click', onClickSend);
     // ボタン（leaveTrigger）を押すとroom.close()を発動
-    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
+    leaveTrigger.addEventListener('click', () => {
+      room.close();
+      //ここにHPのURLを記載する
+      window.open('https://www.youtube.com/', '_self').close();
+    }, 
+    { once: true });
 
     // テキストメッセージを送る処理
     function onClickSend() {
@@ -152,6 +159,14 @@ const Peer = window.Peer;
       messages.textContent += `${peer.id}: ${localText.value}\n`;
       localText.value = '';
     }
+
+    //追加機能share
+    var copy_url = document.URL
+    shareTrigger.addEventListener('click',function(){
+      var shared_url = window.jsLib.shared_url_copy(copy_url);
+      alert("コピーできました");
+    });
+    
   });
 
   peer.on('error', console.error);
