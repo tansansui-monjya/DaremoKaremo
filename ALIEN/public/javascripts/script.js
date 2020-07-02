@@ -11,14 +11,19 @@ const Peer = window.Peer;
   // const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
-  const localText = document.getElementById('js-local-text');
-  const sendTrigger = document.getElementById('js-send-trigger');
-  const messages = document.getElementById('js-messages');
+
+  //今回使用していないのでコメントアウトする
+  // const localText = document.getElementById('js-local-text');
+  // const sendTrigger = document.getElementById('js-send-trigger');
+  // const messages = document.getElementById('js-messages');
+
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
 
   var count = 0;  // カウント
   const remoteVideos = document.getElementById('js-remote-streams'+count);
+  //共有機能の変数
+  const shareTrigger = document.getElementById('js-share-trigger');
 
   
 
@@ -111,11 +116,11 @@ const Peer = window.Peer;
 
     });
 
-
-    room.on('data', ({ data, src }) => {
-      // Show a message sent to the room and who sent
-      messages.textContent += `${src}: ${data}\n`;
-    });
+    //今回変数messagesをindex.htmlで使用していないためコメントアウトする
+    // room.on('data', ({ data, src }) => {
+    //   // Show a message sent to the room and who sent
+    //   messages.textContent += `${src}: ${data}\n`;
+    // });
 
     // 誰かが退出した場合、div（remoteVideos）内にある任意のdata-peer-idがついたvideoタグの内容を空にして削除する
     room.on('peerLeave', peerId => {
@@ -130,9 +135,12 @@ const Peer = window.Peer;
 
     // for closing myself(自分の退出)
     room.once('close', () => {
+
+      //今回sendTriggerおよびmessagesを使用していないためコメントアウトする
       // メッセージ送信ボタンを押せなくする
-      sendTrigger.removeEventListener('click', onClickSend);
-      messages.textContent += '== You left ===\n';
+      // sendTrigger.removeEventListener('click', onClickSend);
+      // messages.textContent += '== You left ===\n';
+
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
@@ -141,17 +149,31 @@ const Peer = window.Peer;
     });
 
     // ボタン（sendTrigger）を押すとonClickSendを発動
-    sendTrigger.addEventListener('click', onClickSend);
+    // sendTrigger.addEventListener('click', onClickSend);
     // ボタン（leaveTrigger）を押すとroom.close()を発動
-    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
+    leaveTrigger.addEventListener('click', () => {
+      room.close();
+      //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
+      window.open('https://www.google.com/', '_self').close();
+    }, 
+    { once: true });
 
+    //今回テキストメッセージを送信しないのでコメントアウトする
     // テキストメッセージを送る処理
-    function onClickSend() {
-      // Send message to all of the peers in the room via websocket
-      room.send(localText.value);
-      messages.textContent += `${peer.id}: ${localText.value}\n`;
-      localText.value = '';
-    }
+    // function onClickSend() {
+    //   // Send message to all of the peers in the room via websocket
+    //   room.send(localText.value);
+    //   messages.textContent += `${peer.id}: ${localText.value}\n`;
+    //   localText.value = '';
+    // }
+
+    //追加機能share
+    var copy_url = document.URL
+    shareTrigger.addEventListener('click',function(){
+      var shared_url = window.jsLib.shared_url_copy(copy_url);
+      alert("コピーできました");
+    });
+    
   });
 
   peer.on('error', console.error);
