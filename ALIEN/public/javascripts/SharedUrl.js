@@ -26,7 +26,7 @@
         // クリップボードにコピーしてresultに代入する
         var result = document.execCommand("copy");
     
-        alert("コピーできました:"+ result);
+        // alert("コピーできました:"+ result);
     
         // 要素削除
         document.body.removeChild(div_copy);
