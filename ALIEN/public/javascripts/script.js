@@ -1,6 +1,9 @@
 const Peer = window.Peer;
 
 (async function main() {
+  
+  // 操作がDOMをここで取得
+  // 自分の
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
