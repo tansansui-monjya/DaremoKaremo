@@ -2,6 +2,7 @@
 const Peer = window.Peer;
 
 (async function main() {
+  
   // 操作がDOMをここで取得
   // 自分の
   const localVideo = document.getElementById('js-local-stream');
