@@ -4,7 +4,6 @@ const Peer = window.Peer;
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
-  const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
 
@@ -24,29 +23,29 @@ const Peer = window.Peer;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
 
-//ページ読み込み完了時に動作する内容
-document.addEventListener("DOMContentLoaded",function(){
-  //使用デバイスから出入力デバイスを読み取る動作
-navigator.mediaDevices.enumerateDevices()
-.then(function(devices) {
-   // 成功時
- devices.forEach(function(device) {
-  // デバイスごとの処理
-  console.log(device.kind + ": " + device.label + "id = " + device.deviceId)
-  addDevice(device)
-.then(function() {
- console.log('setSinkID Success');
-})
-.catch(function(err) {
- console.error('setSinkId Err:', err);
-});
- });
-})
-.catch(function(err) { // エラー発生時
- console.error('enumerateDevide ERROR:', err);
-});
-}
-);
+//ページ読み込み完了時に動作する内容（indexのscriptとかぶっていたためコメントアウト）
+// document.addEventListener("DOMContentLoaded",function(){
+//   //使用デバイスから出入力デバイスを読み取る動作
+// navigator.mediaDevices.enumerateDevices()
+// .then(function(devices) {
+//    // 成功時
+//  devices.forEach(function(device) {
+//   // デバイスごとの処理
+//   console.log(device.kind + ": " + device.label + "id = " + device.deviceId)
+//   addDevice(device)
+// .then(function() {
+//  console.log('setSinkID Success');
+// })
+// .catch(function(err) {
+//  console.error('setSinkId Err:', err);
+// });
+//  });
+// })
+// .catch(function(err) { // エラー発生時
+//  console.error('enumerateDevide ERROR:', err);
+// });
+// }
+// );
 
 
   const localStream = await navigator.mediaDevices
