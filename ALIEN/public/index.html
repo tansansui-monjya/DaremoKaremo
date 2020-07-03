@@ -108,9 +108,9 @@
         option.innerHTML = label + '(' + id + ')';
         speakerList.appendChild(option);   
         }
-        else {
-        console.error('UNKNOWN Device kind:' + device.kind); //カメラ読み込みでも動作するが、今回はカメラは使わない
-        }
+        // else {
+        // console.error('UNKNOWN Device kind:' + device.kind); //カメラ読み込みでも動作するが、今回はカメラは使わない
+        // }
       }
       function getSelectedAudio() {
         var audioId = micList.options[micList.selectedIndex].value;

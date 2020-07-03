@@ -35,10 +35,11 @@ video {
   flex-direction: column;
 }
 
+/* 相手 */
 .p2p-media .remote-stream {
   width: 50%;
 }
-
+/* 自分 */
 .p2p-media .local-stream {
   width: 30%;
 }
@@ -56,25 +57,35 @@ video {
   padding: 8px;
   margin-top: 0;
 }
-
-/* room */
-/* .room {
+/*
+.room {
   display: grid;
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 60% 80% 60%;
   gap: 8px;
   margin: 0 8px;
-} */
+}
+*/
 
+/* 相手のビデオ画面変更 */
 .room .remote-streams {
   background-color: #f6fbff;
 }
 
 .room .messages {
-  /* background-color: #eee; */
+  background-color: #eee;
   min-height: 100px;
   padding: 8px;
   margin-top: 0;
 }
+
+/* HTMLのコンテナ*/
+/*
+ .room {
+  display: grid;
+  grid-template-rows: 100px 50px;
+  grid-template-columns: 150px 1fr;
+}
+*/
 
 /*人数変更*/
 .remote-streams {
@@ -85,9 +96,24 @@ video {
   grid-template-rows: 1fr 1fr;
 }
 
+/*
+#local-video {
+  grid-row: 1; grid-column: 1;
+}
+#js-remote-streams0 {
+  grid-row: 1; grid-column: 2;
+}
+#js-remote-streams1 {
+  grid-row: 2; grid-column: 2;
+}
+#js-remote-streams2 {
+  grid-row: 2; grid-column: 1;
+}
+*/
+
+/* スマホ写した時 */
 @media screen and (max-width: 380px){
-  　.room {
-    resize: 100%;
+  .room {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     gap: 8px;
