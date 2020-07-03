@@ -177,5 +177,24 @@ const Peer = window.Peer;
     
   });
 
+  const toggleCamera = document.getElementById('js-toggle-camera');
+  const toggleMicrophone = document.getElementById('js-toggle-microphone');
+
+  //ボタン押した時のカメラ関係の動作
+toggleCamera.addEventListener('click', () => {
+  const videoTracks = localStream.getVideoTracks()[0];
+  videoTracks.enabled = !videoTracks.enabled;
+  toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+});
+
+//ボタン押した時のマイク関係の動作
+toggleMicrophone.addEventListener('click', () => {
+  const audioTracks = localStream.getAudioTracks()[0];
+  audioTracks.enabled = !audioTracks.enabled;
+  toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
+});
+
+
+
   peer.on('error', console.error);
 })();
