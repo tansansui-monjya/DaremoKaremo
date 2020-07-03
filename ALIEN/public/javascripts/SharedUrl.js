@@ -30,29 +30,11 @@
     
         // 要素削除
         document.body.removeChild(div_copy);
-    
-        
-    
+
         return result;
-    
-        // //コピーする用に新しくテキストエリアを作成する
-        // var shared_url_area = document.createElement("textarea");
-        // //表示させる必要がないのでhidden
-        // shared_url_area.classList.add('hidden');
-        // //テキストエリアにURLを代入する
-        // shared_url_area.value = url;
-        // //対象をテキストエリアに指定する(多分)
-        // document.body.appendChild(shared_url_area);
-        // // コピー対象のテキストを選択する
-        // shared_url_area.select();
-    
-        // // 選択しているテキストをクリップボードにコピーする
-        // document.execCommand("Copy");
-    
-        // // コピーをお知らせする
-        // alert("コピーできました！ : " + shared_url_area.value);
-    
+
     }
+    
     window.jsLib=window.jsLib||{};
     window.jsLib.shared_url_copy= shared_url_copy;
 
