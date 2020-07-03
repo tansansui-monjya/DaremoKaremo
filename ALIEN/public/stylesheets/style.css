@@ -76,6 +76,19 @@ video {
   margin-top: 0;
 }
 
+<<<<<<< HEAD
+=======
+/* HTMLのコンテナ*/
+
+/*
+ .room {
+  display: grid;
+  grid-template-rows: 100px 50px;
+  grid-template-columns: 150px 1fr;
+}
+*/
+
+>>>>>>> 44662e569a08a153ab94baebb0be956a1560c2bc
 /*人数変更*/
 .remote-streams {
   display: grid;
