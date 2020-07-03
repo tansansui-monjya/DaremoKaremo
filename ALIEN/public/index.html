@@ -62,4 +62,68 @@
     <script src="./javascripts/SharedUrl.js"></script>
     <script src="./javascripts/script.js"></script>
   </body>
+<!-- 複数人のビデオチャット -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scale=no, maximum-scale=0.35, minimum-scale=0.35">
+    <title>SkyWay - Room example</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+  </head>
+  <body>
+  <div class="container">
+<!--
+      <h1 class="heading">Room example</h1>
+      <p class="note">
+        Change Room mode (before join in a room):
+        <a href="#"></a> / <a href="#sfu">sfu</a>
+      </p>
+-->
+    <!-- ルーム表示 -->
+    <div class="room">
+      <!-- 相手の -->
+<!---
+      <div class="remote-streams" id="js-remote-streams"></div>
+-->
+      <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
+        <video class="local-video" id="js-local-stream"></video>
+      </div>
+      <!-- 自分の -->
+<!--
+      <div>
+        <video class="local-video" id="js-local-stream"></video>
+
+         <span id="js-room-mode"></span>
+
+      </div>
+-->
+    　<p></p>
+        <!-- ルーム検索 -->
+      <div>
+        <input type="text" placeholder="Room Name" id="js-room-id">
+        <!-- ルームに接続 -->
+        <button id="js-join-trigger">Join</button>
+        <button id="js-leave-trigger">Leave</button>
+        <button id="js-share-trigger">share</button>
+      </div>
+    </div>
+    
+<!--        <div>
+          <pre class="messages" id="js-messages"></pre>
+          <input type="text" id="js-local-text">
+          <button id="js-send-trigger">Send</button>
+        </div>
+-->
+
+      <p class="meta" id="js-meta"></p>
+
+  </div> <!-- container -->
+    <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script src="./key.js"></script>
+    <script src="./javascripts/SharedUrl.js"></script>
+    <script src="./javascripts/script.js"></script>
+  </body>
 </html>
