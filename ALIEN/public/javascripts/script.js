@@ -66,20 +66,6 @@ navigator.mediaDevices.enumerateDevices()
       // video: { facingMode: 'user' }, // 液晶側のカメラ
     })
     .catch(console.error);
- 
- //ボタン押した時のカメラ関係の動作
-toggleCamera.addEventListener('click', () => {
-  const videoTracks = localStream.getVideoTracks()[0];
-  videoTracks.enabled = !videoTracks.enabled;
-  toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
-});
-
-//ボタン押した時のマイク関係の動作
-toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
-  audioTracks.enabled = !audioTracks.enabled;
-  toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
-});
 
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -195,6 +181,23 @@ toggleMicrophone.addEventListener('click', () => {
       var shared_url = window.jsLib.shared_url_copy(copy_url);
       alert("コピーできました");
     });
+  });
+
+
+    //ボタン押した時のカメラ関係の動作
+  toggleCamera.addEventListener('click', () => {
+    const videoTracks = localStream.getVideoTracks()[0];
+    videoTracks.enabled = !videoTracks.enabled;
+    console.log(videoTracks.enabled);
+    toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+
+  //ボタン押した時のマイク関係の動作
+  toggleMicrophone.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    console.log(audioTracks.enabled);
+    toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
   });
 
   peer.on('error', console.error);
