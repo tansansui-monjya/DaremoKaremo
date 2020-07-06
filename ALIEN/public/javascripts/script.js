@@ -8,9 +8,15 @@ const Peer = window.Peer;
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
-  const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
+
+  //threevrmのcanvas読み込み
+  let canvas = null;
+  while(canvas == null){
+  canvas = document.getElementById("canvas2").captureStream();
+  console.log("est");
+  }
 
   //今回使用していないのでコメントアウトする
   // const localText = document.getElementById('js-local-text');
@@ -111,7 +117,8 @@ toggleMicrophone.addEventListener('click', () => {
 
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
-      stream: localStream,
+      // stream: localStream,
+      stream: canvas,　//canvasをstreamに渡すと相手に渡せる
     });
 
     room.once('open', () => {
