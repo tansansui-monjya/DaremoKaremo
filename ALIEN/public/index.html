@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scale=no, maximum-scale=0.35, minimum-scale=0.35">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">
     <title>SkyWay - Room example</title>
     <link rel="stylesheet" href="./stylesheets/style.css">
   </head>
@@ -123,9 +123,9 @@ function addDevice(device) {
    option.innerHTML = label + '(' + id + ')';
    speakerList.appendChild(option);   
   }
-  else {
-   console.error('UNKNOWN Device kind:' + device.kind);
-  }
+  // else {
+  //  console.error('UNKNOWN Device kind:' + device.kind);
+  // }
  }
  function getSelectedAudio() {
   var audioId = micList.options[micList.selectedIndex].value;
