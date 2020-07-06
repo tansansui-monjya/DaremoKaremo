@@ -11,6 +11,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('port',(process.env.PORT || 5000))
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
@@ -41,3 +42,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(app.get('port'), ()=> console.log('Listening on port'+app.get('port')));
