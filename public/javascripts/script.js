@@ -8,9 +8,15 @@ const Peer = window.Peer;
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
-  const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
+
+  //threevrmのcanvas読み込み
+  let canvas = null;
+  while(canvas == null){
+  canvas = document.getElementById("canvas2").captureStream();
+  console.log("est");
+  }
 
   //今回使用していないのでコメントアウトする
   // const localText = document.getElementById('js-local-text');
@@ -60,20 +66,6 @@ navigator.mediaDevices.enumerateDevices()
       // video: { facingMode: 'user' }, // 液晶側のカメラ
     })
     .catch(console.error);
- 
- //ボタン押した時のカメラ関係の動作
-toggleCamera.addEventListener('click', () => {
-  const videoTracks = localStream.getVideoTracks()[0];
-  videoTracks.enabled = !videoTracks.enabled;
-  toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
-});
-
-//ボタン押した時のマイク関係の動作
-toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
-  audioTracks.enabled = !audioTracks.enabled;
-  toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
-});
 
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -111,7 +103,8 @@ toggleMicrophone.addEventListener('click', () => {
 
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
-      stream: localStream,
+      // stream: localStream,
+      stream: canvas,　//canvasをstreamに渡すと相手に渡せる
     });
 
     room.once('open', () => {
@@ -188,6 +181,23 @@ toggleMicrophone.addEventListener('click', () => {
       var shared_url = window.jsLib.shared_url_copy(copy_url);
       alert("コピーできました");
     });
+  });
+
+
+    //ボタン押した時のカメラ関係の動作
+  toggleCamera.addEventListener('click', () => {
+    const videoTracks = localStream.getVideoTracks()[0];
+    videoTracks.enabled = !videoTracks.enabled;
+    console.log(videoTracks.enabled);
+    toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+
+  //ボタン押した時のマイク関係の動作
+  toggleMicrophone.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    console.log(audioTracks.enabled);
+    toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
   });
 
   peer.on('error', console.error);

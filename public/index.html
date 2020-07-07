@@ -14,8 +14,9 @@
         <a href="#">mesh</a> / <a href="#sfu">sfu</a>
       </p>
       <div class="room">
-        <div>
-          <video id="js-local-stream"></video>
+        <div id = "container">
+          <video id="js-local-stream"  style="transform: scaleX(-1);"></video>
+          
           <span id="js-room-mode"></span>:
           <input type="text" placeholder="Room Name" id="js-room-id">
           <button id="js-join-trigger">Join</button>
@@ -40,7 +41,6 @@
 
         <div class="remote-streams" id="js-remote-streams"></div>
       </div>
--->
     　<p></p>
         <!-- ルーム検索 -->
       <div>
@@ -163,6 +163,15 @@ function addDevice(device) {
 //
 
     </script>
+    <!-- threevrm関連 -->
+    <script src="https://unpkg.com/three@0.108"></script>
+    <script src="https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/@pixiv/three-vrm@0.1/lib/three-vrm.js"></script>
+    <script src="./javascripts/jeelizFaceFilter.js"></script>
+    <script src="./javascripts/JeelizResizer.js"></script>
+    <script src="./javascripts/threevrm.js"></script>
+
+    <!-- skyway関連 -->
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script src="./key.js"></script>
     <script src="./javascripts/SharedUrl.js"></script>
