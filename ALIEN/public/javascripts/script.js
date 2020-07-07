@@ -184,6 +184,8 @@ const Peer = window.Peer;
 toggleCamera.addEventListener('click', () => {
   const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
+  console.log(videoTracks.enabled)
+  console.log()
   toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
 
@@ -191,6 +193,7 @@ toggleCamera.addEventListener('click', () => {
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
+  console.log(audioTracks.enabled)
   toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
 
