@@ -1,7 +1,6 @@
 /* normalize */
 body {
    margin: 0; 
-   background-color: #3B1D70;
   }
 
 /* global styles */
@@ -73,7 +72,8 @@ video {
 .room .remote-streams {
   background-color: #f6fbff;
   border: solid;
-  border-color: #031de2;
+  background-color: #3B1D70;
+  border-color: #f6fbff;
 }
 
 .room .messages {
@@ -99,6 +99,9 @@ video {
   grid-template-columns: 1fr 1fr;
   /* ここいじれ */
   grid-template-rows: 1fr 1fr;
+  border: solid;
+  border-color: #031de2;
+  background-color: #3B1D70;
 }
 
 /*
@@ -116,7 +119,39 @@ video {
 }
 */
 
+.camera-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn:hover{
+  background: #3B1D70;
+}
 
+.mic-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn{
+  background: #3B1D70;
+}
 
 /* スマホ写した時 */
 @media screen and (max-width: 380px){
@@ -125,6 +160,6 @@ video {
     grid-template-columns: 30% 40% 30%;
     gap: 8px;
     margin: 0 8px;
-    border-color: #031de2;
+    background-color: #3B1D70;
   }
 }
