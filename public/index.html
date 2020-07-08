@@ -17,28 +17,16 @@
         Change Room mode (before join in a room):
         <a href="#"></a> / <a href="#sfu">sfu</a>
       </p>
--->
-    <!-- ルーム表示 -->
-    <div class="room">
-      <!-- 相手の -->
-<!---
-      <div class="remote-streams" id="js-remote-streams"></div>
--->
-      <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
-        <video class="local-video" id="js-local-stream"></video>
-      </div>
-      <!-- 自分の -->
-<!--
-      <div>
-        <video class="local-video" id="js-local-stream"></video>
-
-         <span id="js-room-mode"></span>
-
-      </div>
     -->
+      <div class="room">
+        <div id = "container">
+          <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
+            <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
+      </div>
     　<p></p>
         <!-- ルーム検索 -->
       <div>
+        <span id="js-room-mode"></span>:
         <input type="text" placeholder="Room Name" id="js-room-id">
         <!-- ルームに接続 -->
         <button id="js-join-trigger">Join</button>
@@ -62,6 +50,7 @@
 -           <!-- <button class="sp-mode" style="display:none;">スマートフォン用で表示</button>
 -           <button class="pc-mode" style="display:none;">PC用で表示</button> -->
     </div>
+  </div>
     
 <!--        <div>
           <pre class="messages" id="js-messages"></pre>
