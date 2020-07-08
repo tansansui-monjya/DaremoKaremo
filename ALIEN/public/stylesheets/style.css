@@ -1,5 +1,8 @@
 /* normalize */
-body { margin: 0; }
+body {
+   margin: 0; 
+   background-color: #3B1D70;
+  }
 
 /* global styles */
 video {
@@ -69,6 +72,8 @@ video {
 /* 相手のビデオ画面変更 */
 .room .remote-streams {
   background-color: #f6fbff;
+  border: solid;
+  border-color: #031de2;
 }
 
 .room .messages {
@@ -111,6 +116,8 @@ video {
 }
 */
 
+
+
 /* スマホ写した時 */
 @media screen and (max-width: 380px){
   .room {
@@ -118,5 +125,6 @@ video {
     grid-template-columns: 30% 40% 30%;
     gap: 8px;
     margin: 0 8px;
+    border-color: #031de2;
   }
 }
