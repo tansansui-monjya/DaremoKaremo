@@ -17,52 +17,40 @@
         Change Room mode (before join in a room):
         <a href="#"></a> / <a href="#sfu">sfu</a>
       </p>
--->
-    <!-- ルーム表示 -->
-    <div class="room">
-      <!-- 相手の -->
-<!---
-      <div class="remote-streams" id="js-remote-streams"></div>
--->
-      <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
-        <video class="local-video" id="js-local-stream"></video>
+    -->
+      <div class="room">
+        <div id = "container">
+          <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
+            <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
       </div>
-      <!-- 自分の -->
-<!--
-      <div>
-        <video class="local-video" id="js-local-stream"></video>
-
-         <span id="js-room-mode"></span>
-
-      </div>
--->
     　<p></p>
         <!-- ルーム検索 -->
       <div>
+        <span id="js-room-mode"></span>:
         <input type="text" placeholder="Room Name" id="js-room-id">
         <!-- ルームに接続 -->
         <button id="js-join-trigger">Join</button>
         <button id="js-leave-trigger">Leave</button>
         <button id="js-share-trigger">share</button>
         <br>
-          <button class="camera-btn" id="js-toggle-camera">カメラON</button>      
-          <button class="mic-btn" id="js-toggle-microphone">マイクON</button>
-          <br>
-          <!-- テスト用にどのデバイスを有効化しているか表示 -->
-          <!-- ↓ここから-->
-          <select id="mic_list" size="1" style="width:160pt;">
-            <option>(audio)</option>
-           </select>
-           <select id="speaker_list" size="1" style="width:160pt;">
-            <option>(speaker)</option>
-           </select>
-           <!-- ↑ここまでをコメントアウトで非表示にできる -->
-           <button id="speaker_OFF" onclick="clickSwitch()" style="display: block">スピーカーOFF</button>
-           <button id="speaker_ON" onclick="clickSwitch()" style="display: none">スピーカーON</button>
-           <!-- <button class="sp-mode" style="display:none;">スマートフォン用で表示</button>
-           <button class="pc-mode" style="display:none;">PC用で表示</button> -->
-      </div>
+-          <button id="js-toggle-camera">カメラON</button>      
+-          <button id="js-toggle-microphone">マイクON</button>
+-          <br>
+-          <!-- テスト用にどのデバイスを有効化しているか表示 -->
+-          <!-- ↓ここから-->
+-          <select id="mic_list" size="1" style="width:160pt;">
+-            <option>(audio)</option>
+-           </select>
+-           <select id="speaker_list" size="1" style="width:160pt;">
+-            <option>(speaker)</option>
+-           </select>
+-           <!-- ↑ここまでをコメントアウトで非表示にできる -->
+-           <button id="speaker_OFF" onclick="clickSwitch()" style="display: block">スピーカーOFF</button>
+-           <button id="speaker_ON" onclick="clickSwitch()" style="display: none">スピーカーON</button>
+-           <!-- <button class="sp-mode" style="display:none;">スマートフォン用で表示</button>
+-           <button class="pc-mode" style="display:none;">PC用で表示</button> -->
     </div>
+  </div>
     
 <!--        <div>
           <pre class="messages" id="js-messages"></pre>
@@ -176,6 +164,15 @@
     //
 
     </script>
+    <!-- threevrm関連 -->
+    <script src="https://unpkg.com/three@0.108"></script>
+    <script src="https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/@pixiv/three-vrm@0.1/lib/three-vrm.js"></script>
+    <script src="./javascripts/jeelizFaceFilter.js"></script>
+    <script src="./javascripts/JeelizResizer.js"></script>
+    <script src="./javascripts/threevrm.js"></script>
+
+    <!-- skyway関連 -->
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script src="./key.js"></script>
     <script src="./javascripts/SharedUrl.js"></script>
