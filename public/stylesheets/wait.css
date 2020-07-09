@@ -1,0 +1,25 @@
+body {
+    background-color: #3B1D70;
+}
+
+img#top_wait{
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    
+}
+
+div#title_wait{
+    font-family: 'Megrim', cursive;
+    font-size: 50px;
+    font-style: normal;
+    color: #DB560E;
+    text-align: center;
+}
+p{
+    text-align: center;
+    color: #e5e5e5;
+    margin-top: 100px;
+}
