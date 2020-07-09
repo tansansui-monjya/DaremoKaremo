@@ -1,5 +1,7 @@
 /* normalize */
-body { margin: 0; }
+body {
+   margin: 0; 
+  }
 
 /* global styles */
 video {
@@ -35,10 +37,11 @@ video {
   flex-direction: column;
 }
 
+/* 相手 */
 .p2p-media .remote-stream {
   width: 50%;
 }
-
+/* 自分 */
 .p2p-media .local-stream {
   width: 30%;
 }
@@ -56,28 +59,30 @@ video {
   padding: 8px;
   margin-top: 0;
 }
-
-/* room */
-/* .room {
+/*
+.room {
   display: grid;
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 60% 80% 60%;
   gap: 8px;
   margin: 0 8px;
-} */
+}
+*/
 
+/* 相手のビデオ画面変更 */
 .room .remote-streams {
   background-color: #f6fbff;
+  border: solid;
+  background-color: #3B1D70;
+  border-color: #f6fbff;
 }
 
 .room .messages {
-  /* background-color: #eee; */
+  background-color: #eee;
   min-height: 100px;
   padding: 8px;
   margin-top: 0;
 }
 
-<<<<<<< HEAD
-=======
 /* HTMLのコンテナ*/
 
 /*
@@ -87,8 +92,6 @@ video {
   grid-template-columns: 150px 1fr;
 }
 */
-
->>>>>>> 44662e569a08a153ab94baebb0be956a1560c2bc
 /*人数変更*/
 .remote-streams {
   display: grid;
@@ -96,14 +99,67 @@ video {
   grid-template-columns: 1fr 1fr;
   /* ここいじれ */
   grid-template-rows: 1fr 1fr;
+  border: solid;
+  border-color: #031de2;
+  background-color: #3B1D70;
 }
 
+/*
+#local-video {
+  grid-row: 1; grid-column: 1;
+}
+#js-remote-streams0 {
+  grid-row: 1; grid-column: 2;
+}
+#js-remote-streams1 {
+  grid-row: 2; grid-column: 2;
+}
+#js-remote-streams2 {
+  grid-row: 2; grid-column: 1;
+}
+*/
+
+.camera-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn:hover{
+  background: #3B1D70;
+}
+
+.mic-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn{
+  background: #3B1D70;
+}
+
+/* スマホ写した時 */
 @media screen and (max-width: 380px){
-  　.room {
-    resize: 100%;
+  .room {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     gap: 8px;
     margin: 0 8px;
+    background-color: #3B1D70;
   }
 }
