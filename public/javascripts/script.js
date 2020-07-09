@@ -13,6 +13,13 @@ const Peer = window.Peer;
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
 
+  //threevrmのcanvas読み込み
+  let canvas = null;
+  while(canvas == null){
+  canvas = document.getElementById("canvas2").captureStream();
+  console.log("est");
+  }
+
   //今回使用していないのでコメントアウトする
   // const localText = document.getElementById('js-local-text');
   // const sendTrigger = document.getElementById('js-send-trigger');
@@ -26,7 +33,38 @@ const Peer = window.Peer;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
 
-  
+// //ページ読み込み完了時に動作する内容
+// document.addEventListener("DOMContentLoaded",function(){
+//   //使用デバイスから出入力デバイスを読み取る動作
+// navigator.mediaDevices.enumerateDevices()
+// .then(function(devices) {
+//    // 成功時
+//  devices.forEach(function(device) {
+//   // デバイスごとの処理
+//   console.log(device.kind + ": " + device.label + "id = " + device.deviceId)
+//   addDevice(device)
+// .then(function() {
+//  console.log('setSinkID Success');
+// })
+// .catch(function(err) {
+//  console.error('setSinkId Err:', err);
+// });
+//  });
+// })
+// .catch(function(err) { // エラー発生時
+//  console.error('enumerateDevide ERROR:', err);
+// });
+// }
+// );
+
+
+  // const localStream = await navigator.mediaDevices
+  //   .getUserMedia({
+  //     audio: true,
+  //     video: true,
+  //     // video: { facingMode: 'user' }, // 液晶側のカメラ
+  //   })
+  //   .catch(console.error);
 
   metainnerText = `
     
@@ -73,7 +111,8 @@ const Peer = window.Peer;
     // 部屋に接続するメソッド（joinRoom）
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
-      stream: localStream,
+      // stream: localStream,
+      stream: canvas,　//canvasをstreamに渡すと相手に渡せる
     });
   
 
