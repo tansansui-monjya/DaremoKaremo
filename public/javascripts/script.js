@@ -15,10 +15,14 @@ const Peer = window.Peer;
 
   //threevrmのcanvas読み込み
   let canvas = null;
-  while(canvas == null){
-  canvas = document.getElementById("canvas2").captureStream();
-  console.log("est");
-  }
+  document.addEventListener("DOMContentLoaded",function(){
+    while(canvas == null){
+      canvas = document.getElementById("canvas2").captureStream();
+      console.log("est");
+      }
+  })
+  
+  
 
   //今回使用していないのでコメントアウトする
   // const localText = document.getElementById('js-local-text');
@@ -226,6 +230,12 @@ toggleCamera.addEventListener('click', () => {
   console.log(videoTracks.enabled)
   console.log()
   toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  if(videoTracks.enabled == false){
+    canvas.getVideoTracks()[0].requestFrame();
+  }else{
+    canvas = document.getElementById("canvas2").captureStream();
+      console.log("est");
+  }
 });
 
 //ボタン押した時のマイク関係の動作
