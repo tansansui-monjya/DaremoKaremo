@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<link rel="stylesheet" type="text/css" href="./stylesheets/HP.css">
+<link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ALIEN</title>
+</head>
+<body>
+    <img id="top_id" src="Top.png"><br>
+    <div id="title_id">ALIEN</div>
+    <div id="cipher_id">
+        ALIEN縺ｨ縺ｯ縲?｡斐ｒ譏?縺励◆縺上↑縺?￠縺ｩ繧ｪ繝ｳ繝ｩ繧､繝ｳ繝薙ョ繧ｪ莨夊ｭｰ縺後＠縺溘＞
+        莠ｺ蜷代￠縺ｮ繧ｵ繝ｼ繝薙せ縺ｫ縺ｪ繧翫∪縺吶?ゅい繝励Μ繧剃ｽｿ逕ｨ縺帙★縲√ヶ繝ｩ繧ｦ繧ｶ縺ｮ縺ｿ
+        縺ｧ蜃ｺ譚･繧九?縺ｧ縲√♀謇玖ｻｽ縺ｫ蟋九ａ繧後∪縺
+    </div>
+    <div id="composite_id">
+        （和訳：ALIENとは、顔を映したくないけどオンラインビデオ会議がしたい人向けのサービスになります。
+        アプリを使用せず、ブラウザのみで出来るので、お手軽に始めれます）
+    </div>
+
+    <!--ヘルプボタンの実装が入る-->
+
+    <!--↓アクションのところに遷移先-->
+    <form action="" method="GET">
+        <p>部屋名</p>
+        
+        <input type="text" id="roomid" name="roomid" placeholder="宇宙船">
+        <p>制限時間</p>
+        <div id="radio_id">
+            <input type="radio" name="time" id="r1" value="time1" checked="">
+            <label for="r1">無制限</label>
+            <input type="radio" name="time" id="r2" value="time2" >
+            <label for="r2">30分</label>　　
+            <input type="radio" name="time" id="r3" value="time3" >
+            <label for="r3">1時間</label>
+            <input type="radio" name="time" id="r4" value="time4" >
+            <label for="r4">2時間</label>
+            <input type="radio" name="time" id="r5" value="time5" >
+            <label for="r5">3時間</label>
+        </div>
+        <div id="makeroom">
+            <button id="room_make" type="submit"　onclick="location.href='./wait.html'">部屋をつくる</button>
+        </div>
+        <script type="text/javascript" src="./javascript/HP.js"></script>
+    </form>
+</body>
+</html>
