@@ -8,7 +8,7 @@ const Peer = window.Peer;
   const leaveTrigger = document.getElementById('js-leave-trigger');
   // 相手の
   // const remoteVideos = document.getElementById('js-remote-streams');
-  const roomId = document.getElementById('js-room-id');
+  // const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
   //threevrmのcanvas読み込み
   let canvas = null;
@@ -84,6 +84,10 @@ const Peer = window.Peer;
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
+
+  //GETパラメータ(部屋名)を取得
+  var roomId = getParam();
+
   // 「div(joinTrigger)が押される＆既に接続が始まっていなかったら接続」するリスナーを設置
   joinTrigger.addEventListener('click', () => {
     // Note that you need to ensure the peer has connected to signaling server
@@ -92,7 +96,7 @@ const Peer = window.Peer;
       return;
     }
     // 部屋に接続するメソッド（joinRoom）
-    const room = peer.joinRoom(roomId.value, {
+    const room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
       // stream: localStream,
       stream: canvas,　//canvasをstreamに渡すと相手に渡せる
@@ -200,6 +204,22 @@ toggleMicrophone.addEventListener('click', () => {
   console.log(audioTracks.enabled)
   toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
+
+//URLのGETパラメータを取得
+function getParam(){
+  var url   =document.URL;
+  parameters    = url.split("?");
+  params   = parameters[1].split("&");
+  var paramsArray = [];
+  for ( it = 0; it < params.length; it++ ) {
+      neet = params[it].split("=");
+      paramsArray.push(neet[0]);
+      paramsArray[neet[0]] = neet[1];
+      }
+  var roomId = paramsArray["roomid"];
+  return roomId;
+}
+
   peer.on('error', console.error);
 })();
 
