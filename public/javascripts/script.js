@@ -220,6 +220,9 @@ function getParam(){
   return roomId;
 }
 
+
+
+
   peer.on('error', console.error);
 })();
 
