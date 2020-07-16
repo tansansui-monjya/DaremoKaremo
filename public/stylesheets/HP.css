@@ -1,0 +1,90 @@
+img#top_id{
+    width: auto;
+    height: auto;
+    display: block;
+    margin:auto;
+}
+
+div#title_id{
+    font-family: 'Megrim', cursive;
+    font-size: 50px;
+    font-style: normal;
+    color: #DB560E;
+    text-align: center;
+}
+
+body {
+    background-color: #3B1D70;
+}
+
+div#cipher_id{
+    /*break-wordは単語の途中でも改行する*/
+    word-wrap: break-word;
+    color: white;
+}
+
+div#composite_id{
+    /*normalは単語の途中で改行しない*/
+    word-break: normal;
+    color: white;
+}
+
+input#name_id{
+    border-radius: 7px;
+}
+
+
+div#radio_id input[type="radio"]{
+    width: 20px;        /* 大きさ：横 */
+    height: 20px;        /* 大きさ：縦 */
+    text-align: center;        /* 並び位置   */
+    display: none;        /* チェックボックス非表示 */
+}
+ /* --- チェックボックス直後のlabel --- */
+ div#radio_id{
+    display:table;
+ }
+ div#radio_id input[type="radio"] + label {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+
+    float: left;
+    width: 60px;
+    padding: 4px 4px 4px 4px;                      /* labelの余白 */
+    font-size: 14px;                       /* labelの文字サイズ */
+    border: 1px solid #DB560E; /* labelの枠線 */
+    border-radius: 15px;                        /* labelの角丸 */
+    background: #ffffff;                    /* lebelの背景 */
+    cursor: pointer;                    /* カーソル設定 */
+    transition: .2s;                        /* なめらか変化 */
+}
+ /* --- 選択されたチェックボックス直後のlabel --- */
+div#radio_id input[type="radio"]:checked + label {
+    background    : #DB560E;                    /* lebelの背景 */
+}
+
+div#makeroom{
+    text-align:center;
+}
+button#room_make{
+    /* ボタン */
+    width: 298px;
+    height: 40px;
+
+    margin: 20px;
+    background: #DB560E;
+    border-radius: 20px;
+
+    /* 文字 */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #E5E5E5;
+}
+
+p{
+    color: white;
+}

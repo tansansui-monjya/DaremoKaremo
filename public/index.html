@@ -1,0 +1,179 @@
+<!-- 複数人のビデオチャット -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+  </head>
+  <body onload="getDeviceList()">
+    
+    <!-- オーバーレイ -->
+    <div class="overlay-all" id="js-join-trigger">
+      <img id="top_wait" src="./top.png"><br>
+      <div id="title_wait">ALIEN</div>
+      <p id="wait_message">Tap to start video call</p>
+    </div>
+
+  <div class="container">
+    <!--
+      <h1 class="heading">Room example</h1>
+      <p class="note">
+        Change Room mode (before join in a room):
+        <a href="#mesh">mesh</a> / <a href="#sfu">sfu</a>
+      </p>
+    -->
+    <div class="room">
+      <div id = "container">
+        <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
+          <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
+      </div>
+    　<p></p>
+        <!-- ルーム検索 -->
+      <div>
+        <span id="js-room-mode"></span>:
+        <!-- <input type="text" placeholder="Room Name" id="js-room-id"> -->
+        <!-- ルームに接続 -->
+        <!-- <button id="js-join-trigger">Join</button> -->
+        <button id="js-leave-trigger">Leave</button>
+        <button id="js-share-trigger">share</button>
+        <br>
+-          <button id="js-toggle-camera">カメラON</button>      
+-          <button id="js-toggle-microphone">マイクON</button>
+-          <br>
+-          <!-- テスト用にどのデバイスを有効化しているか表示 -->
+-          <!-- ↓ここから-->
+-          <select id="mic_list" size="1" style="width:160pt;">
+-            <option>(audio)</option>
+-           </select>
+-           <select id="speaker_list" size="1" style="width:160pt;">
+-            <option>(speaker)</option>
+-           </select>
+-           <!-- ↑ここまでをコメントアウトで非表示にできる -->
+-           <button id="speaker_OFF" onclick="clickSwitch()" style="display: block">スピーカーOFF</button>
+-           <button id="speaker_ON" onclick="clickSwitch()" style="display: none">スピーカーON</button>
+-           <!-- <button class="sp-mode" style="display:none;">スマートフォン用で表示</button>
+-           <button class="pc-mode" style="display:none;">PC用で表示</button> -->
+    </div>
+  </div>
+<!--        <div>
+          <pre class="messages" id="js-messages"></pre>
+          <input type="text" id="js-local-text">
+          <button id="js-send-trigger">Send</button>
+        </div>
+-->
+      <p class="meta" id="js-meta"></p>
+  </div> <!-- container -->
+    <script>
+    var micList = document.getElementById("mic_list");
+    var speakerList = document.getElementById("speaker_list");
+    function clearDeviceList() {
+      while(micList.lastChild) {
+      micList.removeChild(micList.lastChild);
+      }
+      while(speakerList.lastChild) {
+      speakerList.removeChild(speakerList.lastChild);
+      }
+    }
+    //スピーカーテスト
+    //const [{ deviceId }] = devices.filter(device => device.kind === 'audiooutput');
+    //スピーカーとマイクを検出
+    function getDeviceList() {
+      clearDeviceList();
+      navigator.mediaDevices.enumerateDevices()
+      .then(function(devices) {
+      devices.forEach(function(device) {
+        console.log(device.kind + ": " + device.label +
+                    " id = " + device.deviceId);
+        addDevice(device);
+      });
+      })
+      .catch(function(err) {
+      console.error('enumerateDevide ERROR:', err);
+      });
+    }
+    function addDevice(device) {
+      if (device.kind === 'audioinput') {
+      var id = device.deviceId;
+      var label = device.label || 'microphone'; // label is available for https 
+      var option = document.createElement('option');
+      option.setAttribute('value', id);
+      option.innerHTML = label + '(' + id + ')';;
+      micList.appendChild(option);
+      }
+      else if (device.kind === 'audiooutput') {
+      var id = device.deviceId;
+      var label = device.label || 'speaker'; // label is available for https 
+      var option = document.createElement('option');
+      option.setAttribute('value', id);
+      option.innerHTML = label + '(' + id + ')';
+      speakerList.appendChild(option);   
+      }
+      // else {
+      //  console.error('UNKNOWN Device kind:' + device.kind);
+      // }
+    }
+    function getSelectedAudio() {
+      var audioId = micList.options[micList.selectedIndex].value;
+      console.log('selected audioID =' + audioId);
+      var constraints = {
+        audio: {
+        deviceId: audioId
+        }
+      };
+      console.log('mediaDevice.getMedia() constraints:', constraints);
+      navigator.mediaDevices.getUserMedia(
+      constraints
+      ).then(function(stream) {
+      localStream = stream;
+      logStream('selectedVideo', stream);
+      localVideo.srcObject = stream;
+      }).catch(function(err){
+      console.error('getUserMedia Err:', err);
+      });
+    }
+    function getSelectedSpeaker() {
+      var speakerId = speakerList.options[speakerList.selectedIndex].value;
+      localVideo.volume = 0;
+      localVideo.setSinkId(speakerId)
+      .then(function() {
+      console.log('setSinkID Success');
+      })
+      .catch(function(err) {
+      console.error('setSinkId Err:', err);
+      });
+    }
+    function clickSwitch(){
+      if(micList.selectedIndex == 1){
+        document.getElementById('speaker_ON').style.display="none";
+        document.getElementById('speaker_OFF').style.display="block";
+        micList.selectedIndex = 0;
+        // speakerList.selectedIndex = 0;
+      }
+      else{
+        document.getElementById('speaker_OFF').style.display="none";
+        document.getElementById('speaker_ON').style.display="block";
+        micList.selectedIndex = 1;
+        //  speakerList.selectedIndex = 1;
+      }
+    }
+    //
+    </script>
+    <!-- threevrm関連 -->
+    <script src="https://unpkg.com/three@0.108"></script>
+    <script src="https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/@pixiv/three-vrm@0.1/lib/three-vrm.js"></script>
+    <script src="./javascripts/jeelizFaceFilter.js"></script>
+    <script src="./javascripts/JeelizResizer.js"></script>
+    <script src="./javascripts/threevrm.js"></script>
+    <!-- jquery関連 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- skyway関連 -->
+    <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script src="./key.js"></script>
+    <script src="./javascripts/SharedUrl.js"></script>
+    <script src="./javascripts/Waiting.js"></script>
+    <script src="./javascripts/script.js"></script>
+  </body>
+</html>
