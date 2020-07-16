@@ -132,8 +132,45 @@ video {
   overflow: hidden;
   transition: .4s;
 }
+.camera-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
 .camera-btn:hover{
+  background: #ffffff;
+}
+
+.camera-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
   background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.camera-btn_OFF:hover{
+  background: #ffffff;
 }
 
 .mic-btn{
@@ -149,8 +186,17 @@ video {
   overflow: hidden;
   transition: .4s;
 }
-.mic-btn{
-  background: #3B1D70;
+.mic-btn:hover{
+  background: #ffffff;
+}
+.mic-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
 }
 
 /* スマホ写した時 */
