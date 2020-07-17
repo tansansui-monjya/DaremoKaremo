@@ -19,8 +19,8 @@ const Peer = window.Peer;
   
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-  let count = 0;  // カウント
-  const remoteVideos = document.getElementById('js-remote-streams'+count);
+//  let count = 0;  // カウント
+  const remoteVideos = document.getElementById('js-remote-streams');
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
@@ -83,7 +83,7 @@ const Peer = window.Peer;
 
       // awaitはasync streamの実行を一時停止し、Promiseの解決または拒否を待ちます。
       await newVideo.play().catch(console.error);
-      count+=1;
+//      count+=1;
     });
     
     // 誰かが退出した場合、div（remoteVideos）内にある任意のdata-peer-idがついたvideoタグの内容を空にして削除する
