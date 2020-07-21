@@ -71,6 +71,8 @@ const Peer = window.Peer;
     room.on('stream', async stream => {
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
+
+      console.log("test");
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
       newVideo.srcObject = stream;
       // skyWayと接続(ONにする)
