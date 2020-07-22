@@ -2,7 +2,6 @@
 const Peer = window.Peer;
 
 (async function main() {
-  
   // 操作がDOMをここで取得
   // 自分の
   const localVideo = document.getElementById('js-local-stream');
@@ -15,10 +14,14 @@ const Peer = window.Peer;
 
   //threevrmのcanvas読み込み
   let canvas = null;
-  while(canvas == null){
-  canvas = document.getElementById("canvas2").captureStream();
-  console.log("est");
-  }
+  document.addEventListener("DOMContentLoaded",function(){
+    while(canvas == null){
+      canvas = document.getElementById("canvas2").captureStream();
+      console.log("est");
+      }
+  })
+  
+  
 
   //今回使用していないのでコメントアウトする
   // const localText = document.getElementById('js-local-text');
@@ -32,39 +35,6 @@ const Peer = window.Peer;
   const remoteVideos = document.getElementById('js-remote-streams'+count);
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
-
-// //ページ読み込み完了時に動作する内容
-// document.addEventListener("DOMContentLoaded",function(){
-//   //使用デバイスから出入力デバイスを読み取る動作
-// navigator.mediaDevices.enumerateDevices()
-// .then(function(devices) {
-//    // 成功時
-//  devices.forEach(function(device) {
-//   // デバイスごとの処理
-//   console.log(device.kind + ": " + device.label + "id = " + device.deviceId)
-//   addDevice(device)
-// .then(function() {
-//  console.log('setSinkID Success');
-// })
-// .catch(function(err) {
-//  console.error('setSinkId Err:', err);
-// });
-//  });
-// })
-// .catch(function(err) { // エラー発生時
-//  console.error('enumerateDevide ERROR:', err);
-// });
-// }
-// );
-
-
-  // const localStream = await navigator.mediaDevices
-  //   .getUserMedia({
-  //     audio: true,
-  //     video: true,
-  //     // video: { facingMode: 'user' }, // 液晶側のカメラ
-  //   })
-  //   .catch(console.error);
 
   metainnerText = `
     
@@ -218,27 +188,63 @@ const Peer = window.Peer;
 
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  
+  
 
   //ボタン押した時のカメラ関係の動作
 toggleCamera.addEventListener('click', () => {
+  const canvas2 = document.getElementById('canvas2');
   const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
   console.log(videoTracks.enabled)
-  console.log()
-  toggleCamera.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+
+  toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+  canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
+
 });
+
+
+// function canvas2hide(){
+//   // コンテキストを取り出す
+//   var ctx = canvas2.getContext('2d');
+//   // 指定の色で範囲内を塗りつぶす
+//   ctx.fillStyle = 'rgb(255,255,255)';
+//   ctx.fillRect(0, 0, 200, 200);
+// }
 
 //ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   console.log(audioTracks.enabled)
-  toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
 
 
+// //HPから値の受け取り
+// http.createServer(function(req, res){
+//   if(req.method === 'GET'){
 
+//     res.writeHead(200, {'Content-Type' : 'text/html'});
+//     res.end(html);
+
+//   }else if(req.method === 'POST'){
+//     var data = '';
+
+//     //POSTデータを受け取る
+//     req.on('data', function(chunk){data += chunk})
+//        .on('end', function(){
+//          console.log(data);
+//          res.end(html);
+
+//        })
+       
+//   }
+// }).listen(3000);
+// var query = lovation.search;
+// var value = query.split('=');
+// console.log(decodeURIComponent(valie[1]));
 
   peer.on('error', console.error);
 })();

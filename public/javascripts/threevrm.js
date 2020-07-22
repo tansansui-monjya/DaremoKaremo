@@ -1,10 +1,10 @@
 /* global THREE, JEEFACEFILTERAPI, JeelizResizer */
 
+
 // const width = window.innerWidth;
 // const height = window.innerHeight;
 const width = 400;
 const height = 300;
-
 // -- renderer -------------------------------------------------------------------------------------
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( width, height );
@@ -73,21 +73,19 @@ scene.add( light );
 // -- update ---------------------------------------------------------------------------------------
 const clock = new THREE.Clock();
 clock.start();
-
 function update() {
-  requestAnimationFrame( update );
-
+    requestAnimationFrame( update );
   const delta = clock.getDelta();
-
   if ( currentVRM ) {
     currentVRM.update( delta );
 
     const blink = Math.max( 0.0, 1.0 - 10.0 * Math.abs( ( clock.getElapsedTime() % 4.0 ) - 2.0 ) ); // まばたきのウェイト
     currentVRM.blendShapeProxy.setValue( THREE.VRMSchema.BlendShapePresetName.Blink, blink ); // まばたきのウェイトを制御する
   }
-
   renderer.render( scene, camera );
+  
 };
+
 update();
 
 // -- mouse ----------------------------------------------------------------------------------------
