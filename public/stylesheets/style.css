@@ -239,3 +239,39 @@ video {
     background-color: #3B1D70;
   }
 }
+
+/* オーバーレイ */
+.overlay-all {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #3B1D70;
+}
+
+img#top_wait{
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  
+}
+
+div#title_wait{
+  font-family: 'Megrim', cursive;
+  font-size: 50px;
+  font-style: normal;
+  color: #DB560E;
+  text-align: center;
+}
+
+p#wait_message{
+  text-align: center;
+  color: #e5e5e5;
+  margin-top: 100px;
+}
