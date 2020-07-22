@@ -199,6 +199,36 @@ video {
   vertical-align: middle;
 }
 
+.mic-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn_OFF:hover{
+  background: #ffffff;
+}
+.mic-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.canvas2_cover{
+  filter: brightness(0%);
+}
+
 /* スマホ写した時 */
 @media screen and (max-width: 380px){
   .room {
