@@ -23,32 +23,30 @@
         <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
           <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
       </div>
-    　<p></p>
+    <p></p>
         <!-- ルーム検索 -->
       <div>
-        <span id="js-room-mode"></span>:
-        <!-- <input type="text" placeholder="Room Name" id="js-room-id"> -->
+        <span id="js-room-mode"></span>
         <!-- ルームに接続 -->
-        <!-- <button id="js-join-trigger">Join</button> -->
         <button id="js-leave-trigger">Leave</button>
         <button id="js-share-trigger">share</button>
         <br>
-          <button id="js-toggle-camera" class="camera-btn"></button>      
-          <button id="js-toggle-microphone" class="mic-btn"></button>
-        <br>
+          <button id="js-toggle-camera">カメラON</button>      
+          <button id="js-toggle-microphone">マイクON</button>
+          <br>
           <!-- テスト用にどのデバイスを有効化しているか表示 -->
           <!-- ↓ここから-->
-          <select id="mic_list" size="1" style="width:160pt;">
+          <!--<select id="mic_list" size="1" style="width:160pt;">
             <option>(audio)</option>
            </select>
            <select id="speaker_list" size="1" style="width:160pt;">
             <option>(speaker)</option>
-           </select>
+           </select>-->
            <!-- ↑ここまでをコメントアウトで非表示にできる -->
            <button id="speaker_OFF" onclick="clickSwitch()" style="display: block">スピーカーOFF</button>
            <button id="speaker_ON" onclick="clickSwitch()" style="display: none">スピーカーON</button>
            <!-- <button class="sp-mode" style="display:none;">スマートフォン用で表示</button>
-           <button class="pc-mode" style="display:none;">PC用で表示</button> -->
+-           <button class="pc-mode" style="display:none;">PC用で表示</button> -->
     </div>
   </div>
 <!--        <div>
