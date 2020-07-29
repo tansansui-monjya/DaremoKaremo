@@ -8,12 +8,12 @@ router.use(function timeLog (req, res, next) {
 })
 
 /* GET home page. */
-router.get('/index', function(req, res, next) {
+router.get('/alien', function(req, res, next) {
   res.render('index', { title: 'index' });
 });
 
 /* GET users listing. */
-router.get('/HP', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('HP', { title: 'HP' });
 });
 
