@@ -42,9 +42,10 @@ const Peer = window.Peer;
     })
     .catch(console.error);
   // localStreamをdiv(localVideo)に挿入
-  localVideo.muted = true;
   localVideo.srcObject = localStream;
+  localVideo.muted = true;
   localVideo.playsInline = true;
+  visualizer(localStream);
   await localVideo.play().catch(console.error);
   // Peerのインスタンス作成
   const peer = (window.peer = new Peer({
@@ -140,15 +141,6 @@ toggleCamera.addEventListener('click', () => {
 
 });
 
-
-// function canvas2hide(){
-//   // コンテキストを取り出す
-//   var ctx = canvas2.getContext('2d');
-//   // 指定の色で範囲内を塗りつぶす
-//   ctx.fillStyle = 'rgb(255,255,255)';
-//   ctx.fillRect(0, 0, 200, 200);
-// }
-
 //ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
@@ -157,31 +149,60 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
+// マイクの音声ビジュアライザ
+function visualizer(Audio){
+  var audioContext = new AudioContext();
 
+  analyser = audioContext.createAnalyser();
+  analyser.fftSize = 128;
 
-// //HPから値の受け取り
-// http.createServer(function(req, res){
-//   if(req.method === 'GET'){
+  var source = audioContext.createMediaStreamSource(Audio);
+  source.connect(analyser);
 
-//     res.writeHead(200, {'Content-Type' : 'text/html'});
-//     res.end(html);
+  animationId = requestAnimationFrame(visualizeRender);
 
-//   }else if(req.method === 'POST'){
-//     var data = '';
+};
 
-//     //POSTデータを受け取る
-//     req.on('data', function(chunk){data += chunk})
-//        .on('end', function(){
-//          console.log(data);
-//          res.end(html);
+// マイクの音声ビジュアライザのレンダリング
+function visualizeRender(){
+  var volume = getVolume();
 
-//        })
-       
-//   }
-// }).listen(3000);
-// var query = lovation.search;
-// var value = query.split('=');
-// console.log(decodeURIComponent(valie[1]));
+  if (100 < volume) {
+    volume = 100;
+  }
+  
+  var meters = $("#audio-meter > div");
+  for (var i = 0; i < meters.length; i++) {
+    if ((i * 5) < volume) {
+      $(meters[i]).removeClass("invisible");
+    } else {
+      $(meters[i]).addClass("invisible");
+    }
+  }
+
+  animationId = requestAnimationFrame(visualizeRender);
+
+};
+
+// ボリュームの取得
+function getVolume() {
+  var bit8 = new Uint8Array(analyser.frequencyBinCount);
+  analyser.getByteFrequencyData(bit8);
+
+  return bit8.reduce(function(previous, current) {
+    return previous + current;
+  }) / analyser.frequencyBinCount;
+};
+
+// エラー時のダイアログ表示
+var error = function (message, linkText, linkHref) {
+  __modal("エラー", message, linkText, linkHref);
+};
+
+// インフォメーション表示
+var information = function (title, message) {
+  __modal(title, message);
+}
 
   //URLのGETパラメータを取得
   function getParam(){

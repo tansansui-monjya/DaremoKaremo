@@ -229,6 +229,16 @@ video {
   filter: brightness(0%);
 }
 
+.bg-primary h-100{
+  background-color: skyblue;
+}
+.bg-warning h-100{
+  background-color: yellow;
+}
+.bg-danger h-100{
+  background-color: red;
+}
+
 /* スマホ写した時 */
 @media screen and (max-width: 380px){
   .room {

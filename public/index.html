@@ -6,8 +6,9 @@
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">
     <link rel="stylesheet" href="./stylesheets/style.css">
+    
   </head>
-  <body onload="getDeviceList()">
+  <body>
     
     <!-- オーバーレイ -->
     <div class="overlay-all" id="js-join-trigger">
@@ -31,9 +32,38 @@
         <button id="js-leave-trigger">Leave</button>
         <button id="js-share-trigger">share</button>
         <br>
-          <button id="js-toggle-camera">カメラON</button>      
+          <button id="js-toggle-camera">/button>      
           <button id="js-toggle-microphone">マイクON</button>
           <br>
+          <div>
+            <div class="row">
+              <div class="col-12">
+                <div id="audio-meter" class="row ml-1" style="height: 25px;">
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-warning h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-warning h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-warning h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-warning h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-danger h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-danger h-100" style="width: 2%; margin-left: 2px;"></div>
+                  <div class="bg-danger h-100" style="width: 2%; margin-left: 2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <!-- テスト用にどのデバイスを有効化しているか表示 -->
           <!-- ↓ここから-->
           <!--<select id="mic_list" size="1" style="width:160pt;">
