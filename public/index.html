@@ -45,7 +45,7 @@
             <option>(speaker)</option>
            </select>
            <!-- ↑ここまでをコメントアウトで非表示にできる -->
-           <button id="speaker_OFF" onclick="clickSwitch()" style="display: block">スピーカーOFF</button>
+           <button id="speaker_OFF" onclick="clickSwitch()">スピーカーOFF</button>
            <button id="speaker_ON" onclick="clickSwitch()" style="display: none">スピーカーON</button>
            <!-- <button class="sp-mode" style="display:none;">スマートフォン用で表示</button>
            <button class="pc-mode" style="display:none;">PC用で表示</button> -->
@@ -142,13 +142,13 @@
     function clickSwitch(){
       if(micList.selectedIndex == 1){
         document.getElementById('speaker_ON').style.display="none";
-        document.getElementById('speaker_OFF').style.display="block";
+        document.getElementById('speaker_OFF').style.display=null;
         micList.selectedIndex = 0;
         // speakerList.selectedIndex = 0;
       }
       else{
         document.getElementById('speaker_OFF').style.display="none";
-        document.getElementById('speaker_ON').style.display="block";
+        document.getElementById('speaker_ON').style.display=null;
         micList.selectedIndex = 1;
         //  speakerList.selectedIndex = 1;
       }
