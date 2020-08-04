@@ -63,14 +63,15 @@ const Peer = window.Peer;
     const room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
       // stream: localStream,
-      stream: canvas,　//canvasをstreamに渡すと相手に渡せる
+      stream: canvas, //canvasをstreamに渡すと相手に渡せる
     });
 
     // Render remote stream for new peer join in the room
-    // 重要：　streamの内容に変更があった時（stream）videoタグを作って流す
+    // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
+      console.log("test");
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
       newVideo.srcObject = stream;
       // skyWayと接続(ONにする)
@@ -110,7 +111,7 @@ const Peer = window.Peer;
     leaveTrigger.addEventListener('click', () => {
       room.close();
       //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
-      window.open('https://www.google.com/', '_self').close();
+      window.open('https://kg-alien.herokuapp.com/HP.html', '_self').close();
     }, 
     { once: true });
   });

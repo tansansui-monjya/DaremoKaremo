@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./stylesheets/Waiting.css">
+    </head>
+    <body>
+        <form action="./index.html" method="GET">
+            <img id="top_wait" src="../top.png"><br>
+            <!-- <div id="title_wait">ALIEN</div> -->
+            <p id="wait_message">顔を隠すようのマスクかモデルを<br>選択してください</p>
+            <input type="hidden" value="" id="roomid" name="roomid">
+            <label><input type="radio" name="model" value="1" class="radio" checked><img src="Sera-jichan.jpg" class="radio_image"></label>
+            <label><input type="radio" name="model" value="2" class="radio"><img src="Sera-jichan.jpg" class="radio_image"></label>
+            <label><input type="radio" name="model" value="3" class="radio"><img src="Sera-jichan.jpg" class="radio_image"></label>
+            <label><input type="radio" name="model" value="4" class="radio"><img src="Sera-jichan.jpg" class="radio_image"></label>
+            <div id="makeroom">
+            <button  id="calling" type="submit">通話を開始する</button>
+            </div>
+        </form> 
+        <script src="./javascripts/Waiting.js"></script>
+    </body>
+</html>

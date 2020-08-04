@@ -1,0 +1,62 @@
+body {
+    background: #3B1D70;
+  }
+  
+img#top_wait{
+width: auto;
+height: auto;
+display: block;
+margin: auto;
+margin-top: 100px;
+
+}
+
+div#title_wait{
+font-family: 'Megrim', cursive;
+font-size: 50px;
+font-style: normal;
+color: #DB560E;
+text-align: center;
+}
+
+p#wait_message{
+text-align: center;
+color: #e5e5e5;
+margin-top: 100px;
+}
+
+.radio {
+    display: none;
+}
+
+.radio + .radio_image {
+    border: 3px #ffffff solid;
+    background-color: #ffffff;
+}
+
+.radio:checked + .radio_image {
+    border: 3px #ff0000 solid;
+    background-color: #ffeeee;
+}
+
+button#calling{
+    /* ボタン */
+    width: 298px;
+    height: 40px;
+
+    margin: 20px;
+    background: #DB560E;
+    border-radius: 20px;
+
+    /* 文字 */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #E5E5E5;
+}
+
+div#makeroom{
+    text-align:center;
+}
