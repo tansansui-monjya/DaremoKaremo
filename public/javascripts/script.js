@@ -154,60 +154,21 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
-// // マイクの音声ビジュアライザ
-// function visualizer(Audio){
-//   var audioContext = new AudioContext();
+//入力した文字列をハッシュ関数で変換する
+(async () => {
+  const digest = await sha256("ここに部屋名を入れる");
+})();
 
-//   analyser = audioContext.createAnalyser();
-//   analyser.fftSize = 128;
-
-//   var source = audioContext.createMediaStreamSource(Audio);
-//   source.connect(analyser);
-
-//   animationId = requestAnimationFrame(visualizeRender);
-
-// };
-
-// // マイクの音声ビジュアライザのレンダリング
-// function visualizeRender(){
-//   var volume = getVolume();
-
-//   if (100 < volume) {
-//     volume = 100;
-//   }
-  
-//   var meters = $("#audio-meter > div");
-//   for (var i = 0; i < meters.length; i++) {
-//     if ((i * 5) < volume) {
-//       $(meters[i]).removeClass("invisible");
-//     } else {
-//       $(meters[i]).addClass("invisible");
-//     }
-//   }
-
-//   animationId = requestAnimationFrame(visualizeRender);
-
-// };
-
-// // ボリュームの取得
-// function getVolume() {
-//   var bit8 = new Uint8Array(analyser.frequencyBinCount);
-//   analyser.getByteFrequencyData(bit8);
-
-//   return bit8.reduce(function(previous, current) {
-//     return previous + current;
-//   }) / analyser.frequencyBinCount;
-// };
-
-// // エラー時のダイアログ表示
-// var error = function (message, linkText, linkHref) {
-//   __modal("エラー", message, linkText, linkHref);
-// };
-
-// // インフォメーション表示
-// var information = function (title, message) {
-//   __modal(title, message);
-// }
+//ハッシュ関数
+async function sha256(str) {
+  // Convert string to ArrayBuffer
+  const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
+  // Calculate digest
+  const digest = await crypto.subtle.digest('SHA-256', buff);
+  // Convert ArrayBuffer to hex string
+  // (from: https://stackoverflow.com/a/40031979)
+  return [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
+}
 
   //URLのGETパラメータを取得
   function getParam(){
