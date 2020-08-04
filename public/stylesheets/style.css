@@ -131,6 +131,7 @@ video {
   text-align: center;
   overflow: hidden;
   transition: .4s;
+  margin-left: 350px;
 }
 .camera-btn:before {
   content: "";
@@ -158,6 +159,8 @@ video {
   text-align: center;
   overflow: hidden;
   transition: .4s;
+  margin-left: 350px;
+  margin-bottom: 40px;
 }
 .camera-btn_OFF:before {
   content: "";
@@ -224,6 +227,22 @@ video {
   background-size: contain;
   vertical-align: middle;
 }
+.leave-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.leave-btn:hover{
+  background: #ffffff;
+}
 
 .canvas2_cover{
   filter: brightness(0%);
@@ -247,6 +266,8 @@ video {
     gap: 8px;
     margin: 0 8px;
     background-color: #3B1D70;
+    height:100%;
+	  border:dotted 2px #666666;
   }
 }
 

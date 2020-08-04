@@ -23,22 +23,27 @@
       <div id = "container">
         <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
           <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
+          <br>
+          <div>
+          <button id="js-toggle-camera" class="camera-btn"></button>      
+          <button id="js-toggle-microphone" class="mic-btn"></button>
+          <button id="js-leave-trigger" class="leave-btn">Leave</button>
+        </div>
       </div>
     <p></p>
         <!-- ルーム検索 -->
       <div>
         <span id="js-room-mode"></span>
         <!-- ルームに接続 -->
-        <button id="js-leave-trigger">Leave</button>
+        <button id="js-leave-trigger" class="leave-btn">Leave</button>
         <button id="js-share-trigger">share</button>
         <br>
-          <button id="js-toggle-camera"></button>      
-          <button id="js-toggle-microphone">マイクON</button>
           <br>
           <div>
             <div class="row">
               <div class="col-12">
-                <div id="audio-meter" class="row ml-1" style="height: 25px;">
+                <!-- ボリュームメーター -->
+                <!-- <div id="audio-meter" class="row ml-1" style="height: 25px;">
                   <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
                   <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
                   <div class="bg-primary h-100" style="width: 2%; margin-left: 2px;"></div>
@@ -59,7 +64,7 @@
                   <div class="bg-danger h-100" style="width: 2%; margin-left: 2px;"></div>
                   <div class="bg-danger h-100" style="width: 2%; margin-left: 2px;"></div>
                   <div class="bg-danger h-100" style="width: 2%; margin-left: 2px;"></div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

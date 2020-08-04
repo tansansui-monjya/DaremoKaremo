@@ -14,6 +14,9 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
+  canvas.getUserMedia({
+    audio: true,
+  })
   console.log("est");
   }
   
@@ -45,7 +48,7 @@ const Peer = window.Peer;
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
-  visualizer(localStream);
+  // visualizer(localStream);
   await localVideo.play().catch(console.error);
   // Peerのインスタンス作成
   const peer = (window.peer = new Peer({
@@ -66,6 +69,8 @@ const Peer = window.Peer;
       // stream: localStream,
       stream: canvas,　//canvasをstreamに渡すと相手に渡せる
     });
+
+    const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
     // Render remote stream for new peer join in the room
     // 重要：　streamの内容に変更があった時（stream）videoタグを作って流す
@@ -149,60 +154,60 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
-// マイクの音声ビジュアライザ
-function visualizer(Audio){
-  var audioContext = new AudioContext();
+// // マイクの音声ビジュアライザ
+// function visualizer(Audio){
+//   var audioContext = new AudioContext();
 
-  analyser = audioContext.createAnalyser();
-  analyser.fftSize = 128;
+//   analyser = audioContext.createAnalyser();
+//   analyser.fftSize = 128;
 
-  var source = audioContext.createMediaStreamSource(Audio);
-  source.connect(analyser);
+//   var source = audioContext.createMediaStreamSource(Audio);
+//   source.connect(analyser);
 
-  animationId = requestAnimationFrame(visualizeRender);
+//   animationId = requestAnimationFrame(visualizeRender);
 
-};
+// };
 
-// マイクの音声ビジュアライザのレンダリング
-function visualizeRender(){
-  var volume = getVolume();
+// // マイクの音声ビジュアライザのレンダリング
+// function visualizeRender(){
+//   var volume = getVolume();
 
-  if (100 < volume) {
-    volume = 100;
-  }
+//   if (100 < volume) {
+//     volume = 100;
+//   }
   
-  var meters = $("#audio-meter > div");
-  for (var i = 0; i < meters.length; i++) {
-    if ((i * 5) < volume) {
-      $(meters[i]).removeClass("invisible");
-    } else {
-      $(meters[i]).addClass("invisible");
-    }
-  }
+//   var meters = $("#audio-meter > div");
+//   for (var i = 0; i < meters.length; i++) {
+//     if ((i * 5) < volume) {
+//       $(meters[i]).removeClass("invisible");
+//     } else {
+//       $(meters[i]).addClass("invisible");
+//     }
+//   }
 
-  animationId = requestAnimationFrame(visualizeRender);
+//   animationId = requestAnimationFrame(visualizeRender);
 
-};
+// };
 
-// ボリュームの取得
-function getVolume() {
-  var bit8 = new Uint8Array(analyser.frequencyBinCount);
-  analyser.getByteFrequencyData(bit8);
+// // ボリュームの取得
+// function getVolume() {
+//   var bit8 = new Uint8Array(analyser.frequencyBinCount);
+//   analyser.getByteFrequencyData(bit8);
 
-  return bit8.reduce(function(previous, current) {
-    return previous + current;
-  }) / analyser.frequencyBinCount;
-};
+//   return bit8.reduce(function(previous, current) {
+//     return previous + current;
+//   }) / analyser.frequencyBinCount;
+// };
 
-// エラー時のダイアログ表示
-var error = function (message, linkText, linkHref) {
-  __modal("エラー", message, linkText, linkHref);
-};
+// // エラー時のダイアログ表示
+// var error = function (message, linkText, linkHref) {
+//   __modal("エラー", message, linkText, linkHref);
+// };
 
-// インフォメーション表示
-var information = function (title, message) {
-  __modal(title, message);
-}
+// // インフォメーション表示
+// var information = function (title, message) {
+//   __modal(title, message);
+// }
 
   //URLのGETパラメータを取得
   function getParam(){
