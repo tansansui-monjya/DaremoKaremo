@@ -12,6 +12,8 @@ to balance between performance and quality
 */ 
 "use strict";
 
+
+
 var JeelizResizer = (function(){
   // private vars:
   let _domCanvas = null,

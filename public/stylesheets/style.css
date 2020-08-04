@@ -83,15 +83,7 @@ video {
   margin-top: 0;
 }
 
-/* HTMLのコンテナ*/
 
-/*
- .room {
-  display: grid;
-  grid-template-rows: 100px 50px;
-  grid-template-columns: 150px 1fr;
-}
-*/
 /*人数変更*/
 .remote-streams {
   display: grid;
@@ -103,21 +95,6 @@ video {
   border-color: #031de2;
   background-color: #3B1D70;
 }
-
-/*
-#local-video {
-  grid-row: 1; grid-column: 1;
-}
-#js-remote-streams0 {
-  grid-row: 1; grid-column: 2;
-}
-#js-remote-streams1 {
-  grid-row: 2; grid-column: 2;
-}
-#js-remote-streams2 {
-  grid-row: 2; grid-column: 1;
-}
-*/
 
 .camera-btn{
   display: inline-block;
@@ -132,8 +109,45 @@ video {
   overflow: hidden;
   transition: .4s;
 }
+.camera-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
 .camera-btn:hover{
+  background: #ffffff;
+}
+
+.camera-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
   background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.camera-btn_OFF:hover{
+  background: #ffffff;
 }
 
 .mic-btn{
@@ -149,8 +163,47 @@ video {
   overflow: hidden;
   transition: .4s;
 }
-.mic-btn{
+.mic-btn:hover{
+  background: #ffffff;
+}
+.mic-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.mic-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
   background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn_OFF:hover{
+  background: #ffffff;
+}
+.mic-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.canvas2_cover{
+  filter: brightness(0%);
 }
 
 /* スマホ写した時 */
