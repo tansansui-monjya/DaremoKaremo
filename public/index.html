@@ -25,8 +25,9 @@
           <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
           <br>
           <div>
-          <button id="js-toggle-camera" class="camera-btn"></button>      
-          <button id="js-toggle-microphone" class="mic-btn"></button>
+            <!-- stream画面内にボタンを表示する場合(細かい位置は設定途中) -->
+          <!-- <button id="js-toggle-camera" class="camera-btn"></button>      
+          <button id="js-toggle-microphone" class="mic-btn"></button> -->
           <button id="js-leave-trigger" class="leave-btn">Leave</button>
         </div>
       </div>
@@ -38,6 +39,8 @@
         <button id="js-leave-trigger" class="leave-btn">Leave</button>
         <button id="js-share-trigger">share</button>
         <br>
+          <button id="js-toggle-camera">カメラON</button>      
+          <button id="js-toggle-microphone">マイクON</button>
           <br>
           <div>
             <div class="row">
@@ -175,13 +178,13 @@
     function clickSwitch(){
       if(micList.selectedIndex == 1){
         document.getElementById('speaker_ON').style.display="none";
-        document.getElementById('speaker_OFF').style.display="block";
+        document.getElementById('speaker_OFF').style.display=null;
         micList.selectedIndex = 0;
         // speakerList.selectedIndex = 0;
       }
       else{
         document.getElementById('speaker_OFF').style.display="none";
-        document.getElementById('speaker_ON').style.display="block";
+        document.getElementById('speaker_ON').style.display=null;
         micList.selectedIndex = 1;
         //  speakerList.selectedIndex = 1;
       }

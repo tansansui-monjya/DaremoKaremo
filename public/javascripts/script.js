@@ -67,13 +67,13 @@ const Peer = window.Peer;
     const room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
       // stream: localStream,
-      stream: canvas,　//canvasをstreamに渡すと相手に渡せる
+      stream: canvas, //canvasをstreamに渡すと相手に渡せる
     });
 
     const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
     // Render remote stream for new peer join in the room
-    // 重要：　streamの内容に変更があった時（stream）videoタグを作って流す
+    // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
