@@ -1,8 +1,9 @@
-html(lang='en')
 head
   meta(charset='UTF-8')
-  meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35')     
+  meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35')
+  |     
   link(rel='stylesheet', href='./stylesheets/style.css')
+  |   
   body(onload='getDeviceList()')
     // オーバーレイ
     #js-join-trigger.overlay-all
@@ -34,6 +35,8 @@ head
             |       
             |           
             button#js-toggle-microphone &#x30DE;&#x30A4;&#x30AF;ON
+            |           
+            button#js-stream-change &#x30DE;&#x30B9;&#x30AF;
             |           
             br
             // テスト用にどのデバイスを有効化しているか表示

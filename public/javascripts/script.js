@@ -60,7 +60,7 @@ const Peer = window.Peer;
       return;
     }
     // 部屋に接続するメソッド（joinRoom）
-    const room = peer.joinRoom(roomId, {
+    let room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
       // stream: localStream,
       stream: canvas,　//canvasをstreamに渡すと相手に渡せる
@@ -125,6 +125,8 @@ const Peer = window.Peer;
   
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const chengemask = document.getElementById('js-stream-change');
+  let mask = true;
   //ボタン押した時のカメラ関係の動作
   toggleCamera.addEventListener('click', () => {
     const videoTracks = localStream.getVideoTracks()[0];
@@ -140,6 +142,21 @@ const Peer = window.Peer;
     console.log(audioTracks.enabled)
     toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
   });
+    //ボタン押した時のマスク関係の動作
+    chengemask.addEventListener('click', () => {
+      if(mask){
+        room = peer.joinRoom(roomId, {
+          mode: getRoomModeByHash(),
+        　stream: localStream,
+        });
+      }else{
+        room = peer.joinRoom(roomId, {
+          mode: getRoomModeByHash(),
+        　stream: canvas,
+        });
+      }
+      mask = !mask
+    });
 
   //URLのGETパラメータを取得
   function getParam(){
