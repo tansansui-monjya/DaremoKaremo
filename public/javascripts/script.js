@@ -6,23 +6,16 @@ const Peer = window.Peer;
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
-  // 相手の
-  // const remoteVideos = document.getElementById('js-remote-streams');
-  // const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
   //threevrmのcanvas読み込み
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
-  // canvas.getUserMedia({
-  //   audio: true,
-  // })
   console.log("est");
   }
   
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-//  let count = 0;  // カウント
   const remoteVideos = document.getElementById('js-remote-streams');
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
