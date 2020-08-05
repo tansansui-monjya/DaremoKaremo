@@ -14,6 +14,9 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
+  // canvas.getUserMedia({
+  //   audio: true,
+  // })
   console.log("est");
   }
   
@@ -40,11 +43,11 @@ const Peer = window.Peer;
       audio: true,
       video: true,
     })
-    .catch(console.error);
   // localStreamをdiv(localVideo)に挿入
-  localVideo.muted = true;
   localVideo.srcObject = localStream;
+  localVideo.muted = true;
   localVideo.playsInline = true;
+  visualizer(localStream);
   await localVideo.play().catch(console.error);
   // Peerのインスタンス作成
   const peer = (window.peer = new Peer({
@@ -65,6 +68,8 @@ const Peer = window.Peer;
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
     });
+
+    // const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
@@ -140,15 +145,6 @@ toggleCamera.addEventListener('click', () => {
 
 });
 
-
-// function canvas2hide(){
-//   // コンテキストを取り出す
-//   var ctx = canvas2.getContext('2d');
-//   // 指定の色で範囲内を塗りつぶす
-//   ctx.fillStyle = 'rgb(255,255,255)';
-//   ctx.fillRect(0, 0, 200, 200);
-// }
-
 //ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
@@ -157,31 +153,78 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
+  const testhash = document.getElementById('testhash');
+  const testhashBtn = document.getElementById('testhash-btn');
 
+  testhashBtn.addEventListener('click', () => {
+    //入力した文字列をハッシュ関数で変換する
+(async () => {
+  const digest = await sha256(testhash);
+})();
+  })
 
-// //HPから値の受け取り
-// http.createServer(function(req, res){
-//   if(req.method === 'GET'){
+  // マイクの音声ビジュアライザ
+  function visualizer(audioData){
+    var audioContext = new AudioContext();
 
-//     res.writeHead(200, {'Content-Type' : 'text/html'});
-//     res.end(html);
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 128;
 
-//   }else if(req.method === 'POST'){
-//     var data = '';
+    var source = audioContext.createMediaStreamSource(audioData);
+    source.connect(analyser);
 
-//     //POSTデータを受け取る
-//     req.on('data', function(chunk){data += chunk})
-//        .on('end', function(){
-//          console.log(data);
-//          res.end(html);
+    animationId = requestAnimationFrame(visualizeRender);
 
-//        })
-       
-//   }
-// }).listen(3000);
-// var query = lovation.search;
-// var value = query.split('=');
-// console.log(decodeURIComponent(valie[1]));
+  };
+
+  // マイクの音声ビジュアライザのレンダリング
+  function visualizeRender(){
+    var volume = getVolume();
+
+    if (100 < volume) {
+      volume = 100;
+    }
+    
+    var meters = $("#audio-meter > div");
+    for (var i = 0; i < meters.length; i++) {
+      if ((i * 5) < volume) {
+        $(meters[i]).removeClass("invisible");
+      } else {
+        $(meters[i]).addClass("invisible");
+      }
+    }
+
+    animationId = requestAnimationFrame(visualizeRender);
+
+  };
+
+  // ボリュームの取得
+  function getVolume() {
+    var bit8 = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(bit8);
+
+    return bit8.reduce(function(previous, current) {
+      return previous + current;
+    }) / analyser.frequencyBinCount;
+  };
+
+  // エラー時のダイアログ表示
+  function error(message, linkText, linkHref) {
+    __modal("エラー", message, linkText, linkHref);
+  };
+
+//ハッシュ関数
+async function sha256(str) {
+  // Convert string to ArrayBuffer
+  const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
+  // Calculate digest
+  const digest = await crypto.subtle.digest('SHA-256', buff);
+  // Convert ArrayBuffer to hex string
+  // (from: https://stackoverflow.com/a/40031979)
+  let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
+  console.log(hash)
+  return hash
+}
 
   //URLのGETパラメータを取得
   function getParam(){

@@ -201,9 +201,59 @@ video {
   background-size: contain;
   vertical-align: middle;
 }
+.leave-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #3B1D70;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.leave-btn:hover{
+  background: #ffffff;
+}
 
 .canvas2_cover{
   filter: brightness(0%);
+}
+
+.row{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.ml-1, .mx-1 {
+  margin-left: .25rem!important;
+}
+.col-12{
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.h-100 {
+  height: 100%!important;
+}
+.invisible {
+  visibility: hidden!important;
+}
+.bg-primary{
+  background-color: blue;
+}
+.bg-warning{
+  background-color: yellow;
+}
+.bg-danger{
+  background-color: red;
 }
 
 /* スマホ写した時 */
@@ -214,6 +264,8 @@ video {
     gap: 8px;
     margin: 0 8px;
     background-color: #3B1D70;
+    height:100%;
+	  border:dotted 2px #666666;
   }
 }
 
