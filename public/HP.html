@@ -24,27 +24,30 @@
     <!--ヘルプボタンの実装が入る-->
 
     <!--↓アクションのところに遷移先-->
-    <form action="./index.html" method="GET">
+    <form action="./Waiting.html" method="GET">
         <p>部屋名</p>
-        
+
         <input type="text" id="roomid" name="roomid" placeholder="宇宙船">
         <p>制限時間</p>
         <div id="radio_id">
-            <input type="radio" name="time" id="r1" value="time1" checked="">
+            <input type="radio" name="time" id="r1" value="0" checked="">
             <label for="r1">無制限</label>
-            <input type="radio" name="time" id="r2" value="time2" >
-            <label for="r2">30分</label>　　
-            <input type="radio" name="time" id="r3" value="time3" >
+            <input type="radio" name="time" id="r2" value="30" >
+            <label for="r2">30分</label>
+            <input type="radio" name="time" id="r3" value="60" >
             <label for="r3">1時間</label>
-            <input type="radio" name="time" id="r4" value="time4" >
+            <input type="radio" name="time" id="r4" value="120" >
             <label for="r4">2時間</label>
-            <input type="radio" name="time" id="r5" value="time5" >
+            <input type="radio" name="time" id="r5" value="180" >
             <label for="r5">3時間</label>
         </div>
         <div id="makeroom">
             <button id="room_make" type="submit">部屋をつくる</button>
         </div>
-        <script type="text/javascript" src="./javascript/HP.js"></script>
     </form>
+
+    <script type="text/javascript" src="./javascript/HP.js"></script>
+    <!-- 齋藤のつくったjs -->
+    <script type="text/javascript" src="./javascript/time.js"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@
 
     <div class="room">
       <div id = "container">
-        <div class="remote-streams" id="js-remote-streams0" id="js-remote-streams1" id="js-remote-streams2">
+        <div class="remote-streams" id="js-remote-streams">
           <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
           <br>
           <div>
@@ -102,7 +102,31 @@
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script src="./key.js"></script>
     <script src="./javascripts/SharedUrl.js"></script>
-    <script src="./javascripts/Waiting.js"></script>
+    <script src="./javascripts/Overlayout.js"></script>
     <script src="./javascripts/script.js"></script>
+    <div class="btn_div">
+      <button id="test1">時間</button>
+    </div>
+
+    <script>
+              document.getElementById('test1').onclick=function(){
+              }
+              window.onload = function(){
+                var params = window.location.search;
+                var element = params.split('&');
+                var getparams = [];
+                for(var i = 0;i <element.length; i++){
+                  var low = element[i].split('=');
+                  getparams.push(low[1]);
+                }
+                const hi = new Date();
+                hi.setMinutes(hi.getMinutes()+getparams[1]);
+                var butobj = document.getElementById('test1');
+                butobj.innerHTML = hi.toLocaleString();
+              }
+
+    </script>
   </body>
+
+
 </html>
