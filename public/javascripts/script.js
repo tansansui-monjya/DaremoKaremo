@@ -1,0 +1,237 @@
+// Peerモデルを変更
+const Peer = window.Peer;
+(async function main() {
+  // 操作がDOMをここで取得
+  // 自分の
+  const localVideo = document.getElementById('js-local-stream');
+  const joinTrigger = document.getElementById('js-join-trigger');
+  const leaveTrigger = document.getElementById('js-leave-trigger');
+  // 相手の
+  // const remoteVideos = document.getElementById('js-remote-streams');
+  // const roomId = document.getElementById('js-room-id');
+  const roomMode = document.getElementById('js-room-mode');
+  //threevrmのcanvas読み込み
+  let canvas = null;
+  while(canvas == null){
+  canvas = document.getElementById("canvas2").captureStream();
+  // canvas.getUserMedia({
+  //   audio: true,
+  // })
+  console.log("est");
+  }
+  
+  const meta = document.getElementById('js-meta');
+  const sdkSrc = document.querySelector('script[src*=skyway]');
+  let count = 0;  // カウント
+  const remoteVideos = document.getElementById('js-remote-streams'+count);
+  //共有機能の変数
+  const shareTrigger = document.getElementById('js-share-trigger');
+  //GETパラメータ(部屋名)を取得
+  let roomId = getParam();
+  metainnerText = `
+  `.trim();
+  // 同時接続モードがSFUなのかMESHなのかをここで設定
+  const getRoomModeByHash = () => (location.hash === '#sfu' ? 'sfu' : 'mesh');
+  //接続モードの変更を感知するリスナーを設置
+  window.addEventListener(
+    'hashchange',
+    () => (roomMode.textContent = getRoomModeByHash())
+  );
+  // 自分の映像と音声をlocalStreamに代入
+  const localStream = await navigator.mediaDevices
+    .getUserMedia({
+      audio: true,
+      video: true,
+    })
+  // localStreamをdiv(localVideo)に挿入
+  localVideo.srcObject = localStream;
+  localVideo.muted = true;
+  localVideo.playsInline = true;
+  visualizer(localStream);
+  await localVideo.play().catch(console.error);
+  // Peerのインスタンス作成
+  const peer = (window.peer = new Peer({
+    key: window.__SKYWAY_KEY__,
+    debug: 3,
+  }));
+
+  // 「div(joinTrigger)が押される＆既に接続が始まっていなかったら接続」するリスナーを設置
+  joinTrigger.addEventListener('click', () => {
+    // Note that you need to ensure the peer has connected to signaling server
+    // before using methods of peer instance.
+    if (!peer.open) {
+      return;
+    }
+    // 部屋に接続するメソッド（joinRoom）
+    const room = peer.joinRoom(roomId, {
+      mode: getRoomModeByHash(),
+      // stream: localStream,
+      stream: canvas, //canvasをstreamに渡すと相手に渡せる
+    });
+
+    // const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+
+    // Render remote stream for new peer join in the room
+    // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
+    room.on('stream', async stream => {
+      // newVideoオブジェクト(タグ)の生成
+      const newVideo = document.createElement('video');
+      console.log("test");
+      // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
+      newVideo.srcObject = stream;
+      // skyWayと接続(ONにする)
+      newVideo.playsInline = true;
+      // mark peerId to find it later at peerLeave event
+      // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
+      newVideo.setAttribute('data-peer-id', stream.peerId);
+      // 配列に追加する(remoteVideosという配列にnewVideoを追加)
+      remoteVideos.append(newVideo);
+
+      // awaitはasync streamの実行を一時停止し、Promiseの解決または拒否を待ちます。
+      await newVideo.play().catch(console.error);
+      count+=1;
+    });
+    
+    // 誰かが退出した場合、div（remoteVideos）内にある任意のdata-peer-idがついたvideoタグの内容を空にして削除する
+    room.on('peerLeave', peerId => {
+      const remoteVideo = remoteVideos.querySelector(
+        `[data-peer-id=${peerId}]`
+      );
+      remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+      remoteVideo.srcObject = null;
+      remoteVideo.remove();
+
+    });
+    // for closing myself(自分の退出)
+    room.once('close', () => {
+      
+      Array.from(remoteVideos.children).forEach(remoteVideo => {
+        remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+        remoteVideo.srcObject = null;
+        remoteVideo.remove();
+      });
+    });
+   
+    // ボタン（leaveTrigger）を押すとroom.close()を発動
+    leaveTrigger.addEventListener('click', () => {
+      room.close();
+      //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
+      window.open('https://www.google.com/', '_self').close();
+    }, 
+    { once: true });
+  });
+
+  //追加機能share
+  var copy_url = document.URL
+  shareTrigger.addEventListener('click',() => {
+    shared_url_copy(copy_url);
+    alert("コピーできました");
+  });
+  
+  const toggleCamera = document.getElementById('js-toggle-camera');
+  const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  
+  
+
+  //ボタン押した時のカメラ関係の動作
+toggleCamera.addEventListener('click', () => {
+  const canvas2 = document.getElementById('canvas2');
+  const videoTracks = localStream.getVideoTracks()[0];
+  videoTracks.enabled = !videoTracks.enabled;
+  console.log(videoTracks.enabled)
+
+  toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+  canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
+
+});
+
+//ボタン押した時のマイク関係の動作
+toggleMicrophone.addEventListener('click', () => {
+  const audioTracks = localStream.getAudioTracks()[0];
+  audioTracks.enabled = !audioTracks.enabled;
+  console.log(audioTracks.enabled)
+  toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
+});
+
+  const testhash = document.getElementById('testhash');
+  const testhashBtn = document.getElementById('testhash-btn');
+
+  testhashBtn.addEventListener('click', () => {
+    //入力した文字列をハッシュ関数で変換する
+(async () => {
+  const digest = await sha256(testhash);
+})();
+  })
+
+  // マイクの音声ビジュアライザ
+  function visualizer(audioData){
+    var audioContext = new AudioContext();
+
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 128;
+
+    var source = audioContext.createMediaStreamSource(audioData);
+    source.connect(analyser);
+
+    animationId = requestAnimationFrame(visualizeRender);
+
+  };
+
+  // マイクの音声ビジュアライザのレンダリング
+  function visualizeRender(){
+    var volume = getVolume();
+
+    if (100 < volume) {
+      volume = 100;
+    }
+    
+    var meters = $("#audio-meter > div");
+    for (var i = 0; i < meters.length; i++) {
+      if ((i * 5) < volume) {
+        $(meters[i]).removeClass("invisible");
+      } else {
+        $(meters[i]).addClass("invisible");
+      }
+    }
+
+    animationId = requestAnimationFrame(visualizeRender);
+
+  };
+
+  // ボリュームの取得
+  function getVolume() {
+    var bit8 = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(bit8);
+
+    return bit8.reduce(function(previous, current) {
+      return previous + current;
+    }) / analyser.frequencyBinCount;
+  };
+
+  // エラー時のダイアログ表示
+  function error(message, linkText, linkHref) {
+    __modal("エラー", message, linkText, linkHref);
+  };
+
+//ハッシュ関数
+async function sha256(str) {
+  // Convert string to ArrayBuffer
+  const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
+  // Calculate digest
+  const digest = await crypto.subtle.digest('SHA-256', buff);
+  // Convert ArrayBuffer to hex string
+  // (from: https://stackoverflow.com/a/40031979)
+  let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
+  console.log(hash)
+  return hash
+}
+
+  //URLのGETパラメータを取得
+  function getParam(){
+    let params = (new URL(document.location)).searchParams;
+    let roomId = params.get('roomid');
+    return roomId;
+  }
+  peer.on('error', console.error);
+})();
+
