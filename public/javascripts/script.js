@@ -40,7 +40,6 @@ const Peer = window.Peer;
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
-  visualizer(localStream);
   await localVideo.play().catch(console.error);
   // Peerのインスタンス作成
   const peer = (window.peer = new Peer({
@@ -145,51 +144,6 @@ toggleMicrophone.addEventListener('click', () => {
   console.log(audioTracks.enabled)
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
-
-  // マイクの音声ビジュアライザ
-  function visualizer(audioData){
-    var audioContext = new AudioContext();
-
-    analyser = audioContext.createAnalyser();
-    analyser.fftSize = 128;
-
-    var source = audioContext.createMediaStreamSource(audioData);
-    source.connect(analyser);
-
-    animationId = requestAnimationFrame(visualizeRender);
-
-  };
-
-  // マイクの音声ビジュアライザのレンダリング
-  function visualizeRender(){
-    var volume = getVolume();
-
-    if (100 < volume) {
-      volume = 100;
-    }
-    
-    var meters = $("#audio-meter > div");
-    for (var i = 0; i < meters.length; i++) {
-      if ((i * 5) < volume) {
-        $(meters[i]).removeClass("invisible");
-      } else {
-        $(meters[i]).addClass("invisible");
-      }
-    }
-
-    animationId = requestAnimationFrame(visualizeRender);
-
-  };
-
-  // ボリュームの取得
-  function getVolume() {
-    var bit8 = new Uint8Array(analyser.frequencyBinCount);
-    analyser.getByteFrequencyData(bit8);
-
-    return bit8.reduce(function(previous, current) {
-      return previous + current;
-    }) / analyser.frequencyBinCount;
-  };
 
   // エラー時のダイアログ表示
   function error(message, linkText, linkHref) {
