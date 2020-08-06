@@ -146,16 +146,6 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
-  const testhash = document.getElementById('testhash');
-  const testhashBtn = document.getElementById('testhash-btn');
-
-  testhashBtn.addEventListener('click', () => {
-    //入力した文字列をハッシュ関数で変換する
-(async () => {
-  const digest = await sha256(testhash);
-})();
-  })
-
   // マイクの音声ビジュアライザ
   function visualizer(audioData){
     var audioContext = new AudioContext();
@@ -205,19 +195,6 @@ toggleMicrophone.addEventListener('click', () => {
   function error(message, linkText, linkHref) {
     __modal("エラー", message, linkText, linkHref);
   };
-
-//ハッシュ関数
-async function sha256(str) {
-  // Convert string to ArrayBuffer
-  const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
-  // Calculate digest
-  const digest = await crypto.subtle.digest('SHA-256', buff);
-  // Convert ArrayBuffer to hex string
-  // (from: https://stackoverflow.com/a/40031979)
-  let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
-  console.log(hash)
-  return hash
-}
 
   //URLのGETパラメータを取得
   function getParam(){
