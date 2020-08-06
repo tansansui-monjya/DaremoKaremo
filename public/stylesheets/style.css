@@ -257,7 +257,7 @@ video {
 }
 
 /* スマホ写した時 */
-@media screen and (max-width: 380px){
+/* @media screen and (max-width: 380px){
   .room {
     display: grid;
     grid-template-columns: 30% 40% 30%;
@@ -267,7 +267,7 @@ video {
     height:100%;
 	  border:dotted 2px #666666;
   }
-}
+} */
 
 /* オーバーレイ */
 .overlay-all {

@@ -6,23 +6,16 @@ const Peer = window.Peer;
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
-  // 相手の
-  // const remoteVideos = document.getElementById('js-remote-streams');
-  // const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
   //threevrmのcanvas読み込み
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
-  // canvas.getUserMedia({
-  //   audio: true,
-  // })
   console.log("est");
   }
   
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-//  let count = 0;  // カウント
   const remoteVideos = document.getElementById('js-remote-streams');
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
@@ -153,16 +146,6 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
-  const testhash = document.getElementById('testhash');
-  const testhashBtn = document.getElementById('testhash-btn');
-
-  testhashBtn.addEventListener('click', () => {
-    //入力した文字列をハッシュ関数で変換する
-(async () => {
-  const digest = await sha256(testhash);
-})();
-  })
-
   // マイクの音声ビジュアライザ
   function visualizer(audioData){
     var audioContext = new AudioContext();
@@ -212,19 +195,6 @@ toggleMicrophone.addEventListener('click', () => {
   function error(message, linkText, linkHref) {
     __modal("エラー", message, linkText, linkHref);
   };
-
-//ハッシュ関数
-async function sha256(str) {
-  // Convert string to ArrayBuffer
-  const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
-  // Calculate digest
-  const digest = await crypto.subtle.digest('SHA-256', buff);
-  // Convert ArrayBuffer to hex string
-  // (from: https://stackoverflow.com/a/40031979)
-  let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
-  console.log(hash)
-  return hash
-}
 
   //URLのGETパラメータを取得
   function getParam(){
