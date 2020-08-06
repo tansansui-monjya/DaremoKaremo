@@ -217,6 +217,15 @@ video {
 .leave-btn:hover{
   background: #ffffff;
 }
+.leave-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./Leave.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
 
 .canvas2_cover{
   filter: brightness(0%);
