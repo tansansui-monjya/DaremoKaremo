@@ -160,8 +160,9 @@ const Peer = window.Peer;
         scene.remove.apply(scene, scene.children);
       }
       currentVRM = null;
-      let VRMnum = Math.floor( Math.random() * 2 )+1 ;
-      let VRM = ['../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm']
+      let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+      let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+      console.log(VRMnum);
       syokika = true
       maskflag = false
       VRMflag = true
