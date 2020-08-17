@@ -5,7 +5,7 @@
 const width = 400;
 const height = 300;
 // -- renderer -------------------------------------------------------------------------------------
-const renderer = new THREE.WebGLRenderer();
+let renderer = new THREE.WebGLRenderer();
 renderer.setSize( width, height );
 let element = document.getElementById('container').appendChild( renderer.domElement );
 element.id = 'canvas2'
@@ -22,6 +22,10 @@ let scene = new THREE.Scene();
 scene.background = new THREE.Color( 0xffffff );
 
 function threevrm(VRM){
+  if(!renderer){
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize( width, height );
+  }
 
   // -- avocado (gltf) -------------------------------------------------------------------------------
 

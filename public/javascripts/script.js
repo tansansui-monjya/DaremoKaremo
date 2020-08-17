@@ -125,7 +125,8 @@ const Peer = window.Peer;
   
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
-  const chengemask = document.getElementById('js-stream-change');
+  const chengemask = document.getElementById('js-mask-change');
+  const chengeVRM = document.getElementById('js-VRM-change');
   let mask = true;
   //ボタン押した時のカメラ関係の動作
   toggleCamera.addEventListener('click', () => {
@@ -144,16 +145,27 @@ const Peer = window.Peer;
   });
     //ボタン押した時のマスク関係の動作
     chengemask.addEventListener('click', () => {
+      if (syokika) {
+        console.log("メモリ消去")
+        scene.remove.apply(scene, scene.children);
+      }
+      maskflag = true
+      VRMflag = false
+      syokika = true
       maskhyouzi();
-      // if (syokika) {
-      //   console.log("メモリ消去")
-      //   scene.remove.apply(scene, scene.children);
-      // }
-      // currentVRM = null;
-      // let VRMnum = Math.floor( Math.random() * 2 )+1 ;
-      // let VRM = ['../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm']
-      // syokika = true
-      // threevrm(VRM[VRMnum]);
+    });
+    chengeVRM.addEventListener('click', () => {
+      if (syokika) {
+        console.log("メモリ消去")
+        scene.remove.apply(scene, scene.children);
+      }
+      currentVRM = null;
+      let VRMnum = Math.floor( Math.random() * 2 )+1 ;
+      let VRM = ['../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm']
+      syokika = true
+      maskflag = false
+      VRMflag = true
+      threevrm(VRM[VRMnum]);
     });
 
   //URLのGETパラメータを取得
