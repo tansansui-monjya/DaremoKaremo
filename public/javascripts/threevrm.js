@@ -11,7 +11,7 @@ let element = document.getElementById('container').appendChild( renderer.domElem
 element.id = 'canvas2'
 // document.body.appendChild( renderer.domElement );
 let one = true;
-let syokika = false
+let syokika = false;
 let currentVRM = undefined;
 
  let jeelizCanvas = document.createElement( 'canvas' ); // jeeliz用のキャンバスを生成

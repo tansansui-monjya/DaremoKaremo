@@ -147,6 +147,7 @@ const Peer = window.Peer;
     if(getParam('type')=="mask"){
       maskhyouzi();
     }else if(getParam('type')=='babiniku'){
+      syokika = true
       let VRMnum = Math.floor( Math.random() * 4 )+1 ;
       let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
       console.log(VRMnum);
@@ -155,6 +156,12 @@ const Peer = window.Peer;
     chenge.addEventListener('click', () => {
       if(getParam('type')=="mask"){
       }else if(getParam('type')=='babiniku'){
+        if (syokika) {
+          console.log("メモリ消去")
+          scene.remove.apply(scene, scene.children);
+        }
+        syokika = true
+        currentVRM = null;
         let VRMnum = Math.floor( Math.random() * 4 )+1 ;
         let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
         console.log(VRMnum);
