@@ -2,7 +2,7 @@
 const Peer = window.Peer;
 (async function main() {
   // 操作がDOMをここで取得
-  // 自分の
+  // 自分のgetParam
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
@@ -25,7 +25,8 @@ const Peer = window.Peer;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
-  let roomId = getParam();
+  let roomId = getParam('type');
+  console.log(roomId);
   metainnerText = `
   `.trim();
   // 同時接続モードがSFUなのかMESHなのかをここで設定
@@ -143,38 +144,27 @@ const Peer = window.Peer;
     console.log(audioTracks.enabled)
     toggleMicrophone.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
   });
-    //ボタン押した時のマスク関係の動作
-    chengemask.addEventListener('click', () => {
-      if (syokika) {
-        console.log("メモリ消去")
-        scene.remove.apply(scene, scene.children);
-      }
-      maskflag = true
-      VRMflag = false
-      syokika = true
+
+    //マスク関係の動作
+    if(getParam('type')=="mask"){
       maskhyouzi();
-    });
-    chengeVRM.addEventListener('click', () => {
-      if (syokika) {
-        console.log("メモリ消去")
-        scene.remove.apply(scene, scene.children);
-      }
-      currentVRM = null;
+    }else if(getParam('type')=='babiniku'){
       let VRMnum = Math.floor( Math.random() * 4 )+1 ;
       let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
       console.log(VRMnum);
-      syokika = true
-      maskflag = false
-      VRMflag = true
       threevrm(VRM[VRMnum]);
-    });
+    }
 
   //URLのGETパラメータを取得
-  function getParam(){
-    let params = (new URL(document.location)).searchParams;
-    let roomId = params.get('roomid');
-    return roomId;
-  }
+  function getParam(name) {
+    url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
   peer.on('error', console.error);
 })();
 
