@@ -14,6 +14,7 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
+  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);";
   console.log("est");
   }
   
@@ -62,7 +63,6 @@ const Peer = window.Peer;
     // 部屋に接続するメソッド（joinRoom）
     let room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
-      // stream: localStream,
       stream: canvas,　//canvasをstreamに渡すと相手に渡せる
     });
 
@@ -144,18 +144,16 @@ const Peer = window.Peer;
   });
     //ボタン押した時のマスク関係の動作
     chengemask.addEventListener('click', () => {
-      if(mask){
-        room = peer.joinRoom(roomId, {
-          mode: getRoomModeByHash(),
-        　stream: localStream,
-        });
-      }else{
-        room = peer.joinRoom(roomId, {
-          mode: getRoomModeByHash(),
-        　stream: canvas,
-        });
-      }
-      mask = !mask
+      maskhyouzi();
+      // if (syokika) {
+      //   console.log("メモリ消去")
+      //   scene.remove.apply(scene, scene.children);
+      // }
+      // currentVRM = null;
+      // let VRMnum = Math.floor( Math.random() * 2 )+1 ;
+      // let VRM = ['../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm']
+      // syokika = true
+      // threevrm(VRM[VRMnum]);
     });
 
   //URLのGETパラメータを取得
