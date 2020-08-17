@@ -166,13 +166,13 @@ function update_projMatrix() {
 
 //END WEBGL HELPERS
 
-
 //build the 3D. called once when Jeeliz Face Filter is OK
 function init_scene(spec){
   // affect some globalz:
   GL = spec.GL;
   CV = spec.canvasElement;
   VIDEOTEXTURE = spec.videoTexture;
+
 
   // create and size the 2D canvas and its drawing context:
   CANVAS2D = document.createElement('canvas');
@@ -188,7 +188,6 @@ function init_scene(spec){
     CTX.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height, 200, 330, 100, 100);
     update_canvasTexture();
   }
-  
   // create the WebGL texture with the canvas:
   CANVASTEXTURE = GL.createTexture();
   GL.bindTexture(GL.TEXTURE_2D, CANVASTEXTURE);

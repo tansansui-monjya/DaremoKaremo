@@ -126,9 +126,7 @@ const Peer = window.Peer;
   
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
-  const chengemask = document.getElementById('js-mask-change');
-  const chengeVRM = document.getElementById('js-VRM-change');
-  let mask = true;
+  const chenge = document.getElementById('change');
   //ボタン押した時のカメラ関係の動作
   toggleCamera.addEventListener('click', () => {
     const videoTracks = localStream.getVideoTracks()[0];
@@ -154,6 +152,16 @@ const Peer = window.Peer;
       console.log(VRMnum);
       threevrm(VRM[VRMnum]);
     }
+    chenge.addEventListener('click', () => {
+      if(getParam('type')=="mask"){
+      }else if(getParam('type')=='babiniku'){
+        let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+        let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+        console.log(VRMnum);
+        threevrm(VRM[VRMnum]);
+      }
+    });
+
 
   //URLのGETパラメータを取得
   function getParam(name) {
