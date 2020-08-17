@@ -340,7 +340,7 @@ button#test1:hover {
   height: 100%;
   top: 0px;
   left: 0px;
-  background: #3B1D70;
+  background: black;
   z-index: 101;
 }
 #loader {
