@@ -20,7 +20,10 @@ const Peer = window.Peer;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
-  let roomId = getParam();
+  let roomId
+  let time
+  getParam();
+  
   metainnerText = `
   `.trim();
   // 同時接続モードがSFUなのかMESHなのかをここで設定
@@ -153,8 +156,8 @@ toggleMicrophone.addEventListener('click', () => {
   //URLのGETパラメータを取得
   function getParam(){
     let params = (new URL(document.location)).searchParams;
-    let roomId = params.get('roomid');
-    return roomId;
+    roomId = params.get('roomid');
+    time = params.get('time');
   }
   peer.on('error', console.error);
 })();
