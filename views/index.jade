@@ -1,5 +1,119 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+html(lang='en')
+head
+  meta(charset='UTF-8')
+  // <meta name="viewport" content="width=device-width, initial-scale=1">
+  meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35')
+  |     
+  link(rel='stylesheet', href='./stylesheets/style.css')
+  |   
+  body
+    // Loading
+    #loader-bg
+      #loader
+        img(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/lod2.gif', width='80', height='80', alt='Now Loading...')
+        |         
+        p Now Loading...
+    // オーバーレイ
+    #js-join-trigger.overlay-all
+      img#top_wait(src='./Top.png')
+      br
+      |       
+      #title_wait ALIEN
+      |       
+      p#wait_message Tap to start video call
+    |   
+    .container
+      .room
+        #container
+          #js-remote-streams.remote-streams
+            video#js-local-stream.local-video(style='transform: scaleX(-1);')
+            |           
+            br
+            |           
+            div
+              // stream画面内にボタンを表示する場合(細かい位置は設定途中)
+              //
+                <button id="js-toggle-camera" class="camera-btn"></button>
+                <button id="js-toggle-microphone" class="mic-btn"></button>
+                <button id="js-leave-trigger" class="leave-btn">Leave</button>
+          |     
+          p
+          // ルーム検索
+          div
+            span#js-room-mode
+            // ルームに接続
+            button#js-leave-trigger.leave-btn Leave
+            |         
+            button#js-share-trigger share
+            |         
+            br
+            |           
+            button#js-toggle-camera.camera-btn
+            |       
+            |           
+            button#js-toggle-microphone.mic-btn
+            |           
+            button#change change
+            |           
+            br
+            |           
+            div
+              .row
+                .col-12
+        //
+          <div>
+          <pre class="messages" id="js-messages"></pre>
+          <input type="text" id="js-local-text">
+          <button id="js-send-trigger">Send</button>
+          </div>
+        p#js-meta.meta
+      // container
+      // threevrm関連
+      script(src='https://unpkg.com/three@0.108')
+      |     
+      script(src='https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js')
+      |     
+      script(src='https://unpkg.com/@pixiv/three-vrm@0.1/lib/three-vrm.js')
+      |     
+      script(src='./javascripts/jeelizFaceFilter.js')
+      |     
+      script(src='./javascripts/JeelizResizer.js')
+      |     
+      script(src='./javascripts/threevrm.js')
+      // マスク関連
+      script(src='./javascripts/mask.js')
+      // jquery関連
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+      // skyway関連
+      script(src='//cdn.webrtc.ecl.ntt.com/skyway-latest.js')
+      |     
+      script(src='./key.js')
+      |     
+      script(src='./javascripts/SharedUrl.js')
+      |     
+      script(src='./javascripts/Loading.js')
+      |     
+      script(src='./javascripts/Overlayout.js')
+      |     
+      script(src='./javascripts/script.js')
+      |     
+      .btn_div
+        button#test1 &#x6642;&#x9593;
+      //
+        <script>
+        document.getElementById('test1').onclick=function(){
+        }
+        window.onload = function(){
+        var params = window.location.search;
+        var element = params.split('&');
+        var getparams = [];
+        for(var i = 0;i <element.length; i++){
+        var low = element[i].split('=');
+        getparams.push(low[1]);
+        }
+        const hi = new Date();
+        hi.setMinutes(hi.getMinutes()+getparams[1]);
+        var butobj = document.getElementById('test1');
+        butobj.innerHTML = hi.toLocaleString();
+        }
+        </script>
