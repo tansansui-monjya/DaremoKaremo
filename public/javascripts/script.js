@@ -24,6 +24,7 @@ const Peer = window.Peer;
   let roomId
   let time
   let type
+  let model
   getParam();
   
   metainnerText = `
@@ -119,7 +120,8 @@ const Peer = window.Peer;
   });
 
   //追加機能share
-  var copy_url = document.URL
+  let copy_url = document.URL
+  console.log(copy_url.replace('model=', ''))
   shareTrigger.addEventListener('click',() => {
     shared_url_copy(copy_url);
     alert("コピーできました");
@@ -154,11 +156,17 @@ toggleMicrophone.addEventListener('click', () => {
 if(type=="mask"){
   maskhyouzi();
 }else if(type=='babiniku'){
+  if(typeof model == "string" ){
+    syokika = true
+    let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+    threevrm(VRM[model]);
+  }else{
   syokika = true
   let VRMnum = Math.floor( Math.random() * 4 )+1 ;
   let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
   console.log(VRMnum);
   threevrm(VRM[VRMnum]);
+  }
 }
 chenge.addEventListener('click', () => {
   if(type=="mask"){
@@ -187,6 +195,7 @@ chenge.addEventListener('click', () => {
     roomId = params.get('roomid');
     time = params.get('time');
     type = params.get('type');
+    model = params.get('model');
   }
   peer.on('error', console.error);
 })();

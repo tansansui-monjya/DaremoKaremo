@@ -29,31 +29,10 @@ p &#x90E8;&#x5C4B;&#x540D;
 |         
 input#room(type='text', name='room', placeholder='宇宙船')
 |     
-form(action='/alien', method='GET')
+form(action='/waiting', method='GET')
     input#roomid(type='hidden', name='roomid')
     |         
     p &#x5236;&#x9650;&#x6642;&#x9593;
-    |         
-    #radio_id
-    input#r1(type='radio', name='time', value='0', checked='')
-    |             
-    label(for='r1') &#x7121;&#x5236;&#x9650;
-    |             
-    input#r2(type='radio', name='time', value='30')
-    |             
-    label(for='r2') 30&#x5206;
-    |             
-    input#r3(type='radio', name='time', value='60')
-    |             
-    label(for='r3') 1&#x6642;&#x9593;
-    |             
-    input#r4(type='radio', name='time', value='120')
-    |             
-    label(for='r4') 2&#x6642;&#x9593;
-    |             
-    input#r5(type='radio', name='time', value='180')
-    |             
-    label(for='r5') 3&#x6642;&#x9593;
     |         
     #radio_id
     input#r1(type='radio', name='type', value='babiniku', checked='')

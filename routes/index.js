@@ -9,12 +9,16 @@ router.use(function timeLog (req, res, next) {
 
 /* GET home page. */
 router.get('/alien', function(req, res, next) {
-  res.render('index', { title: 'index' });
+  res.render('index', { title: 'alien' });
 });
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('HP', { title: 'HP' });
+});
+
+router.get('/waiting', function(req, res, next) {
+  res.render('Waiting', { title: 'wait' });
 });
 
 module.exports = router;
