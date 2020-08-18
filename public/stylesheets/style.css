@@ -99,7 +99,6 @@ video {
 .camera-btn{
   display: inline-block;
   text-decoration: none;
-  background: #3B1D70;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -126,7 +125,7 @@ video {
 .camera-btn_OFF{
   display: inline-block;
   text-decoration: none;
-  background: #3B1D70;
+  background: #E26522;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -147,13 +146,12 @@ video {
 }
 
 .camera-btn_OFF:hover{
-  background: #ffffff;
+  background: #E26522;
 }
 
 .mic-btn{
   display: inline-block;
   text-decoration: none;
-  background: #3B1D70;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -179,7 +177,7 @@ video {
 .mic-btn_OFF{
   display: inline-block;
   text-decoration: none;
-  background: #3B1D70;
+  background: #E26522;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -190,7 +188,7 @@ video {
   transition: .4s;
 }
 .mic-btn_OFF:hover{
-  background: #ffffff;
+  background: #E26522;
 }
 .mic-btn_OFF:before {
   content: "";
@@ -204,7 +202,7 @@ video {
 .leave-btn{
   display: inline-block;
   text-decoration: none;
-  background: #3B1D70;
+  background: #FF0404;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -214,9 +212,6 @@ video {
   overflow: hidden;
   transition: .4s;
 }
-.leave-btn:hover{
-  background: #ffffff;
-}
 .leave-btn:before {
   content: "";
   display: inline-block;
@@ -225,6 +220,31 @@ video {
   background: url("./Leave.png") no-repeat;
   background-size: contain;
   vertical-align: middle;
+}
+
+.share-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.share-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./share.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.share-btn:hover{
+  background: #FFFFFF;
 }
 
 .canvas2_cover{

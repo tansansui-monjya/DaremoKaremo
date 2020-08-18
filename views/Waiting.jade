@@ -1,0 +1,46 @@
+html(lang='ja')
+head
+    meta(charset='UTF-8')
+    |         
+    link(rel='stylesheet', type='text/css', href='./stylesheets/Waiting.css')
+  |     
+body
+form(action='/alien', method='GET')
+    img#top_wait(src='/Top.png')
+    br
+    // <div id="title_wait">ALIEN</div>
+    p#wait_message
+    | &#x9854;&#x3092;&#x96A0;&#x3059;&#x3088;&#x3046;&#x306E;&#x30DE;&#x30B9;&#x30AF;&#x304B;&#x30E2;&#x30C7;&#x30EB;&#x3092;
+    br
+    | &#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;
+    |             
+    input#roomid(type='hidden', value='', name='roomid')
+    input#type(type='hidden', value='', name='type')
+    // <input type="hidden" value="" id="time" name="time">
+    label
+        input.radio(type='radio', name='model', value='1', checked='')
+        img.radio_image(src='../assets/test1.png')
+    |             
+    label
+        input.radio(type='radio', name='model', value='2')
+        img.radio_image(src='../assets/test2.png')
+    |             
+    label
+        input.radio(type='radio', name='model', value='3')
+        img.radio_image(src='../assets/test3.png')
+    |             
+    label
+        input.radio(type='radio', name='model', value='4')
+        img.radio_image(src='../assets/test4.png')
+    |             
+    #makeroom
+    button#calling(type='submit') &#x901A;&#x8A71;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;
+|  
+|         
+script(src='./javascripts/Waiting.js')
+script(async='', src='“https://www.googletagmanager.com/gtag/js?id=UA-171485531-1”')
+  script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(‘js’, new Date());
+      gtag(‘config’, ‘UA-171485531-1’);

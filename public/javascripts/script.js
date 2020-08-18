@@ -11,7 +11,8 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
-  console.log("est");
+  document.getElementById("canvas2").style.cssText += "hidden transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);";
+  document.getElementById("canvas2").style.visibility = "hidden";
   }
   
   const meta = document.getElementById('js-meta');
@@ -22,6 +23,8 @@ const Peer = window.Peer;
   //GETパラメータ(部屋名)を取得
   let roomId
   let time
+  let type
+  let model
   getParam();
   
   metainnerText = `
@@ -117,7 +120,8 @@ const Peer = window.Peer;
   });
 
   //追加機能share
-  var copy_url = document.URL
+  let copy_url = document.URL
+  console.log(copy_url.replace('model=', ''))
   shareTrigger.addEventListener('click',() => {
     shared_url_copy(copy_url);
     alert("コピーできました");
@@ -125,7 +129,7 @@ const Peer = window.Peer;
   
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
-  
+  const chenge = document.getElementById('change');
   
 
   //ボタン押した時のカメラ関係の動作
@@ -148,6 +152,38 @@ toggleMicrophone.addEventListener('click', () => {
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
 
+//マスク関係の動作
+if(type=="mask"){
+  maskhyouzi();
+}else if(type=='babiniku'){
+  if(typeof model == "string" ){
+    syokika = true
+    let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+    threevrm(VRM[model]);
+  }else{
+  syokika = true
+  let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+  let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+  console.log(VRMnum);
+  threevrm(VRM[VRMnum]);
+  }
+}
+chenge.addEventListener('click', () => {
+  if(type=="mask"){
+  }else if(type=='babiniku'){
+    if (syokika) {
+      console.log("メモリ消去")
+      scene.remove.apply(scene, scene.children);
+    }
+    syokika = true
+    currentVRM = null;
+    let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+    let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+    console.log(VRMnum);
+    threevrm(VRM[VRMnum]);
+  }
+});
+
   // エラー時のダイアログ表示
   function error(message, linkText, linkHref) {
     __modal("エラー", message, linkText, linkHref);
@@ -158,6 +194,8 @@ toggleMicrophone.addEventListener('click', () => {
     let params = (new URL(document.location)).searchParams;
     roomId = params.get('roomid');
     time = params.get('time');
+    type = params.get('type');
+    model = params.get('model');
   }
   peer.on('error', console.error);
 })();
