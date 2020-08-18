@@ -28,7 +28,7 @@
     <div class="room">
       <div id = "container">
         <div class="remote-streams" id="js-remote-streams">
-          <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
+          <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);height: 800px;"></video>
           <br>
           <div>
             <!-- stream画面内にボタンを表示する場合(細かい位置は設定途中) -->
@@ -41,29 +41,18 @@
         <!-- ルーム検索 -->
       <div>
         <span id="js-room-mode"></span>
-        <!-- ルームに接続 -->
-        <button id="js-leave-trigger" class="leave-btn">Leave</button>
-        <button id="js-share-trigger">share</button>
-        <br>
-          <button id="js-toggle-camera" class="camera-btn"></button>      
+        <!-- ルーム検索 -->
+        <div>
+          <span id="js-room-mode"></span>
+          <!-- ルームに接続 -->
           <button id="js-toggle-microphone" class="mic-btn"></button>
-          <button id="change">change</button>
-          <br>
-          <div>
-            <div class="row">
-              <div class="col-12">
-              </div>
-            </div>
-          </div>
-    </div>
-  </div>
-<!--        <div>
-          <pre class="messages" id="js-messages"></pre>
-          <input type="text" id="js-local-text">
-          <button id="js-send-trigger">Send</button>
+          <button id="js-toggle-camera" class="camera-btn"></button>
+          <button id="js-share-trigger" class="share-btn">share</button>
+          <button id="js-leave-trigger" class="leave-btn">Leave</button>
         </div>
--->
-      <p class="meta" id="js-meta"></p>
+      </div>
+    </div>
+    <p class="meta" id="js-meta"></p>
   </div> <!-- container -->
     <!-- threevrm関連 -->
     <script src="https://unpkg.com/three@0.108"></script>
@@ -82,7 +71,7 @@
     <script src="./javascripts/Overlayout.js"></script>
     <script src="./javascripts/script.js"></script>
     <div class="btn_div">
-      <button id="test1">時間</button>
+<!--     <button id="test1">時間</button>--> 
     </div>
 
     <!-- <script>
