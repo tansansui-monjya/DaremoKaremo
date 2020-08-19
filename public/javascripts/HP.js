@@ -1,14 +1,21 @@
 const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
 
-const room_make = document.addEventListener('click',() => { 
-  (async () => {
-    console.log("test");
-    let hashID = await sha256(room);
-    document.getElementById("roomid").value = hashID;
-  })();  
-	return;
-})
+(async () => {
+  console.log("test");
+  document.getElementById("roomid").value = await sha256(Math.random().toString(36).slice(-8));
+})();  
+
+if(room != null&&room != ""){
+  const room_make = document.addEventListener('click',() => { 
+    (async () => {
+      console.log("test");
+      let hashID = await sha256(room);
+      document.getElementById("roomid").value = hashID;
+    })();  
+    return;
+  })
+}
 
 
 // window.onbeforeunload = function(event) {
