@@ -114,7 +114,7 @@ const Peer = window.Peer;
     leaveTrigger.addEventListener('click', () => {
       room.close();
       //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
-      window.open('https://kg-alien.herokuapp.com/HP.html', '_self').close();
+      window.open('https://alien-4.herokuapp.com/', '_self').close();
     }, 
     { once: true });
   });
