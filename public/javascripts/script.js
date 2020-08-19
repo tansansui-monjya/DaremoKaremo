@@ -40,7 +40,6 @@ const Peer = window.Peer;
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
-  visualizer(localStream);
   await localVideo.play().catch(console.error);
   // Peerのインスタンス作成
   const peer = (window.peer = new Peer({
@@ -127,24 +126,24 @@ const Peer = window.Peer;
   
 
   //ボタン押した時のカメラ関係の動作
-toggleCamera.addEventListener('click', () => {
-  const canvas2 = document.getElementById('canvas2');
-  const videoTracks = localStream.getVideoTracks()[0];
-  videoTracks.enabled = !videoTracks.enabled;
-  console.log(videoTracks.enabled)
+// toggleCamera.addEventListener('click', () => {
+//   const canvas2 = document.getElementById('canvas2');
+//   const videoTracks = localStream.getVideoTracks()[0];
+//   videoTracks.enabled = !videoTracks.enabled;
+//   console.log(videoTracks.enabled)
 
-  toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
-  canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
+//   toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+//   canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
 
-});
+// });
 
 //ボタン押した時のマイク関係の動作
-toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
-  audioTracks.enabled = !audioTracks.enabled;
-  console.log(audioTracks.enabled)
-  toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
-});
+// toggleMicrophone.addEventListener('click', () => {
+//   const audioTracks = localStream.getAudioTracks()[0];
+//   audioTracks.enabled = !audioTracks.enabled;
+//   console.log(audioTracks.enabled)
+//   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
+// });
 
   // エラー時のダイアログ表示
   function error(message, linkText, linkHref) {
