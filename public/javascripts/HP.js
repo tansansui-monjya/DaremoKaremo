@@ -1,11 +1,9 @@
 const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
-
 (async () => {
   console.log("test");
   document.getElementById("roomid").value = await sha256(Math.random().toString(36).slice(-8));
 })();  
-
 if(room != null&&room != ""){
   const room_make = document.addEventListener('click',() => { 
     (async () => {
@@ -16,11 +14,6 @@ if(room != null&&room != ""){
     return;
   })
 }
-
-
-// window.onbeforeunload = function(event) {
-	
-// };
 
 //ハッシュ関数
 async function sha256(str) {
