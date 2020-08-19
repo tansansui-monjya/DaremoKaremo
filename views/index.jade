@@ -37,10 +37,6 @@ head
                 <button id="js-toggle-microphone" class="mic-btn"></button>
                 <button id="js-leave-trigger" class="leave-btn">Leave</button>
           |     
-          p
-          // ルーム検索
-          div
-            span#js-room-mode
             // ルーム検索
             div
               span#js-room-mode
@@ -106,3 +102,9 @@ head
         butobj.innerHTML = hi.toLocaleString();
         }
         </script>
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-171485531-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-171485531-1');
