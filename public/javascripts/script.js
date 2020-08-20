@@ -149,7 +149,7 @@ const Peer = window.Peer;
 
 // ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
+  const audioTracks = audioStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   console.log(audioTracks.enabled)
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
