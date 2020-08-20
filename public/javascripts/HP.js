@@ -1,10 +1,13 @@
 const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
 
+roomId = Math.random().toString(36).slice(-8);
+
 const room_make = document.addEventListener('click',() => { 
+  roomId += room.value;
   (async () => {
     console.log("test");
-    let hashID = await sha256(room);
+    let hashID = await sha256(roomId);
     document.getElementById("roomid").value = hashID;
   })();  
 	return;
