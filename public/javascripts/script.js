@@ -132,7 +132,8 @@ const Peer = window.Peer;
 
   //追加機能share
   let copy_url = document.URL
-  console.log(copy_url.replace('model=', ''))
+  copy_url = copy_url.replace('model=', '')
+  console.log(copy_url)
   shareTrigger.addEventListener('click',() => {
     shared_url_copy(copy_url);
     alert("コピーできました");
