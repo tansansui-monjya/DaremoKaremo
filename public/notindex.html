@@ -30,20 +30,24 @@
         <div class="remote-streams" id="js-remote-streams">
           <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);height: 800px;"></video>
         </div>
+    <p></p>
         <!-- ルーム検索 -->
-      <div>
-        <span id="js-room-mode"></span>
-          <!-- ルームに接続 -->
-          <button id="js-toggle-microphone" class="mic-btn"></button>
-          <button id="js-toggle-camera" class="camera-btn"></button>
-          <button id="js-share-trigger" class="share-btn">share</button>
-          <button id="js-leave-trigger" class="leave-btn">Leave</button>
-          <button id="change">change</button>
+        <div>
+          <span id="js-room-mode"></span>
+          <!-- ルーム検索 -->
+          <div>
+            <span id="js-room-mode"></span>
+            <!-- ルームに接続 -->
+            <button id="js-toggle-microphone" class="mic-btn"></button>
+            <button id="js-toggle-camera" class="camera-btn"></button>
+            <button id="js-share-trigger" class="share-btn">share</button>
+            <button id="js-leave-trigger" class="leave-btn">Leave</button>
+            <button id="change">change</button>
+          </div>
         </div>
       </div>
-    </div>
-    <p class="meta" id="js-meta"></p>
-  </div> <!-- container -->
+      <p class="meta" id="js-meta"></p>
+    </div> <!-- container -->
     <!-- threevrm関連 -->
     <script src="https://unpkg.com/three@0.108"></script>
     <script src="https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js"></script>
@@ -64,7 +68,7 @@
     <script src="./javascripts/script.js"></script>
     <div class="btn_div">
 <!--     <button id="test1">時間</button>--> 
-    </div>
+  </div>
 
     <!-- <script>
               document.getElementById('test1').onclick=function(){
