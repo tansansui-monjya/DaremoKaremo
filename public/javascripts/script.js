@@ -10,7 +10,7 @@ const Peer = window.Peer;
   //threevrmのcanvas読み込み
   let canvas = null;
   while(canvas == null){
-  canvas = document.getElementById("canvas2").captureStream();
+  canvas = document.getElementById("canvas2").captureStream(30);
   document.getElementById("canvas2").style.cssText += "hidden transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);";
   //document.getElementById("canvas2").style.visibility = "hidden";
   }
@@ -46,7 +46,8 @@ const Peer = window.Peer;
   
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
-  canvas.addTrack(audioStream)
+  const audioTrack = audioStream.getAudioTracks()[0]
+  canvas.addTrack(audioTrack)
     // const audioTrack = audioStream.getAudioTracks()[0]
     // remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
