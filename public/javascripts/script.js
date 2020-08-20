@@ -72,6 +72,8 @@ const Peer = window.Peer;
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
+      var arrayLength = remoteVideos.length + 1;
+      console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -82,9 +84,12 @@ const Peer = window.Peer;
       // mark peerId to find it later at peerLeave event
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
+      //スマホの大きさに調節
+      newVideo.setAttribute('style','transform: scaleX(-1);height: 800px;');
+      //配置を設定
+      newVideo.setAttribute('id','user'+arrayLength);
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
-
       // awaitはasync streamの実行を一時停止し、Promiseの解決または拒否を待ちます。
       await newVideo.play().catch(console.error);
 //      count+=1;
