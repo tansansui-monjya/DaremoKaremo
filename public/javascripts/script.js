@@ -45,8 +45,8 @@ const Peer = window.Peer;
   // localStreamをdiv(localVideo)に挿入
   
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
-    const audioTrack = audioStream.getAudioTracks()[0]
-    remoteVideos.srcObject.addTrack(audioTrack)
+    // const audioTrack = audioStream.getAudioTracks()[0]
+    // remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
@@ -69,9 +69,8 @@ const Peer = window.Peer;
       mode: getRoomModeByHash(),
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
+      stream: audioStream,
     });
-
-    // const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
