@@ -29,7 +29,7 @@ p &#x90E8;&#x5C4B;&#x540D;
 |         
 input#room(type='text', name='room', placeholder='宇宙船')
 |     
-form(action='/waiting', method='GET')
+form(name='room_data', action='/waiting', method='GET')
     input#roomid(type='hidden', name='roomid')
     p 3D&#x5C11;&#x5973;&#x304B;&#x30DE;&#x30B9;&#x30AF;&#x304B;&#x9078;&#x3093;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
     |             
@@ -43,7 +43,7 @@ form(action='/waiting', method='GET')
     label(for='mask') &#x30DE;&#x30B9;&#x30AF;
     |         
     #makeroom
-    button#room_make(type='submit') &#x90E8;&#x5C4B;&#x3092;&#x3064;&#x304F;&#x308B;
+    button#room_make &#x90E8;&#x5C4B;&#x3092;&#x3064;&#x304F;&#x308B;
     |         
     div
     script(src='./javascripts/HP.js')

@@ -43,6 +43,11 @@ const Peer = window.Peer;
       video: true,
     })
   // localStreamをdiv(localVideo)に挿入
+  
+  const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+  const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
+    // const audioTrack = audioStream.getAudioTracks()[0]
+    // remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
@@ -65,9 +70,9 @@ const Peer = window.Peer;
       mode: getRoomModeByHash(),
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
+      stream: audioStream,
+      stream: videoStream,
     });
-
-    // const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
@@ -136,12 +141,13 @@ const Peer = window.Peer;
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const chenge = document.getElementById('change');
-  
-
-  //ボタン押した時のカメラ関係の動作
-toggleCamera.addEventListener('click', () => {
   const canvas2 = document.getElementById('canvas2');
-  const videoTracks = localStream.getVideoTracks()[0];
+
+  // ボタン押した時のカメラ関係の動作
+toggleCamera.addEventListener('click', () => {
+  const videoTracks = videoStream.getVideoTracks()[0];
+  const localTracks = localStream.getVideoTracks()[0];
+  localTracks.enabled = !localTracks.enabled;
   videoTracks.enabled = !videoTracks.enabled;
   console.log(videoTracks.enabled)
 
@@ -150,9 +156,9 @@ toggleCamera.addEventListener('click', () => {
 
 });
 
-//ボタン押した時のマイク関係の動作
+// ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
+  const audioTracks = audioStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   console.log(audioTracks.enabled)
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
