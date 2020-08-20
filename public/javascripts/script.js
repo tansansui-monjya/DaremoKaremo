@@ -46,6 +46,7 @@ const Peer = window.Peer;
   
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
+  canvas.addTrack(audioStream)
     // const audioTrack = audioStream.getAudioTracks()[0]
     // remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
@@ -70,8 +71,6 @@ const Peer = window.Peer;
       mode: getRoomModeByHash(),
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
-      stream: audioStream,
-      //stream: videoStream,
     });
 
     // Render remote stream for new peer join in the room
