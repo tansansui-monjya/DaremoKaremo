@@ -43,6 +43,9 @@ const Peer = window.Peer;
       video: true,
     })
   // localStreamをdiv(localVideo)に挿入
+  
+  remoteVideos.srcObject.audioStream.getAudioTracks()[0]
+  remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
@@ -127,30 +130,30 @@ const Peer = window.Peer;
     alert("コピーできました");
   });
   
-  const toggleCamera = document.getElementById('js-toggle-camera');
-  const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  // const toggleCamera = document.getElementById('js-toggle-camera');
+  // const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const chenge = document.getElementById('change');
   
 
   //ボタン押した時のカメラ関係の動作
-toggleCamera.addEventListener('click', () => {
-  const canvas2 = document.getElementById('canvas2');
-  const videoTracks = localStream.getVideoTracks()[0];
-  videoTracks.enabled = !videoTracks.enabled;
-  console.log(videoTracks.enabled)
+// toggleCamera.addEventListener('click', () => {
+//   const canvas2 = document.getElementById('canvas2');
+//   const videoTracks = localStream.getVideoTracks()[0];
+//   videoTracks.enabled = !videoTracks.enabled;
+//   console.log(videoTracks.enabled)
 
-  toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
-  canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
+//   toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+//   canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
 
-});
+// });
 
 //ボタン押した時のマイク関係の動作
-toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = localStream.getAudioTracks()[0];
-  audioTracks.enabled = !audioTracks.enabled;
-  console.log(audioTracks.enabled)
-  toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
-});
+// toggleMicrophone.addEventListener('click', () => {
+//   const audioTracks = localStream.getAudioTracks()[0];
+//   audioTracks.enabled = !audioTracks.enabled;
+//   console.log(audioTracks.enabled)
+//   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
+// });
 
 //マスク関係の動作
 if(type=="mask"){
