@@ -130,8 +130,8 @@ const Peer = window.Peer;
     alert("コピーできました");
   });
   
-  // const toggleCamera = document.getElementById('js-toggle-camera');
-  // const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const toggleCamera = document.getElementById('js-toggle-camera');
+  const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const chenge = document.getElementById('change');
   
 
