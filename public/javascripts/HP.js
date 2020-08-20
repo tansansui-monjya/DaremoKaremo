@@ -1,26 +1,30 @@
 const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
+const room_data = document.getElementById("room_data");
+const room_make = document.getElementById("room_make");
 
 const date1 = new Date();
-	const date2 = date1.getFullYear() + 
-				(date1.getMonth() + 1)  + 
-				date1.getDate() + 
-				date1.getHours() + 
-				date1.getMinutes() + 
-				date1.getSeconds() + 
-				date1.getMilliseconds() +  
-				youbi[date1.getDay()] // 0は日曜日～6は土曜日
+	const date2 = date1.getFullYear() + "" +
+				(date1.getMonth() + 1)  + "" +
+				date1.getDate() + "" +
+				date1.getHours() + "" +
+				date1.getMinutes() + "" +
+				date1.getSeconds() + "" +
+				date1.getMilliseconds();
+        console.log(date2);
+  
 
-const room_make = document.addEventListener('click',() => { 
-  roomId += room.value;
+
+room_make.addEventListener('click',() => {
   (async () => {
-    console.log("test");
+    roomId.value = room.value;
     let hashID = await sha256(date2);
-    document.getElementById("roomid").value = hashID;
+    roomId.value += hashID;
+    console.log("test");
+    document.room_data.submit();
   })();  
 	return;
 })
-
 
 // window.onbeforeunload = function(event) {
 	
