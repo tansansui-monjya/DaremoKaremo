@@ -3,7 +3,9 @@ const roomId = document.getElementById("roomid");
 const room_data = document.getElementById("room_data");
 const room_make = document.getElementById("room_make");
 
-const date1 = new Date();
+room_make.addEventListener('click',() => {
+  (async () => {
+    const date1 = new Date();
 	const date2 = date1.getFullYear() + "" +
 				(date1.getMonth() + 1)  + "" +
 				date1.getDate() + "" +
@@ -12,23 +14,15 @@ const date1 = new Date();
 				date1.getSeconds() + "" +
 				date1.getMilliseconds();
         console.log(date2);
-  
-
-
-room_make.addEventListener('click',() => {
-  (async () => {
     roomId.value = room.value;
-    let hashID = await sha256(date2);
-    roomId.value += hashID;
-    console.log("test");
+    roomId.value += date2
+    let hashID = await sha256(roomId.value);
+    roomId.value = hashID;
+    // console.log("test");
     document.room_data.submit();
   })();  
 	return;
 })
-
-// window.onbeforeunload = function(event) {
-	
-// };
 
 //ハッシュ関数
 async function sha256(str) {
@@ -39,6 +33,6 @@ async function sha256(str) {
     // Convert ArrayBuffer to hex string
     // (from: https://stackoverflow.com/a/40031979)
     let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
-    console.log(hash)
+    // console.log(hash)
     return hash
   }
