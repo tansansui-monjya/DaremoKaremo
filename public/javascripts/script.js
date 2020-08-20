@@ -140,6 +140,8 @@ const Peer = window.Peer;
   // ボタン押した時のカメラ関係の動作
 toggleCamera.addEventListener('click', () => {
   const videoTracks = videoStream.getVideoTracks()[0];
+  const localTracks = localStream.getVideoTracks()[0];
+  localTracks.enabled = !localTracks.enabled;
   videoTracks.enabled = !videoTracks.enabled;
   console.log(videoTracks.enabled)
 
