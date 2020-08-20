@@ -44,8 +44,9 @@ const Peer = window.Peer;
     })
   // localStreamをdiv(localVideo)に挿入
   
-  remoteVideos.srcObject.localStream.getAudioTracks()[0]
-  remoteVideos.srcObject.addTrack(audioTrack)
+  const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+    const audioTrack = audioStream.getAudioTracks()[0]
+    stream.addTrack(audioTrack)
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
