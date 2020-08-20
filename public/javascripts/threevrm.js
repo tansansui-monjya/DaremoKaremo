@@ -117,9 +117,9 @@ function threevrm(VRM){
   }
 
   function handleJeelizTrack( state ) { // jeelizのトラッキング情報が取得された際の処理
-    //console.log("顔認識してる");
+    // console.log("顔認識してる");
     if ( currentVRM ) { // もしcurrentVRMがあれば
-      //console.log("反映もできてるよ");
+      // console.log("顔認識反映できてるよ");
       const head = currentVRM.humanoid.getBoneNode( THREE.VRMSchema.HumanoidBoneName.Head ); // VRMのHeadを取得
       head.rotation.set( -state.rx, state.ry, state.rz, 'ZXY' ); // 頭の回転をVRMに反映
 

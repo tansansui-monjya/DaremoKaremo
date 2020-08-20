@@ -12,7 +12,7 @@ const Peer = window.Peer;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream();
   document.getElementById("canvas2").style.cssText += "hidden transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);";
-  document.getElementById("canvas2").style.visibility = "hidden";
+  //document.getElementById("canvas2").style.visibility = "hidden";
   }
   
   const meta = document.getElementById('js-meta');
@@ -100,7 +100,7 @@ const Peer = window.Peer;
       const remoteVideo = remoteVideos.querySelector(
         `[data-peer-id=${peerId}]`
       );
-      remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+      //remoteVideo.srcObject.getTracks().forEach(track => track.stop());
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
@@ -109,7 +109,7 @@ const Peer = window.Peer;
     room.once('close', () => {
       
       Array.from(remoteVideos.children).forEach(remoteVideo => {
-        remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+        //remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
         remoteVideo.remove();
       });
@@ -119,7 +119,8 @@ const Peer = window.Peer;
     leaveTrigger.addEventListener('click', () => {
       room.close();
       //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
-      window.open('https://kg-alien.herokuapp.com/HP.html', '_self').close();
+      window.location.href = "/"
+      console.log("test")
     }, 
     { once: true });
   });
