@@ -1,13 +1,21 @@
 const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
 
-roomId = Math.random().toString(36).slice(-8);
+const date1 = new Date();
+	const date2 = date1.getFullYear() + 
+				(date1.getMonth() + 1)  + 
+				date1.getDate() + 
+				date1.getHours() + 
+				date1.getMinutes() + 
+				date1.getSeconds() + 
+				date1.getMilliseconds() +  
+				youbi[date1.getDay()] // 0は日曜日～6は土曜日
 
 const room_make = document.addEventListener('click',() => { 
   roomId += room.value;
   (async () => {
     console.log("test");
-    let hashID = await sha256(roomId);
+    let hashID = await sha256(date2);
     document.getElementById("roomid").value = hashID;
   })();  
 	return;
