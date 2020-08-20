@@ -45,6 +45,7 @@ const Peer = window.Peer;
   // localStreamをdiv(localVideo)に挿入
   
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+  const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
     // const audioTrack = audioStream.getAudioTracks()[0]
     // remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
@@ -70,6 +71,7 @@ const Peer = window.Peer;
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
       stream: audioStream,
+      stream: videoStream,
     });
 
     // Render remote stream for new peer join in the room
@@ -133,19 +135,18 @@ const Peer = window.Peer;
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const chenge = document.getElementById('change');
-  
+  const canvas2 = document.getElementById('canvas2');
 
-  //ボタン押した時のカメラ関係の動作
-// toggleCamera.addEventListener('click', () => {
-//   const canvas2 = document.getElementById('canvas2');
-//   const videoTracks = localStream.getVideoTracks()[0];
-//   videoTracks.enabled = !videoTracks.enabled;
-//   console.log(videoTracks.enabled)
+  // ボタン押した時のカメラ関係の動作
+toggleCamera.addEventListener('click', () => {
+  const videoTracks = videoStream.getVideoTracks()[0];
+  videoTracks.enabled = !videoTracks.enabled;
+  console.log(videoTracks.enabled)
 
-//   toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
-//   canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
+  toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+  canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
 
-// });
+});
 
 // ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
