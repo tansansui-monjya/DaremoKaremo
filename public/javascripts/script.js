@@ -71,7 +71,7 @@ const Peer = window.Peer;
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
       stream: audioStream,
-      stream: videoStream,
+      //stream: videoStream,
     });
 
     // Render remote stream for new peer join in the room
