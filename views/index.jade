@@ -27,32 +27,19 @@ head
         #container
           #js-remote-streams.remote-streams
             video#js-local-stream.local-video(style='transform: scaleX(-1);height: 800px;')
-            |           
-            br
-            |           
-            div
-              // stream画面内にボタンを表示する場合(細かい位置は設定途中)
-              //
-                <button id="js-toggle-camera" class="camera-btn"></button>
-                <button id="js-toggle-microphone" class="mic-btn"></button>
-                <button id="js-leave-trigger" class="leave-btn">Leave</button>
-          |     
           // ルーム検索
           div
             span#js-room-mode
-            // ルーム検索
-            div
-              span#js-room-mode
-              // ルームに接続
-              button#js-toggle-microphone.mic-btn
-              |           
-              button#js-toggle-camera.camera-btn
-              |           
-              button#js-share-trigger.share-btn share
-              |           
-              button#js-leave-trigger.leave-btn Leave
-              |           
-              button#change change
+            // ルームに接続
+            button#js-toggle-microphone.mic-btn
+            |           
+            button#js-toggle-camera.camera-btn
+            |           
+            button#js-share-trigger.share-btn
+            |           
+            button#js-leave-trigger.leave-btn
+            |           
+            button#change change
         |     
         p#js-meta.meta
       // container
