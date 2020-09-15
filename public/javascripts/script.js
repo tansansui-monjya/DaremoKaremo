@@ -10,7 +10,7 @@ const Peer = window.Peer;
   //threevrmのcanvas読み込み
   let canvas = null;
   while(canvas == null){
-  canvas = document.getElementById("canvas2").captureStream(30);
+  canvas = document.getElementById("canvas2").captureStream();
   document.getElementById("canvas2").style.cssText += "hidden transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);";
   //document.getElementById("canvas2").style.visibility = "hidden";
   }
@@ -43,13 +43,6 @@ const Peer = window.Peer;
       video: true,
     })
   // localStreamをdiv(localVideo)に挿入
-  
-  const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
-  const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
-  const audioTrack = audioStream.getAudioTracks()[0]
-  canvas.addTrack(audioTrack)
-    // const audioTrack = audioStream.getAudioTracks()[0]
-    // remoteVideos.srcObject.addTrack(audioTrack)
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
@@ -74,11 +67,11 @@ const Peer = window.Peer;
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
     });
 
+    // const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
+
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
-      var arrayLength = remoteVideos.length + 1;
-      console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -89,12 +82,9 @@ const Peer = window.Peer;
       // mark peerId to find it later at peerLeave event
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
-      //スマホの大きさに調節
-      newVideo.setAttribute('style','transform: scaleX(-1);height: 800px;');
-      //配置を設定
-      newVideo.setAttribute('id','user'+arrayLength);
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
+
       // awaitはasync streamの実行を一時停止し、Promiseの解決または拒否を待ちます。
       await newVideo.play().catch(console.error);
 //      count+=1;
@@ -132,8 +122,7 @@ const Peer = window.Peer;
 
   //追加機能share
   let copy_url = document.URL
-  copy_url = copy_url.replace('model=', '')
-  console.log(copy_url)
+  console.log(copy_url.replace('model=', ''))
   shareTrigger.addEventListener('click',() => {
     shared_url_copy(copy_url);
     alert("コピーできました");
@@ -142,13 +131,12 @@ const Peer = window.Peer;
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const chenge = document.getElementById('change');
-  const canvas2 = document.getElementById('canvas2');
+  
 
-  // ボタン押した時のカメラ関係の動作
+  //ボタン押した時のカメラ関係の動作
 toggleCamera.addEventListener('click', () => {
-  const videoTracks = videoStream.getVideoTracks()[0];
-  const localTracks = localStream.getVideoTracks()[0];
-  localTracks.enabled = !localTracks.enabled;
+  const canvas2 = document.getElementById('canvas2');
+  const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
   console.log(videoTracks.enabled)
 
@@ -157,9 +145,9 @@ toggleCamera.addEventListener('click', () => {
 
 });
 
-// ボタン押した時のマイク関係の動作
+//ボタン押した時のマイク関係の動作
 toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = audioStream.getAudioTracks()[0];
+  const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   console.log(audioTracks.enabled)
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
