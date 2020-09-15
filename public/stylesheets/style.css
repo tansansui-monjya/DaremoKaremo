@@ -261,9 +261,10 @@ video {
 
 /*エイリアンボタンオンオフ実装予定(次サイクル)*/
 
-/* .alien-btn{
+.alien-btn{
   display: inline-block;
   text-decoration: none;
+  background: orange;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -282,9 +283,6 @@ video {
   background-size: contain;
   vertical-align: middle;
 }
-.alien-btn:hover{
-  background: #ffffff;
-} */
 
 .canvas2_cover{
   filter: brightness(0%);
