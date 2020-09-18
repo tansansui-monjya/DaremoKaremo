@@ -7,7 +7,7 @@ width: auto;
 height: auto;
 display: block;
 margin: auto;
-margin-top: 100px;
+margin-top: 10%;
 
 }
 
@@ -22,10 +22,11 @@ text-align: center;
 p#wait_message{
 text-align: center;
 color: #e5e5e5;
-margin-top: 100px;
+margin-top: 20%;
 }
 
 .flex {
+    margin-top: 30%;
     display: flex;
     justify-content: space-between;
 }
@@ -66,11 +67,12 @@ margin-top: 100px;
 }
 
 button#calling{
+    margin-top: 30%;
+    
+
     /* ボタン */
     /* width: 298px;
     height: 40px; */
-
-    
     transform: translate(50%,50%);
     /* margin: 20px; */
     background: #DB560E;
