@@ -247,6 +247,31 @@ video {
   background: #FFFFFF;
 }
 
+/*エイリアンボタンオンオフ実装予定(次サイクル)*/
+
+.alien-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: orange;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.alien-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./alien_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
 .canvas2_cover{
   filter: brightness(0%);
 }
