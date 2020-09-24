@@ -297,7 +297,7 @@ video {
 
 /* スマホ写した時 */
 @media screen and (max-width: 480px){
-    .room {
+    /* .room {
       display: grid;
       grid-template-columns: 30% 40% 30%;
       gap: 8px;
@@ -305,19 +305,6 @@ video {
       background-color: #3B1D70;
       height:100%;
            border:dotted 2px #666666;
-    }
-/* 相手のビデオ画面変更 */
-.camera-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
     } */
     /* 相手のビデオ画面変更 */
   .camera-btn{
@@ -470,6 +457,7 @@ video {
   .share-btn:hover{
     background: #FFFFFF;
   }
+}
 
 /* オーバーレイ */
 .overlay-all {
