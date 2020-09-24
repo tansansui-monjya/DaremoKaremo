@@ -296,6 +296,16 @@ video {
 }
 
 /* スマホ写した時 */
+@media screen and (max-width: 480px){
+    .room {
+      display: grid;
+      grid-template-columns: 30% 40% 30%;
+      gap: 8px;
+      margin: 0;
+      background-color: #3B1D70;
+      height:100%;
+           border:dotted 2px #666666;
+    }
 /* 相手のビデオ画面変更 */
 .camera-btn{
     display: inline-block;
