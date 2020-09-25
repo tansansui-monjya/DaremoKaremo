@@ -293,6 +293,10 @@ video {
 
 .button-center{
   text-align: center;
+  position: absolute;
+  top:37vh;
+  left: 8vw;
+  z-index: 2;
 }
 
 /* スマホ写した時 */
