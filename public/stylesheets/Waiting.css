@@ -134,3 +134,24 @@ div#makeroom{
         row-gap: 1ch;
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    p#wait_message{
+        font-size: 35px;
+    }
+
+    .character{
+        padding-top: 70%;
+        height: 0%;
+    }
+
+    .grid_layout{
+        row-gap: 1ch;
+    }
+
+    button#calling{
+        font-size: 30px;
+        height: 8%;
+        top: 92%;
+    }
+}
