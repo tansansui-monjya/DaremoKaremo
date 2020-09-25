@@ -22,7 +22,6 @@ text-align: center;
 p#wait_message{
 text-align: center;
 color: #e5e5e5;
-margin-top: 10%;
 }
 
 /* .flex {
@@ -123,4 +122,15 @@ button#calling{
 
 div#makeroom{
     text-align:center;
+}
+
+@media screen and (max-width: 414px) and (max-height: 811px){
+    .character{
+        padding-top: 90%;
+        height: 0%;
+    }
+
+    .grid_layout{
+        row-gap: 1ch;
+    }
 }
