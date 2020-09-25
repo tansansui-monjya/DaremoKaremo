@@ -286,6 +286,57 @@ video {
   background-size: contain;
   vertical-align: middle;
 }
+/* スピーカーボタン */
+.speaker-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.speaker-btn:hover{
+  background: #ffffff;
+}
+.speaker-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./speaker_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.speaker-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #E26522;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.speaker-btn_OFF:hover{
+  background: #E26522;
+}
+.speaker-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./speaker_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
 
 .canvas2_cover{
   filter: brightness(0%);
@@ -294,8 +345,8 @@ video {
 .button-center{
   text-align: center;
   position: absolute;
+  width: 100vw;
   top:37vh;
-  left: 8vw;
   z-index: 2;
 }
 

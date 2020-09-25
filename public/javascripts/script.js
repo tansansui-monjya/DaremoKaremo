@@ -141,6 +141,7 @@ const Peer = window.Peer;
   
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const toggleSpeaker = document.getElementById('js-toggle-speaker');
   const chenge = document.getElementById('change');
   const canvas2 = document.getElementById('canvas2');
 
@@ -164,6 +165,13 @@ toggleMicrophone.addEventListener('click', () => {
   console.log(audioTracks.enabled)
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
+
+//スピーカー押したときの音量の動作
+toggleSpeaker.addEventListener('click',() => {
+  const mediaTracks = MediaStream.getAudioTracks()[0];
+  mediaTracks.enabled = !mediaTracks.enabled;
+  console.log(mediaTracks.enabled)
+})
 
 //マスク関係の動作
 if(type=="mask"){
