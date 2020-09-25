@@ -1,12 +1,13 @@
 /* normalize */
 body {
    margin: 0; 
+   background-color: #3B1D70;
   }
 
 /* global styles */
 video {
   background-color: #111;
-  width: 100%;
+  width: 50vw;
 }
 
 .heading {
@@ -25,9 +26,9 @@ video {
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 980px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 375px;
 }
 
 /* p2p-media styles */
@@ -73,7 +74,7 @@ video {
   background-color: #f6fbff;
   border: solid;
   background-color: #3B1D70;
-  border-color: #f6fbff;
+  border-color: #3B1D70;
 }
 
 .room .messages {
@@ -86,6 +87,8 @@ video {
 
 /*人数変更*/
 .remote-streams {
+  width: 100vw;
+  height: 80vh;
   display: grid;
   /* ここいじれ */
   grid-template-columns: 1fr 1fr;
@@ -288,18 +291,173 @@ video {
   filter: brightness(0%);
 }
 
+.button-center{
+  text-align: center;
+}
+
 /* スマホ写した時 */
-/* @media screen and (max-width: 380px){
-  .room {
+@media screen and (max-width: 480px){
+  /* .room {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     gap: 8px;
-    margin: 0 8px;
+    margin: 0;
     background-color: #3B1D70;
     height:100%;
 	  border:dotted 2px #666666;
-  }
-} */
+  } */
+  /* 相手のビデオ画面変更 */
+.camera-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.camera-btn:hover{
+  background: #ffffff;
+}
+
+.camera-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #E26522;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.camera-btn_OFF:hover{
+  background: #E26522;
+}
+
+.mic-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn:hover{
+  background: #ffffff;
+}
+.mic-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.mic-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #E26522;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn_OFF:hover{
+  background: #E26522;
+}
+.mic-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.leave-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #FF0404;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.leave-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./Leave.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.share-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.share-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./share.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.share-btn:hover{
+  background: #FFFFFF;
+}
+}
 
 /* オーバーレイ */
 .overlay-all {
