@@ -74,7 +74,7 @@ color: #e5e5e5;
     width: 85%;
     height: 90%;
     object-fit: cover;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 #character1 {
@@ -98,10 +98,13 @@ color: #e5e5e5;
 }
 
 button#calling{
-    position: absolute;
+    /* position: absolute;
     top: 93%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
+
+    margin-top:70px;
+
     /* ボタン */
     /* width: 298px;
     height: 40px; */
@@ -133,6 +136,10 @@ div#makeroom{
     .grid_layout{
         row-gap: 1ch;
     }
+
+    button#calling{
+        margin-top: 30px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
@@ -151,7 +158,8 @@ div#makeroom{
 
     button#calling{
         font-size: 30px;
+        margin-top: 20px;
         height: 8%;
-        top: 92%;
+        border-radius: 100px;
     }
 }
