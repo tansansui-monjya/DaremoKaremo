@@ -2,7 +2,7 @@ html(lang='en')
 head
   meta(charset='UTF-8')
   // <meta name="viewport" content="width=device-width, initial-scale=1">
-  meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35')
+  meta(name='viewport', content='width=device-width, user-scalable=no')
   |     
   link(rel='stylesheet', href='./stylesheets/style.css')
   |   
@@ -26,21 +26,13 @@ head
       .room
         #container
           #js-remote-streams.remote-streams
-            video#js-local-stream.local-video(style='transform: scaleX(-1);height: 800px;')
-            |           
-            br
-            |           
-            div
-              // stream画面内にボタンを表示する場合(細かい位置は設定途中)
-              //
-                <button id="js-toggle-camera" class="camera-btn"></button>
-                <button id="js-toggle-microphone" class="mic-btn"></button>
-                <button id="js-leave-trigger" class="leave-btn">Leave</button>
-          |     
+            video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;')
           // ルーム検索
-          div
+          div(class = "button-center")
             span#js-room-mode
             // ルームに接続
+            button#change.alien-btn
+            |  
             button#js-toggle-microphone.mic-btn
             |           
             button#js-toggle-camera.camera-btn
@@ -48,9 +40,7 @@ head
             button#js-share-trigger.share-btn
             |           
             button#js-leave-trigger.leave-btn
-            |           
-            button#change.alien-btn
-            |             
+            |                                
         |     
         p#js-meta.meta
       // container
