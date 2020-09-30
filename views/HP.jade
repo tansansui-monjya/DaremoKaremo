@@ -10,7 +10,7 @@
 //- |   
 //- title ALIEN
 //- body
-//- img#top_id(src='top.png')
+//- img#top_id(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
 //- br
 //- |     
 //- #title_id ALIEN
@@ -58,7 +58,7 @@ html(lang='ja')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title ALIEN
   body
-    img#top_id(src='top.png')
+    img#top_id(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
     br
     #title_id ALIEN
     #cipher_id
@@ -72,7 +72,7 @@ html(lang='ja')
     // ↓アクションのところに遷移先
     p 部屋名
     input#room(type='text', name='room', placeholder='宇宙船')
-    form(action='/alien', method='GET')
+    form(action='/waiting', method='GET')
       input#roomid(type='hidden', name='roomid')
       //
         <p>制限時間</p>
