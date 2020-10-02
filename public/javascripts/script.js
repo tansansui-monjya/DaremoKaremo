@@ -168,8 +168,7 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click',() => {
-  const mediaTracks = remoteVideos.getAudioTracks()[0];
-  mediaTracks.muted = !mediaTracks.muted;
+  remoteVideos.muted = !remoteVideos.muted;
   console.log(mediaTracks.enabled)
   toggleSpeaker.className = `${mediaTracks.enabled? 'speaker-btn' : 'speaker-btn_OFF'}`
 })
