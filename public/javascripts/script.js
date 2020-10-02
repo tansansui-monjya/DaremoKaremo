@@ -168,8 +168,13 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click',() => {
-  remoteVideos.muted != remoteVideos.muted;
-  console.log(remoteVideos.muted)
+  navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+     .then(stream => {
+       const vid = document.getElementById('js-remote-streams');
+       vid.autoplay = true;
+       vid.muted = true;
+       vid.srcObject = stream;
+     });
   toggleSpeaker.className = `${remoteVideos.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
 })
 
