@@ -90,7 +90,7 @@ const Peer = window.Peer;
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','transform: scaleX(-1);height: 800px;');
+      newVideo.setAttribute('style','transform: scaleX(-1);height: 40px;');
       //配置を設定
       newVideo.setAttribute('id','user'+arrayLength);
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
@@ -168,7 +168,7 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click',() => {
-  const mediaTracks = localStream.getAudioTracks()[0];
+  const mediaTracks = MediaStream.getAudioTracks()[0];
   mediaTracks.enabled = !mediaTracks.enabled;
   console.log(mediaTracks.enabled)
   toggleSpeaker.className = `${mediaTracks.enabled? 'speaker-btn' : 'speaker-btn_OFF'}`
