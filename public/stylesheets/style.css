@@ -97,20 +97,35 @@ video {
   border: solid;
   border-color: #031de2;
   background-color: #3B1D70;
+  /*自身の上に3Dを重ねる
+  position: relative;
+  */
 }
+/*3Dモデル
+.canvas3 {
+  width: 100vw;
+  height: 80vh;
+  transform: scaleX(-1);
+  height: 40vh;
+  position: absolute;
+}
+*/
 #user1{
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+#user2{
   grid-row: 1/2;
   grid-column: 2/3;
 }
-#user2{
+#user3{
   grid-row: 2/3;
   grid-column: 1/2;
 }
-#user3{
+#user{
   grid-row: 2/3;
   grid-column: 2/3;
 }
-
 .camera-btn{
   display: inline-block;
   text-decoration: none;

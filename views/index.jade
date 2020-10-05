@@ -28,7 +28,7 @@ head
       .room
         #container
           #js-remote-streams.remote-streams
-            video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;')
+            
           // ルーム検索
           div(class = "button-center")
             span#js-room-mode
@@ -45,6 +45,7 @@ head
             |                                
         |     
         p#js-meta.meta
+        video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;visibility: hidden;')
       // container
       // threevrm関連
       script(src='https://unpkg.com/three@0.108')
