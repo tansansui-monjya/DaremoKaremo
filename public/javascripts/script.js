@@ -172,7 +172,7 @@ toggleMicrophone.addEventListener('click', () => {
 toggleSpeaker.addEventListener('click', () => {
   var media = document.getElementById("msc");
   media.muted = !media.muted;
-  console.log(media.muted)
+  console.log(remoteVideos)
   toggleSpeaker.className = `${media.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
 })
 
