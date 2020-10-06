@@ -3,6 +3,7 @@ img#top_id{
     height: auto;
     display: block;
     margin:auto;
+    margin-top: 20%;
 }
 
 div#title_id{
@@ -25,8 +26,12 @@ div#cipher_id{
 
 div#composite_id{
     /*normalは単語の途中で改行しない*/
+    margin-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     word-break: normal;
     color: white;
+    font-size: 20px;
 }
 
 input#name_id{
