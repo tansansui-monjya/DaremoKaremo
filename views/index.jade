@@ -5,6 +5,8 @@ head
   meta(name='viewport', content='width=device-width, user-scalable=no')
   |     
   link(rel='stylesheet', href='./stylesheets/style.css')
+  link(href='https://fonts.googleapis.com/css2?family=Megrim&display=swap', rel='stylesheet')
+
   |   
   body
     // Loading
@@ -15,7 +17,7 @@ head
         p Now Loading...
     // オーバーレイ
     #js-join-trigger.overlay-all
-      img#top_wait(src='./Top.png')
+      img#top_wait(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
       br
       |       
       #title_wait ALIEN
@@ -26,7 +28,7 @@ head
       .room
         #container
           #js-remote-streams.remote-streams
-            video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;')
+            
           // ルーム検索
           div(class = "button-center")
             span#js-room-mode
@@ -38,6 +40,7 @@ head
             button#js-share-trigger.share-btn         
             button#js-leave-trigger.leave-btn                   
         p#js-meta.meta
+        video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;visibility: hidden;')
       // container
       // threevrm関連
       script(src='https://unpkg.com/three@0.108')

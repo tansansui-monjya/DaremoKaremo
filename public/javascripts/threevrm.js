@@ -1,14 +1,23 @@
 /* global THREE, JEEFACEFILTERAPI, JeelizResizer */
 
-// const width = window.innerWidth;
-// const height = window.innerHeight;
-const width = 400;
-const height = 300;
+ const width = window.innerWidth;
+ const height = window.innerHeight;
+//const width = 200;
+//const height = 350;
 // -- renderer -------------------------------------------------------------------------------------
 let renderer = new THREE.WebGLRenderer();
-renderer.setSize( width, height );
-let element = document.getElementById('container').appendChild( renderer.domElement );
+//renderer.setSize( width, height );
+//cssに記載されているグリッドの大きさ取得
+var obj = document.getElementById("js-remote-streams");
+var w = obj.getBoundingClientRect().width;
+var h = obj.getBoundingClientRect().height;
+var w1 = w/2;
+var h1 = h/2;
+//renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.4);
+renderer.setSize(w1, h1);
+let element = document.getElementById('js-remote-streams').appendChild( renderer.domElement );
 element.id = 'canvas2'
+element.class = 'canvas3'
 // document.body.appendChild( renderer.domElement );
 let one = true;
 let syokika = false;
