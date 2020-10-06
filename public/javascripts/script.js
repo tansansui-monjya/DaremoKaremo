@@ -168,9 +168,10 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-  stream.getAudioTracks().forEach(track => track.enabled = false);
-  console.log(track.enabled)
-  toggleSpeaker.className = `${track.enabled? 'speaker-btn' : 'speaker-btn_OFF'}`
+  var media = document.getElementById("msc");
+  media.muted = !media.muted;
+  console.log(media.muted)
+  toggleSpeaker.className = `${media.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
 })
 
 //マスク関係の動作
