@@ -146,6 +146,7 @@ const Peer = window.Peer;
   const toggleSpeaker = document.getElementById('js-toggle-speaker');
   const chenge = document.getElementById('change');
   const canvas2 = document.getElementById('canvas2');
+  remoteVideos.srcObject = stream;
 
   // ボタン押した時のカメラ関係の動作
 toggleCamera.addEventListener('click', () => {
@@ -170,14 +171,9 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-  const audio = document.createElement('audio')
-  audio.style.display = 'none' // We don't want to show this
-  audio.muted = !audio.muted;
-  audio.srcObject = stream;
-  audio.play()
-  webcamContainer.appendChild(audio)
-  console.log(audio.muted)
-  toggleSpeaker.className = `${audio.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
+  remoteVideos.muted = true;
+  console.log(remoteVideos.muted)
+  toggleSpeaker.className = `${remoteVideos.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
 })
 
 //マスク関係の動作
