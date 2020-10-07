@@ -96,7 +96,7 @@ const Peer = window.Peer;
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
       //音声出力を設定
-      newVideo.setAttribute('muted',true);
+      newVideo.setAttribute('muted',false);
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -175,6 +175,7 @@ toggleSpeaker.addEventListener('click', () => {
   var arrayLength = remoteVideos.length;
   for(var i=0; i<=arrayLength; i++){
     var videoElem = document.getElementById('user'+arrayLength[i]);
+    console.log(arrayLength[i])
     videoElem.muted = !videoElem.muted
     console.log(videoElem.muted)
     if(i == arrayLength){
