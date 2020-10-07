@@ -95,6 +95,8 @@ const Peer = window.Peer;
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
+      //音声出力を設定
+      newVideo.setAttribute('muted',true);
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -146,7 +148,6 @@ const Peer = window.Peer;
   const toggleSpeaker = document.getElementById('js-toggle-speaker');
   const chenge = document.getElementById('change');
   const canvas2 = document.getElementById('canvas2');
-  remoteVideos.srcObject = stream;
 
   // ボタン押した時のカメラ関係の動作
 toggleCamera.addEventListener('click', () => {
@@ -171,9 +172,15 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-  remoteVideos.muted = true;
-  console.log(remoteVideos.muted)
-  toggleSpeaker.className = `${remoteVideos.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
+  var arrayLength = remoteVideos.length;
+  for(var i=0; i<=arrayLength; i++){
+    var videoElem = document.getElementById('user'+arrayLength[i]);
+    videoElem.muted = !videoElem.muted
+    console.log(videoElem.muted)
+    if(i == arrayLength){
+      toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
+    }
+  }
 })
 
 //マスク関係の動作
