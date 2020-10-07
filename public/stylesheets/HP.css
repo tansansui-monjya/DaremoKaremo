@@ -16,6 +16,10 @@ div#title_id{
 
 body {
     background-color: #3B1D70;
+    background-image: url(https://kg-alien.s3-ap-northeast-1.amazonaws.com/%E8%83%8C%E6%99%AF%E7%94%A8%E5%AE%87%E5%AE%99%E4%BA%BA.svg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: auto 100%;
     color: white;
 }
 
@@ -75,6 +79,7 @@ div#makeroom{
 }
 button#room_make{
     position: relative;
+    display: inline-block;
     /* ボタン */
     width: 298px;
     height: 40px;
@@ -91,6 +96,14 @@ button#room_make{
     line-height: 16px;
 
     color: #E5E5E5;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+#room_make:active{
+    transform: translateY(4px);
+    border-bottom: none;
 }
 
 p{
@@ -100,8 +113,9 @@ p{
 label {
     position: absolute;
     top: 0;
-    font-size: 20px;
-    margin: 15px;
+    font-size: 15px;
+    color: #cecece;
+    margin: 10px;
     padding: 0 10px;
     background-color: #3B1D70;
     -webkit-transition: top .2s ease-in-out, 
@@ -112,10 +126,10 @@ label {
 
 input[type=text] {
     width: 90%;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid white;
     font-size: 20px;
-    background-color:  #3B1D70;
+    background-color:rgba(59,29,112,50);
     color: white;
 } 
 
@@ -125,7 +139,7 @@ input[type=text]:focus {
 
 .active {
     top: -25px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 div.wrap {
@@ -164,6 +178,15 @@ div.wrap {
 
     label {
         font-size: 28px;
+    }
+
+    input[type=text]{
+        padding: 20px;
+    }
+
+    .active{
+        font-size: 28px;
+        top: -35px;
     }
 
     div#title_id{
