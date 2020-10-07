@@ -23,12 +23,6 @@ body {
     color: white;
 }
 
-div#cipher_id{
-    /*break-wordは単語の途中でも改行する*/
-    word-wrap: break-word;
-    color: white;
-}
-
 div#composite_id{
     /*normalは単語の途中で改行しない*/
     margin-top: 10%;
@@ -164,7 +158,7 @@ div.wrap {
     }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) and (max-width: 1024px){
     div#composite_id{
         font-size: 32px;
     }
@@ -191,5 +185,28 @@ div.wrap {
 
     div#title_id{
         font-size: 100px;
+    }
+}
+
+@media screen and (min-width: 1366px){
+    body{
+        background-position: right bottom;
+    }
+
+    img#top_id{
+        margin-top: 5%;
+    }
+
+    .balloon{
+        display: inline-block;
+        position: relative; 
+        margin: 5px 0 0 105px;
+        padding: 17px 13px;
+        border-radius: 12px;
+        background:blue;
+    }
+
+    button#room_make{
+        margin-top: 5%;
     }
 }
