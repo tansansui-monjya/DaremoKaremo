@@ -16,6 +16,7 @@ div#title_id{
 
 body {
     background-color: #3B1D70;
+    color: white;
 }
 
 div#cipher_id{
@@ -73,11 +74,13 @@ div#makeroom{
     text-align:center;
 }
 button#room_make{
+    position: relative;
     /* ボタン */
     width: 298px;
     height: 40px;
 
-    margin: 20px;
+    /* margin: 20px; */
+    margin-top: 15%;
     background: #DB560E;
     border-radius: 20px;
 
@@ -92,4 +95,78 @@ button#room_make{
 
 p{
     color: white;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    font-size: 20px;
+    margin: 15px;
+    padding: 0 10px;
+    background-color: #3B1D70;
+    -webkit-transition: top .2s ease-in-out, 
+                        font-size .2s ease-in-out;
+    transition: top .2s ease-in-out, 
+                font-size .2s ease-in-out;
+}
+
+input[type=text] {
+    width: 90%;
+    padding: 20px;
+    border: 1px solid white;
+    font-size: 20px;
+    background-color:  #3B1D70;
+    color: white;
+} 
+
+input[type=text]:focus {
+    outline: none;
+}
+
+.active {
+    top: -25px;
+    font-size: 20px;
+}
+
+div.wrap {
+    width: 80%;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 10%;
+    /* top: 70%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    vertical-align: middle;
+}
+
+@media screen and (max-height: 667px){
+    img#top_id{
+        margin-top: 5%;
+    }
+
+    div#composite_id{
+        margin-top: 5%;
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    div#composite_id{
+        font-size: 32px;
+    }
+
+    button#room_make{
+        margin-top: 10%;
+        width: 400px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    label {
+        font-size: 28px;
+    }
+
+    div#title_id{
+        font-size: 100px;
+    }
 }
