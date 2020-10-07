@@ -36,9 +36,9 @@ form(action='/alien', method='GET')
         button#calling(type='submit') &#x901A;&#x8A71;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;
        
 script(src='./javascripts/Waiting.js')
-  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-171485531-1')
+script(async='', src='“https://www.googletagmanager.com/gtag/js?id=UA-171485531-1”')
   script.
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-171485531-1');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag(‘js’, new Date());
+      gtag(‘config’, ‘UA-171485531-1’);
