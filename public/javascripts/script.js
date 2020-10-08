@@ -98,6 +98,8 @@ const Peer = window.Peer;
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
 
+      newVideo.muted = false;
+
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
       // awaitはasync streamの実行を一時停止し、Promiseの解決または拒否を待ちます。
@@ -177,10 +179,10 @@ toggleSpeaker.addEventListener('click', () => {
     var videoElem = document.getElementById('user'+i);
     console.log(i)
     if(videoElem.hasAttribute('muted')){
-      videoElem.removeAttribute('muted');
+      videoElem.muted = false;
     }
     else{
-      videoElem.setAttribute('muted');
+      videoElem.muted = true;
     }
     console.log(videoElem.hasAttribute('muted'))
     if(i == remoteVideo_count){
