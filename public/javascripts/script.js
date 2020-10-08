@@ -175,10 +175,15 @@ toggleSpeaker.addEventListener('click', () => {
   var arrayLength = remoteVideos.length;
   console.log(arrayLength)
   for(var i=0; i<=arrayLength; i++){
-    var videoElem = document.getElementById('user'+arrayLength[i]);
-    console.log(arrayLength[i])
-    videoElem.muted = !videoElem.muted
-    console.log(videoElem.muted)
+    var videoElem = document.getElementById('user'+i);
+    console.log(i)
+    if(videoElem.hasAttribute('muted')){
+      videoElem.removeAttribute('muted');
+    }
+    else{
+      videoElem.setAttribute('muted');
+    }
+    console.log(videoElem.hasAttribute('muted'))
     if(i == arrayLength){
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
     }
