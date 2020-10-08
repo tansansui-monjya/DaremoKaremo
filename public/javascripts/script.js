@@ -18,6 +18,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   const remoteVideos = document.getElementById('js-remote-streams');
+  var remoteVideo_count = 0;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
@@ -78,6 +79,7 @@ const Peer = window.Peer;
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       var arrayLength = remoteVideos.length + 1;
+      remoteVideo_count += 1;
       console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
@@ -170,9 +172,8 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-  var arrayLength = remoteVideos.length;
-  console.log(arrayLength)
-  for(var i=0; i<=arrayLength; i++){
+  console.log(remoteVideo_count)
+  for(var i=0; i<=remoteVideo_count; i++){
     var videoElem = document.getElementById('user'+i);
     console.log(i)
     if(videoElem.hasAttribute('muted')){
@@ -182,7 +183,7 @@ toggleSpeaker.addEventListener('click', () => {
       videoElem.setAttribute('muted');
     }
     console.log(videoElem.hasAttribute('muted'))
-    if(i == arrayLength){
+    if(i == remoteVideo_count){
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
     }
   }
