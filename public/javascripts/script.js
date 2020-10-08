@@ -173,6 +173,7 @@ toggleMicrophone.addEventListener('click', () => {
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
   var arrayLength = remoteVideos.length;
+  console.log(arrayLength)
   for(var i=0; i<=arrayLength; i++){
     var videoElem = document.getElementById('user'+arrayLength[i]);
     console.log(arrayLength[i])
