@@ -81,7 +81,7 @@ const Peer = window.Peer;
       console.log(remoteVideos.length)
       // var arrayLength = remoteVideos.length + 1;
       remoteVideo_count += 1;
-      console.log("他ユーザーの数"+arrayLength);
+      console.log("他ユーザーの数"+remoteVideo_count);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
