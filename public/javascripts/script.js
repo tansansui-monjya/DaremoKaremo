@@ -99,7 +99,7 @@ const Peer = window.Peer;
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
 
-      // newVideo.muted = false;
+      newVideo.muted = false;
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -174,15 +174,18 @@ toggleMicrophone.addEventListener('click', () => {
 });
 
 //スピーカー押したときの音量の動作
-$(function(){ 
-  // 操作対象のvideoを指定
-  var video = $('user'+1).get(0); 
-  // 音声ミュート（トグル式）
-  $('js-toggle-speaker').click(function(){
-   video.muted = video.muted ? false : true;
-   console.log(video.muted)
-  }); 
- });
+toggleSpeaker.addEventListener('click', () => {
+  console.log(remoteVideos.length)
+  for(var i=1; i<=remoteVideos.length; i++){
+    var videoElem = document.getElementById('user'+i);
+    console.log(i)
+    video.muted = video.muted ? false : true;
+    console.log(videoElem.muted)
+    if(i == rremoteVideos.length){
+      toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
+    }
+  }
+})
 
 //マスク関係の動作
 if(type=="mask"){
