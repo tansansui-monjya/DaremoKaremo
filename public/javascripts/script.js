@@ -78,6 +78,7 @@ const Peer = window.Peer;
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
+      console.log(remoteVideos.length)
       var arrayLength = remoteVideos.length + 1;
       remoteVideo_count += 1;
       console.log("他ユーザーの数"+arrayLength);
@@ -98,7 +99,7 @@ const Peer = window.Peer;
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
 
-      newVideo.muted = false;
+      // newVideo.muted = false;
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -173,23 +174,15 @@ toggleMicrophone.addEventListener('click', () => {
 });
 
 //スピーカー押したときの音量の動作
-toggleSpeaker.addEventListener('click', () => {
-  console.log(remoteVideos.length)
-  for(var i=0; i<=remoteVideos.length; i++){
-    var videoElem = document.getElementById('user'+i);
-    console.log(i)
-    if(videoElem.muted == true){
-      videoElem.muted = false;
-    }
-    else{
-      videoElem.muted = true;
-    }
-    console.log(videoElem.muted)
-    if(i == rremoteVideos.length){
-      toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
-    }
-  }
-})
+$(function(){ 
+  // 操作対象のvideoを指定
+  var video = $('user'+1).get(0); 
+  // 音声ミュート（トグル式）
+  $('#mute').click(function(){
+   video.muted = video.muted ? false : true;
+   console.log(video.muted)
+  }); 
+ });
 
 //マスク関係の動作
 if(type=="mask"){
