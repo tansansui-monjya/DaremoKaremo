@@ -97,7 +97,7 @@ const Peer = window.Peer;
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
-      newVideo.setAttribute('id','user'+remoteVideo_count);
+      newVideo.setAttribute('id','user'+remoteVideo_count+1);
 
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         newVideo.muted = true;
