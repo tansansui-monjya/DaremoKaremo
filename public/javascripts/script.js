@@ -99,7 +99,12 @@ const Peer = window.Peer;
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
 
-      newVideo.muted = false;
+      if(toggleSpeaker.className == 'speaker-btn_OFF'){
+        newVideo.muted = true;
+      }
+      else{
+        newVideo.muted = false;
+      }
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -175,10 +180,10 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-  for(var i=1;i<=3;i++){
+  for(var i=1;i<=remoteVideo_count;i++){
     console.log(i)
     var videoElem = document.getElementById('userNaN'+i);
-    videoElem.muted = videoElem.muted ? false : true;
+    videoElem.muted = !videoElem.muted;
     console.log("userNaN"+i+videoElem.muted)
   }
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
