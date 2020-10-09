@@ -174,8 +174,8 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-  console.log(remoteVideo_count)
-  for(var i=0; i<=remoteVideo_count; i++){
+  console.log(remoteVideos.length)
+  for(var i=0; i<=remoteVideos.length; i++){
     var videoElem = document.getElementById('user'+i);
     console.log(i)
     if(videoElem.muted == true){
@@ -185,7 +185,7 @@ toggleSpeaker.addEventListener('click', () => {
       videoElem.muted = true;
     }
     console.log(videoElem.muted)
-    if(i == remoteVideo_count){
+    if(i == rremoteVideos.length){
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
     }
   }
