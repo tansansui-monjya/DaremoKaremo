@@ -79,7 +79,7 @@ const Peer = window.Peer;
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       console.log(remoteVideos.length)
-      var arrayLength = remoteVideos.length + 1;
+      // var arrayLength = remoteVideos.length + 1;
       remoteVideo_count += 1;
       console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
@@ -97,7 +97,7 @@ const Peer = window.Peer;
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
-      newVideo.setAttribute('id','user'+arrayLength+1);
+      newVideo.setAttribute('id','user'+remoteVideo_count);
 
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         newVideo.muted = true;
