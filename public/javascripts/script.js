@@ -178,7 +178,7 @@ $(function(){
   // 操作対象のvideoを指定
   var video = $('user'+1).get(0); 
   // 音声ミュート（トグル式）
-  $('#mute').click(function(){
+  $('js-toggle-speaker').click(function(){
    video.muted = video.muted ? false : true;
    console.log(video.muted)
   }); 
