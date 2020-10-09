@@ -176,15 +176,11 @@ toggleMicrophone.addEventListener('click', () => {
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
   console.log(remoteVideos.length)
-  for(var i=1; i<=remoteVideos.length; i++){
-    var videoElem = document.getElementById('user'+i);
-    console.log(i)
-    video.muted = video.muted ? false : true;
+    var videoElem = document.getElementById('userNaN1');
+    // console.log(i)
+    videoElem.muted = videoElem.muted ? false : true;
     console.log(videoElem.muted)
-    if(i == remoteVideos.length){
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
-    }
-  }
 })
 
 //マスク関係の動作
