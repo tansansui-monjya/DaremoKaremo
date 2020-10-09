@@ -188,7 +188,7 @@ toggleSpeaker.addEventListener('click', () => {
       toggleSpeaker.className = 'speaker-btn';
     }
   }
-  else{
+  else if(remoteVideo_count > 0){
     for(var i=1;i<=remoteVideo_count;i++){
       console.log(i)
       var videoElem = document.getElementById('userNaN'+i);
