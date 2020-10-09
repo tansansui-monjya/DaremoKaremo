@@ -79,9 +79,9 @@ const Peer = window.Peer;
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       console.log(remoteVideos.length)
-      // var arrayLength = remoteVideos.length + 1;
+      var arrayLength = remoteVideos.length + 1;
       remoteVideo_count += 1;
-      console.log("他ユーザーの数"+remoteVideo_count);
+      console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -97,7 +97,7 @@ const Peer = window.Peer;
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
-      newVideo.setAttribute('id','user'+remoteVideo_count+1);
+      newVideo.setAttribute('id','user'+arrayLength+1);
 
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         newVideo.muted = true;
@@ -181,18 +181,25 @@ toggleMicrophone.addEventListener('click', () => {
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
   if(remoteVideo_count == 0){
-    toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
-  }
-  for(var i=1;i<=remoteVideo_count;i++){
-    console.log(i)
-    var videoElem = document.getElementById('userNaN'+i);
-    videoElem.muted = !videoElem.muted;
-    console.log("userNaN"+i+videoElem.muted)
-    if(i == remoteVideo_count){
-      toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+    if(toggleSpeaker.className == 'speaker-btn_OFF'){
+      toggleSpeaker.className = 'speaker-btn';
+    }
+    else if(toggleSpeaker.className = 'speaker-btn'){
+      toggleSpeaker.className = 'speaker-btn';
     }
   }
-      
+  else{
+    for(var i=1;i<=remoteVideo_count;i++){
+      console.log(i)
+      var videoElem = document.getElementById('userNaN'+i);
+      videoElem.muted = !videoElem.muted;
+      console.log("userNaN"+i+videoElem.muted)
+      if(i == remoteVideo_count){
+        
+      }
+    }
+        toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+  }
 })
 
 //マスク関係の動作
