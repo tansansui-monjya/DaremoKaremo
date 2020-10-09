@@ -181,7 +181,7 @@ toggleSpeaker.addEventListener('click', () => {
     console.log(i)
     video.muted = video.muted ? false : true;
     console.log(videoElem.muted)
-    if(i == rremoteVideos.length){
+    if(i == remoteVideos.length){
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn' : 'speaker-btn_OFF'}`
     }
   }
