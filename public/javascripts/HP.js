@@ -19,7 +19,7 @@ if(room != null&&room != ""){
 async function sha256(str) {
     // Convert string to ArrayBuffer
     const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
-    // Calculate digest
+    // Calculate digests
     const digest = await crypto.subtle.digest('SHA-256', buff);
     // Convert ArrayBuffer to hex string
     // (from: https://stackoverflow.com/a/40031979)
