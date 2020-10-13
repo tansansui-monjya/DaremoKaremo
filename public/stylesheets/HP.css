@@ -1,3 +1,7 @@
+#centerImg{
+    text-align: center;
+}
+
 img#top_id{
     width: auto;
     height: auto;
@@ -6,7 +10,11 @@ img#top_id{
     margin-top: 20%;
 }
 
-div#title_id{
+img#top_id_pc{
+    display: none;
+}
+
+#title_id{
     font-family: 'Megrim', cursive;
     font-size: 50px;
     font-style: normal;
@@ -23,11 +31,11 @@ body {
     color: white;
 }
 
-div#composite_id{
+#composite_id{
     /*normalは単語の途中で改行しない*/
     margin-top: 10%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     word-break: normal;
     color: white;
     font-size: 20px;
@@ -38,17 +46,17 @@ input#name_id{
 }
 
 
-div#radio_id input[type="radio"]{
+#radio_id input[type="radio"]{
     width: 20px;        /* 大きさ：横 */
     height: 20px;        /* 大きさ：縦 */
     text-align: center;        /* 並び位置   */
     display: none;        /* チェックボックス非表示 */
 }
  /* --- チェックボックス直後のlabel --- */
- div#radio_id{
+ #radio_id{
     display:table;
  }
- div#radio_id input[type="radio"] + label {
+ #radio_id input[type="radio"] + label {
     text-align: center;
     display: table-cell;
     vertical-align: middle;
@@ -64,11 +72,11 @@ div#radio_id input[type="radio"]{
     transition: .2s;                        /* なめらか変化 */
 }
  /* --- 選択されたチェックボックス直後のlabel --- */
-div#radio_id input[type="radio"]:checked + label {
+#radio_id input[type="radio"]:checked + label {
     background    : #DB560E;                    /* lebelの背景 */
 }
 
-div#makeroom{
+#makeroom{
     text-align:center;
 }
 button#room_make{
@@ -136,14 +144,10 @@ input[type=text]:focus {
     font-size: 15px;
 }
 
-div.wrap {
+.wrap {
     width: 80%;
     position: relative;
-    margin-top: 10%;
     margin-left: 10%;
-    /* top: 70%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
     vertical-align: middle;
 }
 
@@ -152,19 +156,19 @@ div.wrap {
         margin-top: 5%;
     }
 
-    div#composite_id{
+    #composite_id{
         margin-top: 5%;
         font-size: 16px;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
-    div#composite_id{
+    #composite_id{
         font-size: 32px;
     }
 
     button#room_make{
-        margin-top: 10%;
+        margin-top: 5%;
         width: 400px;
         height: 70px;
         font-size: 28px;
@@ -183,30 +187,75 @@ div.wrap {
         top: -35px;
     }
 
-    div#title_id{
+    #title_id{
         font-size: 100px;
     }
 }
 
 @media screen and (min-width: 1366px){
+
+    #centerImg{
+        text-align: center;
+    }
+    img#top_id{
+        display: none;
+    }
+
+    img#top_id_pc{
+        display: block;
+        width: auto;
+        height: 400px;
+        margin : 0 auto;
+    }
+
+    #title_id{
+        margin-top: 5%;
+        font-size: 80px;
+    }
+
     body{
         background-position: right bottom;
     }
 
-    img#top_id{
+    .balloon{
+        display: inline-block;
+        position: absolute; 
+        top: 10%;
+        right: 70%;
+        left: 5%;
+        padding: 17px 13px;
+        border-radius: 12px;
+        background:white;
+    }
+
+    .balloon::before{
+        content: "";
+        position: absolute;
+        top: 80%;
+        right: -24px;
+        margin-top: -12px;
+        border: 12px solid transparent;
+        border-left: 12px solid white;
+        z-index: 2;
+    }
+
+    #composite_id{
+        margin-top: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+        color: black;
+    }
+
+    .wrap{
+        text-align: center;
         margin-top: 5%;
     }
 
-    .balloon{
-        display: inline-block;
-        position: relative; 
-        margin: 5px 0 0 105px;
-        padding: 17px 13px;
-        border-radius: 12px;
-        background:blue;
+    input[type=text] {
+        width: 30%;
     }
 
     button#room_make{
-        margin-top: 5%;
+        margin-top: 2%;
     }
 }
