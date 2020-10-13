@@ -186,7 +186,7 @@ toggleSpeaker.addEventListener('click', () => {
       toggleSpeaker.className = 'speaker-btn';
     }
     else if(toggleSpeaker.className == 'speaker-btn'){
-      toggleSpeaker.className = 'speaker-btn';
+      toggleSpeaker.className = 'speaker-btn_OFF';
     }
   }
   else {
