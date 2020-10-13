@@ -93,7 +93,7 @@ const Peer = window.Peer;
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','transform: scaleX(-1);height: 800px;');
+      newVideo.setAttribute('style','transform: scaleX(-1);height: 40vh;');
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
