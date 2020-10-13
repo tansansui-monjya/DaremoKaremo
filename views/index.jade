@@ -16,7 +16,7 @@ head
         p Now Loading...
     // オーバーレイ
     #js-join-trigger.overlay-all
-      img#top_wait(src='./Top.png')
+      img#top_wait(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
       br
       |       
       #title_wait ALIEN
@@ -27,7 +27,7 @@ head
       .room
         #container
           #js-remote-streams.remote-streams
-            video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;')
+            
           // ルーム検索
           div(class = "button-center")
             span#js-room-mode
@@ -44,6 +44,7 @@ head
             |                                
         |     
         p#js-meta.meta
+        video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;visibility: hidden;')
       // container
       // threevrm関連
       script(src='https://unpkg.com/three@0.108')
@@ -94,3 +95,9 @@ head
         butobj.innerHTML = hi.toLocaleString();
         }
         </script>
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-171485531-1')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-171485531-1');
