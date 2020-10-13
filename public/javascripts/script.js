@@ -18,6 +18,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   const remoteVideos = document.getElementById('js-remote-streams');
+  var remoteVideo_count = 0;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
@@ -72,6 +73,10 @@ const Peer = window.Peer;
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
+      console.log(remoteVideos.length)
+      var arrayLength = remoteVideos.length + 1;
+      remoteVideo_count += 1;
+      console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -88,6 +93,13 @@ const Peer = window.Peer;
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
       newVideo.setAttribute('id','user'+arrayLength+1);
+
+      if(toggleSpeaker.className == 'speaker-btn_OFF'){
+        newVideo.muted = true;
+      }
+      else{
+        newVideo.muted = false;
+      }
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -136,6 +148,7 @@ const Peer = window.Peer;
   
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const toggleSpeaker = document.getElementById('js-toggle-speaker');
   const chenge = document.getElementById('change');
   
 
@@ -158,6 +171,28 @@ toggleMicrophone.addEventListener('click', () => {
   console.log(audioTracks.enabled)
   toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
 });
+
+//スピーカー押したときの音量の動作
+toggleSpeaker.addEventListener('click', () => {
+  console.log(remoteVideo_count)
+  if(remoteVideo_count == 0){
+    if(toggleSpeaker.className == 'speaker-btn_OFF'){
+      toggleSpeaker.className = 'speaker-btn';
+    }
+    else if(toggleSpeaker.className == 'speaker-btn'){
+      toggleSpeaker.className = 'speaker-btn_OFF';
+    }
+  }
+  else {
+    for(var i=1;i<=remoteVideo_count;i++){
+      console.log(i)
+      var videoElem = document.getElementById('userNaN'+i);
+      videoElem.muted = !videoElem.muted;
+      console.log("userNaN"+i+videoElem.muted)
+    }
+        toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+  }
+})
 
 //マスク関係の動作
 if(type=="mask"){
