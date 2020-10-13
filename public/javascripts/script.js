@@ -180,6 +180,7 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
+  console.log(remoteVideo_count)
   if(remoteVideo_count == 0){
     if(toggleSpeaker.className == 'speaker-btn_OFF'){
       toggleSpeaker.className = 'speaker-btn';
