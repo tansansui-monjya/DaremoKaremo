@@ -183,10 +183,10 @@ toggleSpeaker.addEventListener('click', () => {
   console.log(remoteVideo_count)
   if(remoteVideo_count == 0){
     if(toggleSpeaker.className == 'speaker-btn_OFF'){
-      toggleSpeaker.className = 'speaker-btn';
+      toggleSpeaker.setAttribute('className','speaker-btn_OFF');
     }
     else if(toggleSpeaker.className = 'speaker-btn'){
-      toggleSpeaker.className = 'speaker-btn';
+      toggleSpeaker.setAttribute('className','speaker-btn');
     }
   }
   else {
