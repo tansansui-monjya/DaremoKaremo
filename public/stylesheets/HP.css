@@ -207,10 +207,11 @@ input[type=text]:focus {
         width: auto;
         height: 400px;
         margin : 0 auto;
+        margin-top: 10vh;
     }
 
     #title_id{
-        margin-top: 5%;
+        margin-top: 5vh;
         font-size: 80px;
     }
 
@@ -249,7 +250,7 @@ input[type=text]:focus {
 
     .wrap{
         text-align: center;
-        margin-top: 5%;
+        margin-top: 5vh;
     }
 
     input[type=text] {
@@ -257,6 +258,6 @@ input[type=text]:focus {
     }
 
     button#room_make{
-        margin-top: 2%;
+        margin-top: 2vh;
     }
 }
