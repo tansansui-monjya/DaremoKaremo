@@ -131,8 +131,8 @@ video {
   display: inline-block;
   text-decoration: none;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -158,8 +158,8 @@ video {
   text-decoration: none;
   background: #E26522;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -184,8 +184,8 @@ video {
   display: inline-block;
   text-decoration: none;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -210,8 +210,8 @@ video {
   text-decoration: none;
   background: #E26522;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -235,8 +235,8 @@ video {
   text-decoration: none;
   background: #FF0404;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -257,8 +257,8 @@ video {
   display: inline-block;
   text-decoration: none;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -285,8 +285,8 @@ video {
   text-decoration: none;
   background: orange;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -302,6 +302,57 @@ video {
   background-size: contain;
   vertical-align: middle;
 }
+/* スピーカーボタン */
+.speaker-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.speaker-btn:hover{
+  background: #ffffff;
+}
+.speaker-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./speaker_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.speaker-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #E26522;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.speaker-btn_OFF:hover{
+  background: #E26522;
+}
+.speaker-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./speaker_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
 
 .canvas2_cover{
   filter: brightness(0%);
@@ -309,6 +360,10 @@ video {
 
 .button-center{
   text-align: center;
+  position: absolute;
+  width: 100vw;
+  top:37vh;
+  z-index: 2;
 }
 
 /* スマホ写した時 */
@@ -327,8 +382,8 @@ video {
   display: inline-block;
   text-decoration: none;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -354,8 +409,8 @@ video {
   text-decoration: none;
   background: #E26522;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -380,8 +435,8 @@ video {
   display: inline-block;
   text-decoration: none;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -406,8 +461,8 @@ video {
   text-decoration: none;
   background: #E26522;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -431,8 +486,8 @@ video {
   text-decoration: none;
   background: #FF0404;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
@@ -453,8 +508,172 @@ video {
   display: inline-block;
   text-decoration: none;
   color: #FFF;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.share-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./share.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.share-btn:hover{
+  background: #FFFFFF;
+}
+}
+
+/* スタブレット写した時 */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  /* .room {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    gap: 8px;
+    margin: 0;
+    background-color: #3B1D70;
+    height:100%;
+	  border:dotted 2px #666666;
+  } */
+  /* 相手のビデオ画面変更 */
+.camera-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.camera-btn:hover{
+  background: #ffffff;
+}
+
+.camera-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #E26522;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.camera-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./video_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.camera-btn_OFF:hover{
+  background: #E26522;
+}
+
+.mic-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn:hover{
+  background: #ffffff;
+}
+.mic-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_ON.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.mic-btn_OFF{
+  display: inline-block;
+  text-decoration: none;
+  background: #E26522;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.mic-btn_OFF:hover{
+  background: #E26522;
+}
+.mic-btn_OFF:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./mic_OFF.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.leave-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #FF0404;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+.leave-btn:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./Leave.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.share-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  width: 55px;
+  height: 55px;
   line-height: 60px;
   border-radius: 50%;
   text-align: center;
