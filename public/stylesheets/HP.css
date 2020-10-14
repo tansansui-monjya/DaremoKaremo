@@ -46,6 +46,7 @@ div#radio_id input[type="radio"]{
  }
  div#radio_id input[type="radio"] + label {
     text-align: center;
+    display: table-cell;
     vertical-align: middle;
 
     float: left;
