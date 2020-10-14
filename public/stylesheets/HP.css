@@ -147,6 +147,7 @@ input[type=text]:focus {
 .wrap {
     width: 80%;
     position: relative;
+    margin-top: 10%;
     margin-left: 10%;
     vertical-align: middle;
 }

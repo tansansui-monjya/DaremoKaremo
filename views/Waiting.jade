@@ -6,32 +6,35 @@ head
   |     
 body
 form(action='/alien', method='GET')
-    img#top_wait(src='/Top.png')
+    img#top_wait(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
+    img#top_wait_pc(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/pc%E5%AE%87%E5%AE%99%E4%BA%BA.svg')
     // <div id="title_wait">ALIEN</div>
-    p#wait_message
-        &#x9854;&#x3092;&#x96A0;&#x3059;&#x3088;&#x3046;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3092;
-        br
-        &#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;             
+    .balloon
+        p#wait_message
+            | 使用したいモデルを
+            br
+            | 選択してください         
     input#roomid(type='hidden', value='', name='roomid')
     input#type(type='hidden', value='', name='type')
     // <input type="hidden" value="" id="time" name="time">
-    .grid_layout
-        .character#character1
-            label
-                input.radio(type='radio', name='model', value='1', checked='')
-                img.radio_image(src='../assets/test1.png')
-        .character#character2        
-            label
-                input.radio(type='radio', name='model', value='2')
-                img.radio_image(src='../assets/test2.png')   
-        .character#character3          
-            label
-                input.radio(type='radio', name='model', value='3')
-                img.radio_image(src='../assets/test3.png') 
-        .character#character4         
-            label
-                input.radio(type='radio', name='model', value='4')
-                img.radio_image(src='../assets/test4.png')             
+    #center_grid
+        .grid_layout
+            .character#character1
+                label
+                    input.radio(type='radio', name='model', value='1', checked='')
+                    img.radio_image(src='../assets/test1.png')
+            .character#character2        
+                label
+                    input.radio(type='radio', name='model', value='2')
+                    img.radio_image(src='../assets/test2.png')   
+            .character#character3          
+                label
+                    input.radio(type='radio', name='model', value='3')
+                    img.radio_image(src='../assets/test3.png') 
+            .character#character4         
+                label
+                    input.radio(type='radio', name='model', value='4')
+                    img.radio_image(src='../assets/test4.png')             
     #makeroom
         button#calling(type='submit') &#x901A;&#x8A71;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;
        
