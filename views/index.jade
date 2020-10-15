@@ -33,17 +33,12 @@ head
           div(class = "button-center")
             span#js-room-mode
             // ルームに接続
-            button#change.alien-btn
-            |  
+            button#change.alien-btn  
             button#js-toggle-microphone.mic-btn
-            |           
-            button#js-toggle-camera.camera-btn
-            |           
-            button#js-share-trigger.share-btn
-            |           
-            button#js-leave-trigger.leave-btn
-            |                                
-        |     
+            button#js-toggle-speaker.speaker-btn           
+            button#js-toggle-camera.camera-btn          
+            button#js-share-trigger.share-btn         
+            button#js-leave-trigger.leave-btn    
         p#js-meta.meta
         video#js-local-stream.local-video(style='transform: scaleX(-1);height: 40vh;visibility: hidden;')
       // container
@@ -96,3 +91,9 @@ head
         butobj.innerHTML = hi.toLocaleString();
         }
         </script>
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-171485531-1')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-171485531-1');
