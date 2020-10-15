@@ -94,7 +94,7 @@ button#calling{
     width: 60vw;
     height: 5vh;
     background: #DB560E;
-    border-radius: 20px;
+    border-radius: 5vh;
 
     /* 文字 */
     font-style: normal;
@@ -125,7 +125,7 @@ div#makeroom{
     }
 
     button#calling{
-        margin-top: 30px;
+        margin-top: 5vh;
     }
 }
 
@@ -144,10 +144,10 @@ div#makeroom{
     }
 
     button#calling{
-        font-size: 30px;
+        font-size: 2vh;
         margin-top: 5vh;
         height: 5vh;
-        border-radius: 100px;
+        border-radius: 10vh;
     }
 }
 
@@ -176,9 +176,9 @@ div#makeroom{
     .balloon{
         display: inline-block;
         position: absolute; 
-        top: 10%;
-        right: 60%;
-        left: 25%;
+        top: 10vh;
+        right: 60vw;
+        left: 25vw;
         padding: 17px 13px;
         border-radius: 12px;
         background:white;
@@ -199,12 +199,12 @@ div#makeroom{
         position: relative;
         padding-top: 0;
         padding-left: 0;
-        height: 350px;
+        height: 35vh;
     }
 
     .character img{
-        width: 200px;
-        height: 300px;
+        width: 10vw;
+        height: 30vh;
     }
 
     #center_grid{
@@ -214,7 +214,7 @@ div#makeroom{
 
     .grid_layout{
         display: grid;
-        grid-template-columns: 250px 250px 250px 250px;
+        grid-template-columns: 13vw 13vw 13vw 13vw;
         grid-template-rows: 1fr;
         justify-content: center;
     }
@@ -240,7 +240,7 @@ div#makeroom{
     }
 
     button#calling{
-        width: 30vw;
-        margin-top: 5vh;
+        width: 25vw;
+        margin-top: 10vh;
     }
 }

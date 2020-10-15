@@ -7,7 +7,7 @@ img#top_id{
     height: auto;
     display: block;
     margin:auto;
-    margin-top: 20%;
+    margin-top: 10vh;
 }
 
 img#top_id_pc{
@@ -33,9 +33,9 @@ body {
 
 #composite_id{
     /*normalは単語の途中で改行しない*/
-    margin-top: 10%;
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-top: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
     word-break: normal;
     color: white;
     font-size: 20px;
@@ -87,7 +87,7 @@ button#room_make{
     height: 40px;
 
     /* margin: 20px; */
-    margin-top: 15%;
+    margin-top: 10vh;
     background: #DB560E;
     border-radius: 20px;
 
@@ -127,7 +127,7 @@ label {
 }
 
 input[type=text] {
-    width: 90%;
+    width: 70vw;
     padding: 10px;
     border: 1px solid white;
     font-size: 20px;
@@ -147,31 +147,44 @@ input[type=text]:focus {
 .wrap {
     width: 80%;
     position: relative;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 5vh;
+    margin-left: 10vw;
     vertical-align: middle;
 }
 
 @media screen and (max-height: 667px){
     img#top_id{
-        margin-top: 5%;
+        margin-top: 5vh;
     }
 
     #composite_id{
-        margin-top: 5%;
+        margin-top: 5vh;
         font-size: 16px;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
+
+    img#top_id{
+        display: none;
+    }
+
+    img#top_id_pc{
+        display: block;
+        width: auto;
+        height: 200px;
+        margin : 0 auto;
+        margin-top: 5vh;
+    }
+
     #composite_id{
         font-size: 32px;
     }
 
     button#room_make{
-        margin-top: 5%;
-        width: 400px;
-        height: 70px;
+        margin-top: 5vh;
+        width: 70vw;
+        height: 5vh;
         font-size: 28px;
     }
 
@@ -205,14 +218,14 @@ input[type=text]:focus {
     img#top_id_pc{
         display: block;
         width: auto;
-        height: 400px;
+        height: 30vh;
         margin : 0 auto;
         margin-top: 10vh;
     }
 
     #title_id{
         margin-top: 5vh;
-        font-size: 80px;
+        font-size: 10vh;
     }
 
     body{
@@ -222,29 +235,29 @@ input[type=text]:focus {
     .balloon{
         display: inline-block;
         position: absolute; 
-        top: 10%;
-        right: 70%;
-        left: 5%;
-        padding: 17px 13px;
-        border-radius: 12px;
+        top: 10vh;
+        right: 62vw;
+        left: 13vw;
+        padding: 2vh 2vw;
+        border-radius: 2vh;
         background:white;
     }
 
     .balloon::before{
         content: "";
         position: absolute;
-        top: 80%;
+        top: 50%;
         right: -24px;
-        margin-top: -12px;
+        margin-top: -5vh;
         border: 12px solid transparent;
         border-left: 12px solid white;
         z-index: 2;
     }
 
     #composite_id{
-        margin-top: 0%;
-        padding-left: 0%;
-        padding-right: 0%;
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
         color: black;
     }
 
@@ -254,10 +267,10 @@ input[type=text]:focus {
     }
 
     input[type=text] {
-        width: 30%;
+        width: 25vw;
     }
 
     button#room_make{
-        margin-top: 2vh;
+        margin-top: 10vh;
     }
 }
