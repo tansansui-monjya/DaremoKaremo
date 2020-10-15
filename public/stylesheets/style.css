@@ -115,7 +115,7 @@ video {
   grid-column: 1/2;
   height: 40vh;
 }
-#userNaN1{
+#user1{
   grid-row: 1/2;
   grid-column: 2/3;
 }
