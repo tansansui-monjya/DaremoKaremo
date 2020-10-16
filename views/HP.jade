@@ -58,20 +58,24 @@ html(lang='ja')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title ALIEN
   body
-    img#top_id(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
+    #centerImg
+      img#top_id(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png')
+      img#top_id_pc(src='https://kg-alien.s3-ap-northeast-1.amazonaws.com/pc%E5%AE%87%E5%AE%99%E4%BA%BA.svg')
     br
     #title_id ALIEN
-    #cipher_id
-      | ALIEN縺ｨ縺ｯ縲?｡斐ｒ譏?縺励◆縺上↑縺?￠縺ｩ繧ｪ繝ｳ繝ｩ繧､繝ｳ繝薙ョ繧ｪ莨夊ｭｰ縺後＠縺溘＞
-      | 莠ｺ蜷代￠縺ｮ繧ｵ繝ｼ繝薙せ縺ｫ縺ｪ繧翫∪縺吶?ゅい繝励Μ繧剃ｽｿ逕ｨ縺帙★縲√ヶ繝ｩ繧ｦ繧ｶ縺ｮ縺ｿ
-      | 縺ｧ蜃ｺ譚･繧九?縺ｧ縲√♀謇玖ｻｽ縺ｫ蟋九ａ繧後∪縺
-    #composite_id
-      | （和訳：ALIENとは、顔を映したくないけどオンラインビデオ会議がしたい人向けのサービスになります。
-      | アプリを使用せず、ブラウザのみで出来るので、お手軽に始めれます）
+    .balloon
+      #composite_id
+        | ALIENは、顔を映さずオンラインビデオ会議がしたい人向けのサービスになります。
+        br
+        | アプリではなくブラウザのみで動作するのでお手軽に始めれます。
+        | 推奨ブラウザはchromeです。
     // ヘルプボタンの実装が入る
     // ↓アクションのところに遷移先
-    p 部屋名
-    input#room(type='text', name='room', placeholder='宇宙船')
+    //- p 部屋名
+    .wrap
+      label(for="room")
+        | 部屋名
+      input#room(type='text', name='room')
     form(action='/waiting', method='GET')
       input#roomid(type='hidden', name='roomid')
       //
@@ -102,6 +106,8 @@ html(lang='ja')
       #makeroom
         button#room_make(type='submit') 部屋をつくる
       div
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
         script(src='./javascripts/HP.js')
+        script(src='./javascripts/HPtbox.js')
 
 
