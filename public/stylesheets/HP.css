@@ -1,11 +1,20 @@
+#centerImg{
+    text-align: center;
+}
+
 img#top_id{
     width: auto;
     height: auto;
     display: block;
     margin:auto;
+    margin-top: 10vh;
 }
 
-div#title_id{
+img#top_id_pc{
+    display: none;
+}
+
+#title_id{
     font-family: 'Megrim', cursive;
     font-size: 50px;
     font-style: normal;
@@ -15,18 +24,21 @@ div#title_id{
 
 body {
     background-color: #3B1D70;
-}
-
-div#cipher_id{
-    /*break-wordは単語の途中でも改行する*/
-    word-wrap: break-word;
+    background-image: url(https://kg-alien.s3-ap-northeast-1.amazonaws.com/%E8%83%8C%E6%99%AF%E7%94%A8%E5%AE%87%E5%AE%99%E4%BA%BA.svg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: auto 100%;
     color: white;
 }
 
-div#composite_id{
+#composite_id{
     /*normalは単語の途中で改行しない*/
+    margin-top: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
     word-break: normal;
     color: white;
+    font-size: 20px;
 }
 
 input#name_id{
@@ -34,17 +46,17 @@ input#name_id{
 }
 
 
-div#radio_id input[type="radio"]{
+#radio_id input[type="radio"]{
     width: 20px;        /* 大きさ：横 */
     height: 20px;        /* 大きさ：縦 */
     text-align: center;        /* 並び位置   */
     display: none;        /* チェックボックス非表示 */
 }
  /* --- チェックボックス直後のlabel --- */
- div#radio_id{
+ #radio_id{
     display:table;
  }
- div#radio_id input[type="radio"] + label {
+ #radio_id input[type="radio"] + label {
     text-align: center;
     display: table-cell;
     vertical-align: middle;
@@ -60,19 +72,22 @@ div#radio_id input[type="radio"]{
     transition: .2s;                        /* なめらか変化 */
 }
  /* --- 選択されたチェックボックス直後のlabel --- */
-div#radio_id input[type="radio"]:checked + label {
+#radio_id input[type="radio"]:checked + label {
     background    : #DB560E;                    /* lebelの背景 */
 }
 
-div#makeroom{
+#makeroom{
     text-align:center;
 }
 button#room_make{
+    position: relative;
+    display: inline-block;
     /* ボタン */
     width: 298px;
     height: 40px;
 
-    margin: 20px;
+    /* margin: 20px; */
+    margin-top: 10vh;
     background: #DB560E;
     border-radius: 20px;
 
@@ -83,8 +98,179 @@ button#room_make{
     line-height: 16px;
 
     color: #E5E5E5;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+#room_make:active{
+    transform: translateY(4px);
+    border-bottom: none;
 }
 
 p{
     color: white;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    font-size: 15px;
+    color: #cecece;
+    margin: 10px;
+    padding: 0 10px;
+    background-color: #3B1D70;
+    -webkit-transition: top .2s ease-in-out, 
+                        font-size .2s ease-in-out;
+    transition: top .2s ease-in-out, 
+                font-size .2s ease-in-out;
+}
+
+input[type=text] {
+    width: 70vw;
+    padding: 10px;
+    border: 1px solid white;
+    font-size: 20px;
+    background-color:rgba(59,29,112,50);
+    color: white;
+} 
+
+input[type=text]:focus {
+    outline: none;
+}
+
+.active {
+    top: -25px;
+    font-size: 15px;
+}
+
+.wrap {
+    width: 80%;
+    position: relative;
+    margin-top: 5vh;
+    margin-left: 10vw;
+    vertical-align: middle;
+}
+
+@media screen and (max-height: 667px){
+    img#top_id{
+        margin-top: 5vh;
+    }
+
+    #composite_id{
+        margin-top: 5vh;
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+
+    img#top_id{
+        display: none;
+    }
+
+    img#top_id_pc{
+        display: block;
+        width: auto;
+        height: 200px;
+        margin : 0 auto;
+        margin-top: 5vh;
+    }
+
+    #composite_id{
+        font-size: 32px;
+    }
+
+    button#room_make{
+        margin-top: 5vh;
+        width: 70vw;
+        height: 5vh;
+        font-size: 28px;
+    }
+
+    label {
+        font-size: 28px;
+    }
+
+    input[type=text]{
+        padding: 20px;
+    }
+
+    .active{
+        font-size: 28px;
+        top: -35px;
+    }
+
+    #title_id{
+        font-size: 100px;
+    }
+}
+
+@media screen and (min-width: 1366px){
+
+    #centerImg{
+        text-align: center;
+    }
+    img#top_id{
+        display: none;
+    }
+
+    img#top_id_pc{
+        display: block;
+        width: auto;
+        height: 30vh;
+        margin : 0 auto;
+        margin-top: 10vh;
+    }
+
+    #title_id{
+        margin-top: 5vh;
+        font-size: 10vh;
+    }
+
+    body{
+        background-position: right bottom;
+    }
+
+    .balloon{
+        display: inline-block;
+        position: absolute; 
+        top: 10vh;
+        right: 62vw;
+        left: 13vw;
+        padding: 2vh 2vw;
+        border-radius: 2vh;
+        background:white;
+    }
+
+    .balloon::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -24px;
+        margin-top: -5vh;
+        border: 12px solid transparent;
+        border-left: 12px solid white;
+        z-index: 2;
+    }
+
+    #composite_id{
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        color: black;
+    }
+
+    .wrap{
+        text-align: center;
+        margin-top: 5vh;
+    }
+
+    input[type=text] {
+        width: 25vw;
+    }
+
+    button#room_make{
+        margin-top: 10vh;
+    }
 }
