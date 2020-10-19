@@ -190,9 +190,9 @@ input[type=text]:focus {
     img#top_id_pc{
         display: block;
         width: auto;
-        height: 30vh;
+        height: 40vh;
         margin : 0 auto;
-        margin-top: 10vh;
+        margin-top: 26vh;
     }
 
     #composite_id{
@@ -200,8 +200,8 @@ input[type=text]:focus {
     }
 
     #title_id{
-        margin-top: 5vh;
-        font-size: 10vh;
+        margin: 0;
+        font-size: 8vh;
     }
 
     body{
@@ -211,23 +211,34 @@ input[type=text]:focus {
     .balloon{
         display: inline-block;
         position: absolute; 
-        top: 10vh;
-        right: 62vw;
-        left: 5vw;
+        top: 2vh;
+        right: 60vw;
+        left: 2vw;
         padding: 2vh 2vw;
         border-radius: 2vh;
         background:white;
     }
 
     .balloon::before{
+        /* content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -15px;
+        border: 12px solid transparent;
+        border-top: 12px solid white;
+        z-index: 2; */
         content: "";
         position: absolute;
-        top: 50%;
-        right: -24px;
-        margin-top: -5vh;
-        border: 12px solid transparent;
-        border-left: 12px solid white;
-        z-index: 2;
+        margin: 0;
+        bottom: -3vh;
+        right: 2vw;
+        width: 0;
+        height: 0;
+        border-top: 5vh solid white;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        transform: rotate(-30deg);
     }
 
     #composite_id{
@@ -239,7 +250,7 @@ input[type=text]:focus {
 
     .wrap{
         text-align: center;
-        margin-top: 5vh;
+        margin-top: 1.5vh;
     }
 
     input[type=text] {
@@ -247,6 +258,7 @@ input[type=text]:focus {
     }
 
     button#room_make{
-        margin-top: 10vh;
+        margin-top: 3vh;
+        width: 25vw;
     }
 }
