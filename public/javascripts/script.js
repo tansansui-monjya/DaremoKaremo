@@ -246,16 +246,3 @@ chenge.addEventListener('click', () => {
   peer.on('error', console.error);
 })();
 
-
-//例外処理
-try {
-  console.log("例外処理しまふ");
-} catch (e) {
-  var constraints = {video: true, fake: true};
-  navigator.mediaDevices.getUserMedia(
-  constraints
-  .then(function(stream) {
-  })
-  .catch(function(err) {
-  }))
-};
