@@ -4,10 +4,10 @@
 
 img#top_id{
     width: auto;
-    height: auto;
+    height: 15vh;
     display: block;
     margin:auto;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 img#top_id_pc{
@@ -16,7 +16,7 @@ img#top_id_pc{
 
 #title_id{
     font-family: 'Megrim', cursive;
-    font-size: 50px;
+    font-size: 7vh;
     font-style: normal;
     color: #DB560E;
     text-align: center;
@@ -38,7 +38,7 @@ body {
     padding-right: 5vw;
     word-break: normal;
     color: white;
-    font-size: 20px;
+    font-size: 2.5vh;
 }
 
 input#name_id{
@@ -47,8 +47,8 @@ input#name_id{
 
 
 #radio_id input[type="radio"]{
-    width: 20px;        /* 大きさ：横 */
-    height: 20px;        /* 大きさ：縦 */
+    width: 10vw;        /* 大きさ：横 */
+    height: 20vh;        /* 大きさ：縦 */
     text-align: center;        /* 並び位置   */
     display: none;        /* チェックボックス非表示 */
 }
@@ -62,9 +62,9 @@ input#name_id{
     vertical-align: middle;
 
     float: left;
-    width: 60px;
-    padding: 4px 4px 4px 4px;                      /* labelの余白 */
-    font-size: 14px;                       /* labelの文字サイズ */
+    width: 30vw;
+    padding: 1vh 1vw;                      /* labelの余白 */
+    font-size: 3vh;                       /* labelの文字サイズ */
     border: 1px solid #DB560E; /* labelの枠線 */
     border-radius: 15px;                        /* labelの角丸 */
     background: #ffffff;                    /* lebelの背景 */
@@ -83,18 +83,20 @@ button#room_make{
     position: relative;
     display: inline-block;
     /* ボタン */
-    width: 298px;
-    height: 40px;
+    width: 40vw;
+    height: 5vh;
+    /* width: 298px;
+    height: 40px; */
 
     /* margin: 20px; */
-    margin-top: 10vh;
+    margin-top: 5vh;
     background: #DB560E;
     border-radius: 20px;
 
     /* 文字 */
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 1.5vh;
     line-height: 16px;
 
     color: #E5E5E5;
@@ -115,10 +117,11 @@ p{
 label {
     position: absolute;
     top: 0;
-    font-size: 15px;
+    font-size: 2vh;
     color: #cecece;
-    margin: 10px;
-    padding: 0 10px;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    padding: 0 1vw;
     background-color: #3B1D70;
     -webkit-transition: top .2s ease-in-out, 
                         font-size .2s ease-in-out;
@@ -127,10 +130,9 @@ label {
 }
 
 input[type=text] {
-    width: 70vw;
-    padding: 10px;
+    padding: 1vh 1vw;
     border: 1px solid white;
-    font-size: 20px;
+    font-size: 3vh;
     background-color:rgba(59,29,112,50);
     color: white;
 } 
@@ -140,8 +142,8 @@ input[type=text]:focus {
 }
 
 .active {
-    top: -25px;
-    font-size: 15px;
+    top: -3vh;
+    font-size: 2vh;
 }
 
 .wrap {
@@ -150,20 +152,10 @@ input[type=text]:focus {
     margin-top: 5vh;
     margin-left: 10vw;
     vertical-align: middle;
+    text-align: center;
 }
 
-@media screen and (max-height: 667px){
-    img#top_id{
-        margin-top: 5vh;
-    }
-
-    #composite_id{
-        margin-top: 5vh;
-        font-size: 16px;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 481px){
 
     img#top_id{
         display: none;
@@ -172,41 +164,21 @@ input[type=text]:focus {
     img#top_id_pc{
         display: block;
         width: auto;
-        height: 200px;
+        height: 20vh;
         margin : 0 auto;
         margin-top: 5vh;
     }
 
     #composite_id{
-        font-size: 32px;
-    }
-
-    button#room_make{
-        margin-top: 5vh;
-        width: 70vw;
-        height: 5vh;
-        font-size: 28px;
-    }
-
-    label {
-        font-size: 28px;
-    }
-
-    input[type=text]{
-        padding: 20px;
-    }
-
-    .active{
-        font-size: 28px;
-        top: -35px;
+        font-size: 3vh;
     }
 
     #title_id{
-        font-size: 100px;
+        font-size: 10vh;
     }
 }
 
-@media screen and (min-width: 1366px){
+@media screen and (min-width: 960px){
 
     #centerImg{
         text-align: center;
@@ -218,14 +190,18 @@ input[type=text]:focus {
     img#top_id_pc{
         display: block;
         width: auto;
-        height: 30vh;
+        height: 40vh;
         margin : 0 auto;
-        margin-top: 10vh;
+        margin-top: 26vh;
+    }
+
+    #composite_id{
+        font-size: 3vh;
     }
 
     #title_id{
-        margin-top: 5vh;
-        font-size: 10vh;
+        margin: 0;
+        font-size: 8vh;
     }
 
     body{
@@ -235,9 +211,9 @@ input[type=text]:focus {
     .balloon{
         display: inline-block;
         position: absolute; 
-        top: 10vh;
-        right: 62vw;
-        left: 13vw;
+        top: 2vh;
+        right: 60vw;
+        left: 2vw;
         padding: 2vh 2vw;
         border-radius: 2vh;
         background:white;
@@ -246,12 +222,15 @@ input[type=text]:focus {
     .balloon::before{
         content: "";
         position: absolute;
-        top: 50%;
-        right: -24px;
-        margin-top: -5vh;
-        border: 12px solid transparent;
-        border-left: 12px solid white;
-        z-index: 2;
+        margin: 0;
+        bottom: -3vh;
+        right: 2vw;
+        width: 0;
+        height: 0;
+        border-top: 5vh solid white;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        transform: rotate(-30deg);
     }
 
     #composite_id{
@@ -263,14 +242,15 @@ input[type=text]:focus {
 
     .wrap{
         text-align: center;
-        margin-top: 5vh;
+        margin-top: 1.5vh;
     }
 
     input[type=text] {
-        width: 25vw;
+        width: 15vw;
     }
 
     button#room_make{
-        margin-top: 10vh;
+        margin-top: 3vh;
+        width: 25vw;
     }
 }
