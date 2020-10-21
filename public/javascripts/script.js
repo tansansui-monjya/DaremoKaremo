@@ -44,9 +44,11 @@ const Peer = window.Peer;
       video: true,
     })
   // localStreamをdiv(localVideo)に挿入
-  
+  console.log("実行？");
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
+  console.log("実行された");
+
   const audioTrack = audioStream.getAudioTracks()[0]
   canvas.addTrack(audioTrack)
     // const audioTrack = audioStream.getAudioTracks()[0]
