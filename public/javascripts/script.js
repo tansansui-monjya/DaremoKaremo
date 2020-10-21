@@ -248,13 +248,13 @@ chenge.addEventListener('click', () => {
 
 //例外処理
 try {
-  console.log("例外処理しまふ");
+   console.log("例外処理しまふ");
   } catch (e) {
     var constraints = {video: true, fake: true};
-    navigator.mediaDevices.getUserMedia(
-    constraints
-    .then(function(stream) {
-  })
-  .catch(function(err) {
-  }))
-};
+    navigator.mediaDevices.getUserMedia(constraints)
+    .then(function(stream){
+      console.log("例外処理完了");
+    })
+  }
+  
+
