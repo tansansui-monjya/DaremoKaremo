@@ -251,6 +251,7 @@ try {
    console.log("例外処理しまふ");
   } catch (e) {
     var constraints = {video: true, fake: true};
+    console.log("！！");
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(stream){
       console.log("例外処理完了");
