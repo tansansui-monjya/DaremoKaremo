@@ -38,16 +38,19 @@ const Peer = window.Peer;
     () => (roomMode.textContent = getRoomModeByHash())
   );
   // 自分の映像と音声をlocalStreamに代入
+  try{
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
       video: true,
     })
+  }catch (e) {
+    console.log(e)
+  }
   // localStreamをdiv(localVideo)に挿入
-  console.log("実行？");
+  
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
-  console.log("実行された");
 
   const audioTrack = audioStream.getAudioTracks()[0]
   canvas.addTrack(audioTrack)
@@ -246,7 +249,7 @@ chenge.addEventListener('click', () => {
     model = params.get('model');
   }
   peer.on('error', console.error);
-});
+})();
 
 //例外処理
 try {
