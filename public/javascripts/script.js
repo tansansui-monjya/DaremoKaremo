@@ -246,7 +246,7 @@ chenge.addEventListener('click', () => {
     model = params.get('model');
   }
   peer.on('error', console.error);
-})();
+});
 
 //例外処理
 try {
