@@ -71,8 +71,8 @@ const Peer = window.Peer;
     // 部屋に接続するメソッド（joinRoom）
     const room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
-      // stream: localStream,
-      stream: canvas, //canvasをstreamに渡すと相手に渡せる
+      stream: localStream,
+      // stream: canvas, //canvasをstreamに渡すと相手に渡せる
     });
 
     // Render remote stream for new peer join in the room
