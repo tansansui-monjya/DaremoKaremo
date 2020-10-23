@@ -38,6 +38,11 @@ const Peer = window.Peer;
     () => (roomMode.textContent = getRoomModeByHash())
   );
   // 自分の映像と音声をlocalStreamに代入
+  const localStream = await navigator.mediaDevices
+  .getUserMedia({
+    audio: true,
+    video: true,
+  })
   //例外組み込み（ビデオがなかった時）
   try{
   const localStream = await navigator.mediaDevices
@@ -50,10 +55,8 @@ const Peer = window.Peer;
     //アラートでカメラがないよう！の表示
     alert('カメラがないみたいだね、仕方ないな〜');
     //キャラクター選択した画像表示
-
   }
   // localStreamをdiv(localVideo)に挿入
-
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
 
@@ -91,6 +94,7 @@ const Peer = window.Peer;
       var arrayLength = remoteVideos.length + 1;
       remoteVideo_count += 1;
       console.log("他ユーザーの数"+arrayLength);
+      console.log("通信相手の画面数"+remoteVideo_count);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -188,7 +192,7 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-    console.log(remoteVideo_count)
+    console.log("スピーカー押した時の人数"+remoteVideo_count);
     if(remoteVideo_count == 0){
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         toggleSpeaker.className = 'speaker-btn';
