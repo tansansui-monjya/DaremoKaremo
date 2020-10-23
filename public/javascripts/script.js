@@ -38,6 +38,7 @@ const Peer = window.Peer;
     () => (roomMode.textContent = getRoomModeByHash())
   );
   // 自分の映像と音声をlocalStreamに代入
+  //例外組み込み（ビデオがなかった時）
   try{
   const localStream = await navigator.mediaDevices
     .getUserMedia({
@@ -46,9 +47,13 @@ const Peer = window.Peer;
     })
   }catch (e) {
     console.log(e)
+    //アラートでカメラがないよう！の表示
+    alert('カメラがないみたいだね、仕方ないな〜');
+    //キャラクター選択した画像表示
+
   }
   // localStreamをdiv(localVideo)に挿入
-  
+
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
 
@@ -250,17 +255,3 @@ chenge.addEventListener('click', () => {
   }
   peer.on('error', console.error);
 })();
-
-//例外処理
-try {
-   console.log("例外処理しまふ");
-  } catch (e) {
-    var constraints = {video: true, fake: true};
-    console.log("！！");
-    navigator.mediaDevices.getUserMedia(constraints)
-    .then(function(stream){
-      console.log("例外処理完了");
-    })
-  }
-  
-
