@@ -92,16 +92,25 @@ button#test1:hover {
   z-index: 102;
 }
 
+#js-remote-streams{
+  border-radius: 10px;
+}
+
 /*人数変更*/
 .remote-streams {
-  width: 100vw;
-  height: 80vh;
+  margin-top: 5vh;
+  /* width: 100vw;
+  height: 80vh; */
   display: grid;
   /* ここいじれ */
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40vw 40vw;
   /* ここいじれ */
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 40vh 40vh;
+  column-gap: 4vh;
+  row-gap: 4vh;
+  
   background-color: #3B1D70;
+  justify-content: center;
 }
 
 .canvas2{
