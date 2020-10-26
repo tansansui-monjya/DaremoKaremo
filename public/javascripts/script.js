@@ -11,7 +11,7 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream(30);
-  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);";
+  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);height:40vh;width:40vw;";
   //document.getElementById("canvas2").style.visibility = "hidden";
   }
   
@@ -92,7 +92,7 @@ const Peer = window.Peer;
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','transform: scaleX(-1);height: 40vh;');
+      newVideo.setAttribute('style','transform: scaleX(-1);height:40vh;width:40vw;');
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
