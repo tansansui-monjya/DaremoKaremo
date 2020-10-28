@@ -8,7 +8,7 @@
 let renderer = new THREE.WebGLRenderer();
 //renderer.setSize( width, height );
 //cssに記載されているグリッドの大きさ取得
-var obj = document.getElementById("js-remote-streams");
+var obj = document.getElementById("remote-streams");
 var w = obj.getBoundingClientRect().width;
 var h = obj.getBoundingClientRect().height;
 // var w1 = w/2.5;

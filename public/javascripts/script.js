@@ -78,9 +78,9 @@ const Peer = window.Peer;
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
-      var arrayLength = remoteVideos.length + 1;
+      // var arrayLength = remoteVideos.length + 1;
       remoteVideo_count += 1;
-      console.log("他ユーザーの数"+arrayLength);
+      // console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -92,11 +92,11 @@ const Peer = window.Peer;
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','transform: scaleX(-1);height:40vh;width:40vw;');
+      newVideo.setAttribute('style','height:40vh;width:40vw;');
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
-      newVideo.setAttribute('id','user'+arrayLength+1);
+      newVideo.setAttribute('id','user'+remoteVideo_count);
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
                 newVideo.muted = true;
               }
@@ -118,7 +118,7 @@ const Peer = window.Peer;
       //remoteVideo.srcObject.getTracks().forEach(track => track.stop());
       remoteVideo.srcObject = null;
       remoteVideo.remove();
-
+      remoteVideo_count -= 1;
     });
     // for closing myself(自分の退出)
     room.once('close', () => {
@@ -190,9 +190,9 @@ toggleSpeaker.addEventListener('click', () => {
     else {
       for(var i=1;i<=remoteVideo_count;i++){
         console.log(i)
-        var videoElem = document.getElementById('userNaN'+i);
+        var videoElem = document.getElementById('user'+i);
         videoElem.muted = !videoElem.muted;
-        console.log("userNaN"+i+videoElem.muted)
+        console.log("user"+i+videoElem.muted)
       }
           toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
     }
