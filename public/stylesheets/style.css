@@ -128,7 +128,7 @@ button#test1:hover {
 #canvas2{
   grid-row: 1;
   grid-column: 1;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .camera-btn{
