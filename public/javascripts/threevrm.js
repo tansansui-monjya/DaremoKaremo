@@ -8,13 +8,13 @@
 let renderer = new THREE.WebGLRenderer();
 //renderer.setSize( width, height );
 //cssに記載されているグリッドの大きさ取得
-var obj = document.getElementById("js-remote-streams");
+var obj = document.getElementById("remote-streams");
 var w = obj.getBoundingClientRect().width;
 var h = obj.getBoundingClientRect().height;
-var w1 = w/2;
-var h1 = h/2;
+// var w1 = w/2.5;
+// var h1 = h/2;
 //renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.4);
-renderer.setSize(w1, h1);
+renderer.setSize(w, h);
 let element = document.getElementById('js-remote-streams').appendChild( renderer.domElement );
 element.id = 'canvas2'
 element.class = 'canvas3'
