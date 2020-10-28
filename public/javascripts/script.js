@@ -110,11 +110,8 @@ const Peer = window.Peer;
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       remoteVideo_count += 1;
-<<<<<<< HEAD
-=======
       console.log("他ユーザーの数"+arrayLength);
       console.log("通信相手の画面数"+remoteVideo_count);
->>>>>>> 60b02d4244d72727034f979e395eaee9cca74620
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
