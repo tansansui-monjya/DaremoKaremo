@@ -39,14 +39,45 @@ const Peer = window.Peer;
   );
   // 自分の映像と音声をlocalStreamに代入
   const localStream = await navigator.mediaDevices
+  .getUserMedia({
+    audio: true,
+    video: true,
+  })
+  //例外組み込み（ビデオがなかった時）
+  try{
+  const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
       video: true,
     })
+  }catch (e) {
+    console.log(e)
+    //アラートでカメラがないよう！の表示
+    alert('カメラがないみたいだね');
+    //キャラクター選択した画像表示
+
+    chenge.addEventListener('click', () => {
+      if(type=="mask"){
+      }else if(type=='babiniku'){
+        if (syokika) {
+          console.log("メモリ消去")
+          scene.remove.apply(scene, scene.children);
+        }
+        syokika = true
+        currentVRM = null;
+        let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+        let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+        console.log(VRMnum);
+        threevrm(VRM[VRMnum]);
+      }
+    });
+    
+
+  }
   // localStreamをdiv(localVideo)に挿入
-  
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
+
   const audioTrack = audioStream.getAudioTracks()[0]
   canvas.addTrack(audioTrack)
     // const audioTrack = audioStream.getAudioTracks()[0]
@@ -79,6 +110,11 @@ const Peer = window.Peer;
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
       remoteVideo_count += 1;
+<<<<<<< HEAD
+=======
+      console.log("他ユーザーの数"+arrayLength);
+      console.log("通信相手の画面数"+remoteVideo_count);
+>>>>>>> 60b02d4244d72727034f979e395eaee9cca74620
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
@@ -175,7 +211,7 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-    console.log(remoteVideo_count)
+    console.log("スピーカー押した時の人数"+remoteVideo_count);
     if(remoteVideo_count == 0){
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         toggleSpeaker.className = 'speaker-btn';
@@ -242,4 +278,3 @@ chenge.addEventListener('click', () => {
   }
   peer.on('error', console.error);
 })();
-

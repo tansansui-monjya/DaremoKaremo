@@ -74,6 +74,8 @@ button#test1:hover {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
 /* Loading */
 #loader-bg {
   display: none;
@@ -99,7 +101,15 @@ button#test1:hover {
   z-index: 102;
 }
 
+<<<<<<< HEAD
 #js-remote-streams{
+=======
+>>>>>>> b0e9bd2e37f18eba3abe00933b35e85a04bed405
+/*人数変更*/
+.remote-streams {
+  width: 100vw;
+  height: 80vh;
+>>>>>>> 60b02d4244d72727034f979e395eaee9cca74620
   display: grid;
 
   /* ここいじれ */
@@ -597,6 +607,259 @@ button#test1:hover {
 /* スマホ写した時 */
 @media screen and (max-width: 480px){
   /* 相手のビデオ画面変更 */
+<<<<<<< HEAD
+.camera-btn{
+  width: 55px;
+  height: 55px;
+}
+.camera-btn:before {
+  width: 25px;
+  height: 25px;
+}
+
+.camera-btn_OFF{
+  width: 55px;
+  height: 55px;
+}
+.camera-btn_OFF:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+.mic-btn{
+  width: 55px;
+  height: 55px;
+}
+
+.mic-btn:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.mic-btn_OFF{
+  width: 55px;
+  height: 55px;
+}
+
+.mic-btn_OFF:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 4px;
+  margin-top: 2px;
+}
+.leave-btn{
+  width: 55px;
+  height: 55px;
+}
+.leave-btn:before {
+  width: 25px;
+  height: 25px;
+}
+
+.share-btn{
+  width: 55px;
+  height: 55px;
+}
+.share-btn:before {
+  width: 25px;
+  height: 25px;
+}
+
+.speaker-btn{
+  width: 55px;
+  height: 55px;
+}
+
+.speaker-btn:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-top: 4px;
+}
+
+.speaker-btn_OFF{
+  width: 55px;
+  height: 55px;
+}
+
+.speaker-btn_OFF:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+.button-center{
+  text-align: center;
+  position: absolute;
+  width: 100vw;
+  top:37vh;
+  z-index: 2;
+}
+}
+
+/* スタブレット写した時 */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  /* .room {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    gap: 8px;
+    margin: 0;
+    background-color: #3B1D70;
+    height:100%;
+	  border:dotted 2px #666666;
+  } */
+  /* 相手のビデオ画面変更 */
+.camera-btn{
+  width: 60px;
+  height: 60px;
+}
+.camera-btn:before {
+  width: 25px;
+  height: 25px;
+}
+
+.camera-btn_OFF{
+  width: 60px;
+  height: 60px;
+}
+.camera-btn_OFF:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+.mic-btn{
+  width: 60px;
+  height: 60px;
+}
+
+.mic-btn:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.mic-btn_OFF{
+  width: 60px;
+  height: 60px;
+}
+
+.mic-btn_OFF:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 4px;
+  margin-top: 2px;
+}
+.leave-btn{
+  width: 60px;
+  height: 60px;
+}
+.leave-btn:before {
+  width: 25px;
+  height: 25px;
+}
+
+.share-btn{
+  width: 60px;
+  height: 60px;
+}
+.share-btn:before {
+  width: 25px;
+  height: 25px;
+}
+.share-btn:hover{
+  background: #FFFFFF;
+}
+.speaker-btn{
+  width: 60px;
+  height: 60px;
+}
+.speaker-btn:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-top: 4px;
+}
+
+.speaker-btn_OFF{
+  width: 60px;
+  height: 60px;
+}
+.speaker-btn_OFF:before {
+  width: 25px;
+  height: 25px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+}
+
+/* オーバーレイ */
+.overlay-all {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #3B1D70;
+}
+
+img#top_wait{
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  
+}
+
+div#title_wait{
+  font-family: 'Megrim', cursive;
+  font-size: 50px;
+  font-style: normal;
+  color: #DB560E;
+  text-align: center;
+}
+
+p#wait_message{
+  text-align: center;
+  color: #e5e5e5;
+  margin-top: 100px;
+}
+
+/* 時間設定デザイン */
+.btn_div{
+  position: absolute;
+  top: 103vh;
+  bottom: 100vh;
+  width: 76vw;
+  text-align: center;
+}
+/* 時間設定デザイン */
+button#test1 {
+  margin: auto;
+  width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border:1px solid #1B1B1B;
+}
+/* 時間設定デザイン */
+button#test1:hover {
+  background: #1B1B1B;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+=======
   .camera-btn{
     display: inline-block;
     text-decoration: none;
@@ -778,6 +1041,7 @@ button#test1:hover {
     margin-left: 5px;
     margin-top: 4px;
   }
+>>>>>>> b0e9bd2e37f18eba3abe00933b35e85a04bed405
 
   .speaker-btn_OFF{
     display: inline-block;
