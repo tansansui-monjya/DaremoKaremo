@@ -18,7 +18,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   const remoteVideos = document.getElementById('js-remote-streams');
-  var remoteVideo_count = 0;
+  var remoteVideo_Array= new Array;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
