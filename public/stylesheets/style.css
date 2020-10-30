@@ -5,7 +5,7 @@ body {
 }
 
 video {
-  object-fit: cover;
+  object-fit: unset;
   border-radius: 10px;
 }
 
@@ -74,8 +74,6 @@ button#test1:hover {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-=======
 /* Loading */
 #loader-bg {
   display: none;
@@ -101,15 +99,7 @@ button#test1:hover {
   z-index: 102;
 }
 
-<<<<<<< HEAD
 #js-remote-streams{
-=======
->>>>>>> b0e9bd2e37f18eba3abe00933b35e85a04bed405
-/*人数変更*/
-.remote-streams {
-  width: 100vw;
-  height: 80vh;
->>>>>>> 60b02d4244d72727034f979e395eaee9cca74620
   display: grid;
 
   /* ここいじれ */
@@ -393,212 +383,86 @@ button#test1:hover {
 @media screen and (max-width: 959px){
   /* 相手のビデオ画面変更 */
   .camera-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .camera-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%92%E3%82%99%E3%83%86%E3%82%99%E3%82%AA%E3%82%AA%E3%83%B3.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
-  }
-
-  .camera-btn:hover{
-    background: #ffffff;
   }
 
   .camera-btn_OFF{
-    display: inline-block;
-    text-decoration: none;
-    background: #E26522;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .camera-btn_OFF:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%92%E3%82%99%E3%83%86%E3%82%99%E3%82%AA%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 4px;
     margin-top: 4px;
   }
-  .camera-btn_OFF:hover{
-    background: #E26522;
-  }
 
   .mic-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .mic-btn:hover{
-    background: #ffffff;
-  }
+
   .mic-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%9E%E3%82%A4%E3%82%AF%E3%82%AA%E3%83%B3.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 10px;
   }
 
   .mic-btn_OFF{
-    display: inline-block;
-    text-decoration: none;
-    background: #E26522;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .mic-btn_OFF:hover{
-    background: #E26522;
-  }
+
   .mic-btn_OFF:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%9E%E3%82%A4%E3%82%AF%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 4px;
     margin-top: 2px;
   }
 
   .leave-btn{
-    display: inline-block;
-    text-decoration: none;
-    background: #FF0404;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .leave-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E9%80%9A%E8%A9%B1%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
   }
 
   .share-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .share-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E5%85%B1%E6%9C%89.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
-  }
-  .share-btn:hover{
-    background: #FFFFFF;
   }
 
   .speaker-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .speaker-btn:hover{
-    background: #ffffff;
-  }
+
   .speaker-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%82%B9%E3%83%92%E3%82%9A%E3%83%BC%E3%82%AB%E3%83%BC%E3%82%AA%E3%83%B3.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 5px;
     margin-top: 4px;
   }
 
   .speaker-btn_OFF{
-    display: inline-block;
-    text-decoration: none;
-    background: #E26522;
-    color: #FFF;
     width: 60px;
     height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .speaker-btn_OFF:hover{
-    background: #E26522;
-  }
+
   .speaker-btn_OFF:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%82%B9%E3%83%92%E3%82%9A%E3%83%BC%E3%82%AB%E3%83%BC%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 4px;
     margin-top: 4px;
   }
@@ -607,441 +471,77 @@ button#test1:hover {
 /* スマホ写した時 */
 @media screen and (max-width: 480px){
   /* 相手のビデオ画面変更 */
-<<<<<<< HEAD
-.camera-btn{
-  width: 55px;
-  height: 55px;
-}
-.camera-btn:before {
-  width: 25px;
-  height: 25px;
-}
-
-.camera-btn_OFF{
-  width: 55px;
-  height: 55px;
-}
-.camera-btn_OFF:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 4px;
-  margin-top: 4px;
-}
-
-.mic-btn{
-  width: 55px;
-  height: 55px;
-}
-
-.mic-btn:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 10px;
-}
-
-.mic-btn_OFF{
-  width: 55px;
-  height: 55px;
-}
-
-.mic-btn_OFF:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 4px;
-  margin-top: 2px;
-}
-.leave-btn{
-  width: 55px;
-  height: 55px;
-}
-.leave-btn:before {
-  width: 25px;
-  height: 25px;
-}
-
-.share-btn{
-  width: 55px;
-  height: 55px;
-}
-.share-btn:before {
-  width: 25px;
-  height: 25px;
-}
-
-.speaker-btn{
-  width: 55px;
-  height: 55px;
-}
-
-.speaker-btn:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 5px;
-  margin-top: 4px;
-}
-
-.speaker-btn_OFF{
-  width: 55px;
-  height: 55px;
-}
-
-.speaker-btn_OFF:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 4px;
-  margin-top: 4px;
-}
-.button-center{
-  text-align: center;
-  position: absolute;
-  width: 100vw;
-  top:37vh;
-  z-index: 2;
-}
-}
-
-/* スタブレット写した時 */
-@media screen and (min-width: 768px) and (max-width: 1024px){
-  /* .room {
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-    gap: 8px;
-    margin: 0;
-    background-color: #3B1D70;
-    height:100%;
-	  border:dotted 2px #666666;
-  } */
-  /* 相手のビデオ画面変更 */
-.camera-btn{
-  width: 60px;
-  height: 60px;
-}
-.camera-btn:before {
-  width: 25px;
-  height: 25px;
-}
-
-.camera-btn_OFF{
-  width: 60px;
-  height: 60px;
-}
-.camera-btn_OFF:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 4px;
-  margin-top: 4px;
-}
-
-.mic-btn{
-  width: 60px;
-  height: 60px;
-}
-
-.mic-btn:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 10px;
-}
-
-.mic-btn_OFF{
-  width: 60px;
-  height: 60px;
-}
-
-.mic-btn_OFF:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 4px;
-  margin-top: 2px;
-}
-.leave-btn{
-  width: 60px;
-  height: 60px;
-}
-.leave-btn:before {
-  width: 25px;
-  height: 25px;
-}
-
-.share-btn{
-  width: 60px;
-  height: 60px;
-}
-.share-btn:before {
-  width: 25px;
-  height: 25px;
-}
-.share-btn:hover{
-  background: #FFFFFF;
-}
-.speaker-btn{
-  width: 60px;
-  height: 60px;
-}
-.speaker-btn:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 5px;
-  margin-top: 4px;
-}
-
-.speaker-btn_OFF{
-  width: 60px;
-  height: 60px;
-}
-.speaker-btn_OFF:before {
-  width: 25px;
-  height: 25px;
-  margin-left: 4px;
-  margin-top: 4px;
-}
-}
-
-/* オーバーレイ */
-.overlay-all {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  overflow: scroll;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background: #3B1D70;
-}
-
-img#top_wait{
-  width: auto;
-  height: auto;
-  display: block;
-  margin: auto;
-  margin-top: 100px;
-  
-}
-
-div#title_wait{
-  font-family: 'Megrim', cursive;
-  font-size: 50px;
-  font-style: normal;
-  color: #DB560E;
-  text-align: center;
-}
-
-p#wait_message{
-  text-align: center;
-  color: #e5e5e5;
-  margin-top: 100px;
-}
-
-/* 時間設定デザイン */
-.btn_div{
-  position: absolute;
-  top: 103vh;
-  bottom: 100vh;
-  width: 76vw;
-  text-align: center;
-}
-/* 時間設定デザイン */
-button#test1 {
-  margin: auto;
-  width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #1B1B1B;
-	background: #fff;
-	border:1px solid #1B1B1B;
-}
-/* 時間設定デザイン */
-button#test1:hover {
-  background: #1B1B1B;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-}
-=======
   .camera-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .camera-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%92%E3%82%99%E3%83%86%E3%82%99%E3%82%AA%E3%82%AA%E3%83%B3.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
-  }
-
-  .camera-btn:hover{
-    background: #ffffff;
   }
 
   .camera-btn_OFF{
-    display: inline-block;
-    text-decoration: none;
-    background: #E26522;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .camera-btn_OFF:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%92%E3%82%99%E3%83%86%E3%82%99%E3%82%AA%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 4px;
     margin-top: 4px;
   }
 
-  .camera-btn_OFF:hover{
-    background: #E26522;
-  }
-
   .mic-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .mic-btn:hover{
-    background: #ffffff;
-  }
+
   .mic-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%9E%E3%82%A4%E3%82%AF%E3%82%AA%E3%83%B3.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 10px;
   }
 
   .mic-btn_OFF{
-    display: inline-block;
-    text-decoration: none;
-    background: #E26522;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .mic-btn_OFF:hover{
-    background: #E26522;
-  }
+
   .mic-btn_OFF:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%9E%E3%82%A4%E3%82%AF%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 4px;
     margin-top: 2px;
   }
   .leave-btn{
-    display: inline-block;
-    text-decoration: none;
-    background: #FF0404;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .leave-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E9%80%9A%E8%A9%B1%E3%82%AA%E3%83%95.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
   }
 
   .share-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
   .share-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E5%85%B1%E6%9C%89.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
   }
-  .share-btn:hover{
-    background: #FFFFFF;
-  }
+
   .speaker-btn{
-    display: inline-block;
-    text-decoration: none;
-    color: #FFF;
     width: 55px;
     height: 55px;
-    line-height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    overflow: hidden;
-    transition: .4s;
   }
-  .speaker-btn:hover{
-    background: #ffffff;
-  }
+
   .speaker-btn:before {
-    content: "";
-    display: inline-block;
     width: 25px;
     height: 25px;
-    background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%82%B9%E3%83%92%E3%82%9A%E3%83%BC%E3%82%AB%E3%83%BC%E3%82%AA%E3%83%B3.svg") no-repeat;
-    background-size: contain;
-    vertical-align: middle;
     margin-left: 5px;
     margin-top: 4px;
   }
->>>>>>> b0e9bd2e37f18eba3abe00933b35e85a04bed405
 
   .speaker-btn_OFF{
     display: inline-block;
