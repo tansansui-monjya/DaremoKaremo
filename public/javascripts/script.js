@@ -44,13 +44,14 @@ const Peer = window.Peer;
       video: true,
     })
     //例外組み込み（ビデオがなかった時）
-    if(audio == false || video ==false){
-      try{
-        const localStream = await navigator.mediaDevices
-          .getUserMedia({
-          audio: true,
-          video: true,
-       })
+    if(audio == false){
+    }else {
+       try{
+         const localStream = await navigator.mediaDevices
+           .getUserMedia({
+           audio: true,
+           video: true,
+        })
 
       
         }catch (e) {
