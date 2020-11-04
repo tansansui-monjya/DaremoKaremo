@@ -310,6 +310,19 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
+.alien-btn_changing{
+  display: inline-block;
+  text-decoration: none;
+  background: #ffffff;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
 
 /* スピーカーボタン */
 .speaker-btn{
