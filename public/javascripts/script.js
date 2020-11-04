@@ -18,7 +18,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   const remoteVideos = document.getElementById('js-remote-streams');
-  var remoteVideo_count = 0;
+  var remoteVideo_Array= new Array;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
   //GETパラメータ(部屋名)を取得
@@ -110,23 +110,28 @@ const Peer = window.Peer;
     // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
-      remoteVideo_count += 1;
+      var arrayLength = remoteVideos.length + 1;
+      console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       console.log("test");
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
       newVideo.srcObject = stream;
+      //他ユーザーの総数に配列として追加
+      remoteVideo_Array.unshift(stream.peerId.toString());
+      console.log(remoteVideo_Array);
       // skyWayと接続(ONにする)
       newVideo.playsInline = true;
       // mark peerId to find it later at peerLeave event
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
+      newVideo.setAttribute('id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','height:40vh;width:40vw;');
+      newVideo.setAttribute('style','height:40vh;width:40vw');
       //配置を設定(自分)
       //canvas.setAttribute('id','user1');
       //配置を設定(相手)
-      newVideo.setAttribute('id','user'+remoteVideo_count);
+      // newVideo.setAttribute('id','user'+arrayLength+1);
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
                 newVideo.muted = true;
               }
@@ -145,6 +150,12 @@ const Peer = window.Peer;
       const remoteVideo = remoteVideos.querySelector(
         `[data-peer-id=${peerId}]`
       );
+      console.log(peerId)
+      //peerIdが一致したものを配列から削除
+      var idx = $.inArray(peerId,remoteVideo_Array)
+      if(idx >= 0){
+        remoteVideo_Array.splice(idx,1);
+      }
       //remoteVideo.srcObject.getTracks().forEach(track => track.stop());
       remoteVideo.srcObject = null;
       remoteVideo.remove();
@@ -207,24 +218,24 @@ toggleMicrophone.addEventListener('click', () => {
 
 //スピーカー押したときの音量の動作
 toggleSpeaker.addEventListener('click', () => {
-    console.log(remoteVideo_count)
-    if(remoteVideo_count == 0){
-      if(toggleSpeaker.className == 'speaker-btn_OFF'){
-        toggleSpeaker.className = 'speaker-btn';
-      }
-      else if(toggleSpeaker.className == 'speaker-btn'){
-        toggleSpeaker.className = 'speaker-btn_OFF';
-      }
+  console.log(remoteVideo_Array)
+  if(remoteVideo_Array.length == 0){
+    if(toggleSpeaker.className == 'speaker-btn_OFF'){
+      toggleSpeaker.className = 'speaker-btn';
     }
-    else {
-      for(var i=1;i<=remoteVideo_count;i++){
-        console.log(i)
-        var videoElem = document.getElementById('user'+i);
-        videoElem.muted = !videoElem.muted;
-        console.log("user"+i+videoElem.muted)
-      }
-          toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+    else if(toggleSpeaker.className == 'speaker-btn'){
+      toggleSpeaker.className = 'speaker-btn_OFF';
     }
+  }
+  else {
+    for(var i=0;i<remoteVideo_Array.length;i++){
+      console.log(remoteVideo_Array[i]);
+      var videoElem = document.getElementById(remoteVideo_Array[i]);
+      videoElem.muted = !videoElem.muted;
+      console.log("id="+remoteVideo_Array[i]+videoElem.muted)
+    }
+        toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+  }
   })
 
 //マスク関係の動作
