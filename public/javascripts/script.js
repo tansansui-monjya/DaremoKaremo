@@ -1,3 +1,21 @@
+//ブラウザバック禁止
+history.pushState(null, null, location.href);
+window.addEventListener('popstate', (e) => {
+  history.go(1);
+});
+//リロード前の警告
+window.addEventListener('beforeunload', function(e){
+  /** 更新される直前の処理 */
+  console.log('beforeunload');
+  var message = '本当に更新してよろしいですか？';
+  e.returnValue = message;
+  return message;
+});
+//リロードされたとき、現在の値を持ったままキャラクター選択画面に遷移する
+if(window.performance.navigation.type === 1){
+  window.location.href = document.URL.replace('alien','waiting');
+}
+
 // Peerモデルを変更
 const Peer = window.Peer;
 (async function main() {
