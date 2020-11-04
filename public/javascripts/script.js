@@ -45,15 +45,15 @@ const Peer = window.Peer;
     })
     //例外組み込み（ビデオがなかった時）
     if(audio == false){
+      console.log("ああああ");
     }else {
        try{
+        console.log("いいいい");
          const localStream = await navigator.mediaDevices
            .getUserMedia({
            audio: true,
            video: true,
         })
-
-      
         }catch (e) {
           console.log(e)
           //アラートでカメラがないよう！の表示
