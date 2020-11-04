@@ -43,19 +43,22 @@ const Peer = window.Peer;
       audio: true,
       video: true,
     })
-
     //例外組み込み（ビデオがなかった時）
-  try{
-    const localStream = await navigator.mediaDevices
-      .getUserMedia({
-        audio: true,
-        video: true,
-      })
-    }catch (e) {
-      console.log(e)
-      //アラートでカメラがないよう！の表示
-      alert('カメラがないみたいだね');
-      //キャラクター選択した画像表示
+    if(audio == false || video ==false){
+      try{
+        const localStream = await navigator.mediaDevices
+          .getUserMedia({
+          audio: true,
+          video: true,
+       })
+
+      
+        }catch (e) {
+          console.log(e)
+          //アラートでカメラがないよう！の表示
+          alert('カメラがないみたいだね');
+          //キャラクター選択した画像表示
+    
   
       chenge.addEventListener('click', () => {
         if(type=="mask"){
@@ -73,6 +76,7 @@ const Peer = window.Peer;
         }
       });
     }  
+  }
 
     
   // localStreamをdiv(localVideo)に挿入
