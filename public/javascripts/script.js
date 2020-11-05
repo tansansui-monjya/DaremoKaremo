@@ -278,7 +278,6 @@ var cancelFlag = false;
 chenge.addEventListener('click', () => {
    //ボタン無効化
    if( cancelFlag == false ){
-    // const change = document.getElementById('change')
     chenge.disabled = true;
         cancelFlag = true;
 
