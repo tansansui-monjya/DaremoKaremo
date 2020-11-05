@@ -272,20 +272,41 @@ if(type=="mask"){
   threevrm(VRM[VRMnum]);
   }
 }
+//連続クリック防止の為のボタン有効化フラグ
+var cancelFlag = false;
+
 chenge.addEventListener('click', () => {
-  if(type=="mask"){
-  }else if(type=='babiniku'){
-    if (syokika) {
-      console.log("メモリ消去")
-      scene.remove.apply(scene, scene.children);
-    }
-    syokika = true
-    currentVRM = null;
-    let VRMnum = Math.floor( Math.random() * 4 )+1 ;
-    let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-    console.log(VRMnum);
-    threevrm(VRM[VRMnum]);
-  }
+   //ボタン無効化
+   if( cancelFlag == false ){
+    // const change = document.getElementById('change')
+    chenge.disabled = true;
+        cancelFlag = true;
+
+        //処理内容
+        //行いたい処理
+        (function(){
+          if(type=="mask"){
+          }else if(type=='babiniku'){
+            if (syokika) {
+              console.log("メモリ消去")
+              scene.remove.apply(scene, scene.children);
+            }
+            syokika = true
+            currentVRM = null;
+            let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+            let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+            console.log(VRMnum);
+            threevrm(VRM[VRMnum]);
+          }
+        })();
+        //ボタン有効化
+        chenge.disabled = false;
+          cancelFlag = false;
+          console.log("テスト")
+        // setTimeout(function(){
+          
+        // },5000);
+}
 });
 
   // エラー時のダイアログ表示
