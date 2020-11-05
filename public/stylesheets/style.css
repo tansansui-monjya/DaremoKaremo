@@ -309,10 +309,10 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-.alien-btn_OFF{
+.alien-btn_changing{
   display: inline-block;
   text-decoration: none;
-  background: orange;
+  background: #ffffff;
   color: #FFF;
   width: 60px;
   height: 60px;
