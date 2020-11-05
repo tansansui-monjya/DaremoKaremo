@@ -299,13 +299,13 @@ chenge.addEventListener('click', () => {
             threevrm(VRM[VRMnum]);
           }
         })();
-        //ボタン有効化
+        
+        setTimeout(function(){
+          //ボタン有効化
         chenge.disabled = false;
-          cancelFlag = false;
-          console.log("テスト")
-        // setTimeout(function(){
-          
-        // },5000);
+        cancelFlag = false;
+        console.log("テスト")
+        },5000);
 }
 });
 
