@@ -272,10 +272,13 @@ if(type=="mask"){
   threevrm(VRM[VRMnum]);
   }
 }
-
+// alienボタン押した時の処理
 chenge.addEventListener('click', () => {
+  //alienボタンを無効化
   chenge.disabled = true;
+  //無効化中のボタンデザインを変更
   chenge.className = 'alien-btn_changing'
+  //モデル変更処理
           if(type=="mask"){
           }else if(type=='babiniku'){
             if (syokika) {

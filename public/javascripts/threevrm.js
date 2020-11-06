@@ -74,11 +74,13 @@ function threevrm(VRM){
       
       vrm.lookAt.target = camera; // 常にカメラ方向を向く
     } );
+    //バグ回避の為3Dモデル表示後少し間を置く
     setTimeout(function(){
       //ボタン有効化
     chenge.disabled = false;
+    //ボタンデザインを有効時のものに戻す
     chenge.className = 'alien-btn';
-    console.log("テスト")
+    console.log("ボタン有効化")
     },1000);
   }
 
