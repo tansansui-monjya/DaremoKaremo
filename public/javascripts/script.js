@@ -62,40 +62,56 @@ const Peer = window.Peer;
       video: true,
     })
     //例外組み込み（ビデオがなかった時）
-    if(audio == false){
-      console.log("ああああ");
-    }else {
-       try{
-        console.log("いいいい");
-         const localStream = await navigator.mediaDevices
-           .getUserMedia({
-           audio: true,
-           video: true,
-        })
-        }catch (e) {
-          console.log(e)
-          //アラートでカメラがないよう！の表示
-          alert('カメラがないみたいだね');
-          //キャラクター選択した画像表示
+  //   if(audio == false){
+  //     console.log("ああああ");
+  //   }else {
+  //      try{
+  //       console.log("いいいい");
+  //        const localStream = await navigator.mediaDevices
+  //          .getUserMedia({
+  //          audio: true,
+  //          video: true,
+  //       })
+  //       }catch (e) {
+  //         console.log(e)
+  //         //アラートでカメラがないよう！の表示
+  //         alert('カメラがないみたいだね');
+  //         //キャラクター選択した画像表示
     
   
-      chenge.addEventListener('click', () => {
-        if(type=="mask"){
-        }else if(type=='babiniku'){
-          if (syokika) {
-            console.log("メモリ消去")
-            scene.remove.apply(scene, scene.children);
-          }
-          syokika = true
-          currentVRM = null;
-          let VRMnum = Math.floor( Math.random() * 4 )+1 ;
-          let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-          console.log(VRMnum);
-          threevrm(VRM[VRMnum]);
-        }
-      });
-    }  
-  }
+  //     chenge.addEventListener('click', () => {
+  //       if(type=="mask"){
+  //       }else if(type=='babiniku'){
+  //         if (syokika) {
+  //           console.log("メモリ消去")
+  //           scene.remove.apply(scene, scene.children);
+  //         }
+  //         syokika = true
+  //         currentVRM = null;
+  //         let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+  //         let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+  //         console.log(VRMnum);
+  //         threevrm(VRM[VRMnum]);
+  //       }
+  //     });
+  //   }  
+  // }
+  chenge.addEventListener('click', () => {
+    if(type=="mask"){
+    }else if(type=='babiniku'){
+      if (syokika) {
+        console.log("メモリ消去")
+        scene.remove.apply(scene, scene.children);
+      }
+      syokika = true
+      currentVRM = null;
+      let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+      let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+      console.log(VRMnum);
+      threevrm(VRM[VRMnum]);
+    }
+  });
+
 
     
   // localStreamをdiv(localVideo)に挿入
