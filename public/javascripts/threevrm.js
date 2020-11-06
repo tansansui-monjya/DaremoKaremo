@@ -38,6 +38,8 @@ function threevrm(VRM){
 
   // -- avocado (gltf) -------------------------------------------------------------------------------
 
+  const chenge = document.getElementById('change');
+
   function initVRM( gltf ) {
     THREE.VRM.from( gltf ).then( ( vrm ) => {
       scene.add( vrm.scene );
@@ -72,6 +74,12 @@ function threevrm(VRM){
       
       vrm.lookAt.target = camera; // 常にカメラ方向を向く
     } );
+    setTimeout(function(){
+      //ボタン有効化
+    chenge.disabled = false;
+    chenge.className = 'alien-btn';
+    console.log("テスト")
+    },1000);
   }
 
   const loader = new THREE.GLTFLoader();

@@ -272,18 +272,10 @@ if(type=="mask"){
   threevrm(VRM[VRMnum]);
   }
 }
-//連続クリック防止の為のボタン有効化フラグ
-var cancelFlag = false;
 
 chenge.addEventListener('click', () => {
-   //ボタン無効化
-   if( cancelFlag == false ){
-    chenge.disabled = true;
-        cancelFlag = true;
-
-        //処理内容
-        //行いたい処理
-        (function(){
+  chenge.disabled = true;
+  chenge.className = 'alien-btn_changing'
           if(type=="mask"){
           }else if(type=='babiniku'){
             if (syokika) {
@@ -297,15 +289,6 @@ chenge.addEventListener('click', () => {
             console.log(VRMnum);
             threevrm(VRM[VRMnum]);
           }
-        })();
-        
-        setTimeout(function(){
-          //ボタン有効化
-        chenge.disabled = false;
-        cancelFlag = false;
-        console.log("テスト")
-        },5000);
-}
 });
 
   // エラー時のダイアログ表示

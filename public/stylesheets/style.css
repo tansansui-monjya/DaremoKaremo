@@ -310,9 +310,8 @@ button#test1:hover {
   vertical-align: middle;
 }
 .alien-btn_changing{
-  display: inline-block;
-  text-decoration: none;
   background: #ffffff;
+  text-decoration: none;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -322,7 +321,15 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-
+.alien-btn_changing:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%AA%E3%83%B3.svg") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
 /* スピーカーボタン */
 .speaker-btn{
   display: inline-block;
