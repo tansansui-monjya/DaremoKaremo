@@ -272,20 +272,26 @@ if(type=="mask"){
   threevrm(VRM[VRMnum]);
   }
 }
+// alienボタン押した時の処理
 chenge.addEventListener('click', () => {
-  if(type=="mask"){
-  }else if(type=='babiniku'){
-    if (syokika) {
-      console.log("メモリ消去")
-      scene.remove.apply(scene, scene.children);
-    }
-    syokika = true
-    currentVRM = null;
-    let VRMnum = Math.floor( Math.random() * 4 )+1 ;
-    let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-    console.log(VRMnum);
-    threevrm(VRM[VRMnum]);
-  }
+  //alienボタンを無効化
+  chenge.disabled = true;
+  //無効化中のボタンデザインを変更
+  chenge.className = 'alien-btn_changing'
+  //モデル変更処理
+          if(type=="mask"){
+          }else if(type=='babiniku'){
+            if (syokika) {
+              console.log("メモリ消去")
+              scene.remove.apply(scene, scene.children);
+            }
+            syokika = true
+            currentVRM = null;
+            let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+            let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+            console.log(VRMnum);
+            threevrm(VRM[VRMnum]);
+          }
 });
 
   // エラー時のダイアログ表示
