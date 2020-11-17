@@ -6,9 +6,7 @@ $(function() {
 });
     
 $(window).on('load',function () { //全ての読み込みが完了したら実行
-    setTimeout('stopload()',5000)
-    // $('#loader-bg').delay(900).fadeOut(800);
-    // $('#loader').delay(600).fadeOut(300);
+    stopload();
 });
     
 //10秒たったら強制的にロード画面を非表示
