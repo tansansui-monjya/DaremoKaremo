@@ -1,6 +1,5 @@
 const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
-const room_data = document.getElementById("room_data");
 const room_make = document.getElementById("room_make");
 
 room_make.addEventListener('click',() => {
@@ -18,8 +17,6 @@ room_make.addEventListener('click',() => {
     roomId.value += date2
     let hashID = await sha256(roomId.value);
     roomId.value = hashID;
-    // console.log("test");
-    document.room_data.submit();
   })();  
 	return;
 })
