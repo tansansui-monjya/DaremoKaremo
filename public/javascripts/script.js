@@ -22,7 +22,6 @@ const Peer = window.Peer;
   // 操作がDOMをここで取得
   // 自分の
   const localVideo = document.getElementById('js-local-stream');
-  const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
   const roomMode = document.getElementById('js-room-mode');
   //threevrmのcanvas読み込み
@@ -30,7 +29,6 @@ const Peer = window.Peer;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream(30);
   document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);height:40vh;width:40vw;";
-  //document.getElementById("canvas2").style.visibility = "hidden";
   }
   
   const meta = document.getElementById('js-meta');
@@ -60,7 +58,7 @@ const Peer = window.Peer;
     .getUserMedia({
       audio: true,
       video: true,
-    })
+    });
 
     //例外組み込み（ビデオがなかった時）
   // try{
@@ -98,9 +96,7 @@ const Peer = window.Peer;
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
   const audioTrack = audioStream.getAudioTracks()[0]
-  canvas.addTrack(audioTrack)
-    // const audioTrack = audioStream.getAudioTracks()[0]
-    // remoteVideos.srcObject.addTrack(audioTrack)
+  canvas.addTrack(audioTrack);
   localVideo.srcObject = localStream;
   localVideo.muted = true;
   localVideo.playsInline = true;
@@ -110,29 +106,19 @@ const Peer = window.Peer;
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
+  let room = "";
 
-  // 「div(joinTrigger)が押される＆既に接続が始まっていなかったら接続」するリスナーを設置
-  joinTrigger.addEventListener('click', () => {
-    // Note that you need to ensure the peer has connected to signaling server
-    // before using methods of peer instance.
-    if (!peer.open) {
-      return;
-    }
+  peer.on('open', id => {
     // 部屋に接続するメソッド（joinRoom）
-    const room = peer.joinRoom(roomId, {
+    room = peer.joinRoom(roomId, {
       mode: getRoomModeByHash(),
       // stream: localStream,
       stream: canvas, //canvasをstreamに渡すと相手に渡せる
     });
-
-    // Render remote stream for new peer join in the room
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
-      var arrayLength = remoteVideos.length + 1;
-      console.log("他ユーザーの数"+arrayLength);
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
-      console.log("test");
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
       newVideo.srcObject = stream;
       //他ユーザーの総数に配列として追加
@@ -140,16 +126,11 @@ const Peer = window.Peer;
       console.log(remoteVideo_Array);
       // skyWayと接続(ONにする)
       newVideo.playsInline = true;
-      // mark peerId to find it later at peerLeave event
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
       newVideo.setAttribute('id', stream.peerId);
       //スマホの大きさに調節
       newVideo.setAttribute('style','height:40vh;width:40vw');
-      //配置を設定(自分)
-      //canvas.setAttribute('id','user1');
-      //配置を設定(相手)
-      // newVideo.setAttribute('id','user'+arrayLength+1);
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
                 newVideo.muted = true;
               }
@@ -187,16 +168,17 @@ const Peer = window.Peer;
         remoteVideo.remove();
       });
     });
-   
-    // ボタン（leaveTrigger）を押すとroom.close()を発動
-    leaveTrigger.addEventListener('click', () => {
-      room.close();
-      //ここにHPのURLを記載する/今回はデプロイする前でHPのURLが存在しないためgoogleのURLを記載している
-      window.location.href = "/"
-      console.log("test")
-    }, 
-    { once: true });
   });
+    
+   
+  // ボタン（leaveTrigger）を押すとroom.close()を発動
+  leaveTrigger.addEventListener('click', () => {
+    room.close();
+    //HPのURLへ遷移
+    window.location.href = "/"
+    console.log("test")
+  }, 
+  { once: true });
 
   //追加機能share
   let copy_url = document.URL
@@ -214,85 +196,85 @@ const Peer = window.Peer;
   const canvas2 = document.getElementById('canvas2');
 
   // ボタン押した時のカメラ関係の動作
-toggleCamera.addEventListener('click', () => {
-  const videoTracks = videoStream.getVideoTracks()[0];
-  const localTracks = localStream.getVideoTracks()[0];
-  localTracks.enabled = !localTracks.enabled;
-  videoTracks.enabled = !videoTracks.enabled;
-  console.log(videoTracks.enabled)
+  toggleCamera.addEventListener('click', () => {
+    const videoTracks = videoStream.getVideoTracks()[0];
+    const localTracks = localStream.getVideoTracks()[0];
+    localTracks.enabled = !localTracks.enabled;
+    videoTracks.enabled = !videoTracks.enabled;
+    console.log(videoTracks.enabled)
 
-  toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
-  canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
+    toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+    canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
 
-});
+  });
 
-// ボタン押した時のマイク関係の動作
-toggleMicrophone.addEventListener('click', () => {
-  const audioTracks = audioStream.getAudioTracks()[0];
-  audioTracks.enabled = !audioTracks.enabled;
-  console.log(audioTracks.enabled)
-  toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
-});
+  // ボタン押した時のマイク関係の動作
+  toggleMicrophone.addEventListener('click', () => {
+    const audioTracks = audioStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    console.log(audioTracks.enabled)
+    toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
+  });
 
-//スピーカー押したときの音量の動作
-toggleSpeaker.addEventListener('click', () => {
-  console.log(remoteVideo_Array)
-  if(remoteVideo_Array.length == 0){
-    if(toggleSpeaker.className == 'speaker-btn_OFF'){
-      toggleSpeaker.className = 'speaker-btn';
+  //スピーカー押したときの音量の動作
+  toggleSpeaker.addEventListener('click', () => {
+    console.log(remoteVideo_Array)
+    if(remoteVideo_Array.length == 0){
+      if(toggleSpeaker.className == 'speaker-btn_OFF'){
+        toggleSpeaker.className = 'speaker-btn';
+      }
+      else if(toggleSpeaker.className == 'speaker-btn'){
+        toggleSpeaker.className = 'speaker-btn_OFF';
+      }
     }
-    else if(toggleSpeaker.className == 'speaker-btn'){
-      toggleSpeaker.className = 'speaker-btn_OFF';
+    else {
+      for(var i=0;i<remoteVideo_Array.length;i++){
+        console.log(remoteVideo_Array[i]);
+        var videoElem = document.getElementById(remoteVideo_Array[i]);
+        videoElem.muted = !videoElem.muted;
+        console.log("id="+remoteVideo_Array[i]+videoElem.muted)
+      }
+          toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
     }
-  }
-  else {
-    for(var i=0;i<remoteVideo_Array.length;i++){
-      console.log(remoteVideo_Array[i]);
-      var videoElem = document.getElementById(remoteVideo_Array[i]);
-      videoElem.muted = !videoElem.muted;
-      console.log("id="+remoteVideo_Array[i]+videoElem.muted)
-    }
-        toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
-  }
-  })
+  });
 
-//マスク関係の動作
-if(type=="mask"){
-  maskhyouzi();
-}else if(type=='babiniku'){
-  if(typeof model == "string" ){
+  //マスク関係の動作
+  if(type=="mask"){
+    maskhyouzi();
+  }else if(type=='babiniku'){
+    if(typeof model == "string" ){
+      syokika = true
+      let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+      threevrm(VRM[model]);
+    }else{
     syokika = true
+    let VRMnum = Math.floor( Math.random() * 4 )+1 ;
     let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-    threevrm(VRM[model]);
-  }else{
-  syokika = true
-  let VRMnum = Math.floor( Math.random() * 4 )+1 ;
-  let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-  console.log(VRMnum);
-  threevrm(VRM[VRMnum]);
+    console.log(VRMnum);
+    threevrm(VRM[VRMnum]);
+    }
   }
-}
-// alienボタン押した時の処理
-chenge.addEventListener('click', () => {
-  //alienボタンを無効化
-  chenge.disabled = true;
-  //無効化中のボタンデザインを変更
-  chenge.className = 'alien-btn_changing'
-  //モデル変更処理
-          if(type=="mask"){
-          }else if(type=='babiniku'){
-            if (syokika) {
-              console.log("メモリ消去")
-              scene.remove.apply(scene, scene.children);
-            }
-            syokika = true
-            currentVRM = null;
-            let VRMnum = Math.floor( Math.random() * 4 )+1 ;
-            let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-            console.log(VRMnum);
-            threevrm(VRM[VRMnum]);
-          }
-});
+  // alienボタン押した時の処理
+  chenge.addEventListener('click', () => {
+    //alienボタンを無効化
+    chenge.disabled = true;
+    //無効化中のボタンデザインを変更
+    chenge.className = 'alien-btn_changing'
+    //モデル変更処理
+    if(type=="mask"){
+    }else if(type=='babiniku'){
+      if (syokika) {
+        console.log("メモリ消去")
+        scene.remove.apply(scene, scene.children);
+      }
+      syokika = true
+      currentVRM = null;
+      let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+      let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+      console.log(VRMnum);
+      threevrm(VRM[VRMnum]);
+    }
+  });
 
   // エラー時のダイアログ表示
   function error(message, linkText, linkHref) {
@@ -309,4 +291,3 @@ chenge.addEventListener('click', () => {
   }
   peer.on('error', console.error);
 })();
-
