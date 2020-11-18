@@ -1,27 +1,16 @@
-//ブラウザバック禁止
-history.pushState(null, null, location.href);
-window.addEventListener('popstate', (e) => {
-  history.go(1);
-});
-var reloadflg = 0
-
-  //リロード前の警告
-window.addEventListener('beforeunload', function(e){
-  /** 更新される直前の処理 */
-  console.log('beforeunload');
-  var message = '本当に更新してよろしいですか？';
-  e.returnValue = message;
-  return message;
-});
-//リロードされたとき、現在の値を持ったままキャラクター選択画面に遷移する
-if(window.performance.navigation.type === 1){
-  window.location.href = document.URL.replace('alien','waiting');
-}
-
-
 // Peerモデルを変更
 const Peer = window.Peer;
 (async function main() {
+  //ブラウザバック禁止
+  history.pushState(null, null, location.href);
+  window.addEventListener('popstate', (e) => {
+    history.go(1);
+  });
+  //リロード前の警告
+  window.addEventListener('beforeunload', function(e){
+    /** 更新される直前の処理 */
+    room.close();
+  });
   // 操作がDOMをここで取得
   // 自分の
   const localVideo = document.getElementById('js-local-stream');
@@ -91,11 +80,9 @@ const Peer = window.Peer;
   //         threevrm(VRM[VRMnum]);
   //       }
   //     });
-  //   }  
+  //   } 
 
-    
   // localStreamをdiv(localVideo)に挿入
-  
   const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true })
   const videoStream = await navigator.mediaDevices.getUserMedia({ video: true })
   const audioTrack = audioStream.getAudioTracks()[0]
@@ -135,11 +122,11 @@ const Peer = window.Peer;
       //スマホの大きさに調節
       newVideo.setAttribute('style','height:40vh;width:40vw');
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
-                newVideo.muted = true;
-              }
-              else{
-                newVideo.muted = false;
-              }
+        newVideo.muted = true;
+      }
+      else{
+        newVideo.muted = false;
+      }
 
       // 配列に追加する(remoteVideosという配列にnewVideoを追加)
       remoteVideos.append(newVideo);
@@ -172,16 +159,13 @@ const Peer = window.Peer;
       });
     });
   });
-    
    
   // ボタン（leaveTrigger）を押すとroom.close()を発動
   leaveTrigger.addEventListener('click', () => {
-    room.close();
+    // room.close(); === リロード処理で画面を離れるとcloseするようにしているから必要なし
     //HPのURLへ遷移
     window.location.href = "/"
-    console.log("test")
-  }, 
-  { once: true });
+  });
 
   //追加機能share
   let copy_url = document.URL
@@ -238,12 +222,12 @@ const Peer = window.Peer;
         videoElem.muted = !videoElem.muted;
         console.log("id="+remoteVideo_Array[i]+videoElem.muted)
       }
-          toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+      toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
     }
   });
-  //
+  //リロードボタン押したときの動作
   reload.addEventListener('click',() => {
-    
+    location.reload();
   })
 
   //マスク関係の動作
@@ -258,10 +242,10 @@ const Peer = window.Peer;
     syokika = true
     let VRMnum = Math.floor( Math.random() * 4 )+1 ;
     let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-    console.log(VRMnum);
     threevrm(VRM[VRMnum]);
     }
   }
+
   // alienボタン押した時の処理
   chenge.addEventListener('click', () => {
     //alienボタンを無効化
@@ -272,14 +256,12 @@ const Peer = window.Peer;
     if(type=="mask"){
     }else if(type=='babiniku'){
       if (syokika) {
-        console.log("メモリ消去")
         scene.remove.apply(scene, scene.children);
       }
       syokika = true
       currentVRM = null;
       let VRMnum = Math.floor( Math.random() * 4 )+1 ;
       let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-      console.log(VRMnum);
       threevrm(VRM[VRMnum]);
     }
   });
