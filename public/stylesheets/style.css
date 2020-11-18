@@ -342,6 +342,19 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 4px;
 }
+.reload-btn{
+  display: inline-block;
+  text-decoration: none;
+  background: #22e2a2;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
 
 .canvas2_cover{
   filter: brightness(0%);
@@ -354,6 +367,7 @@ button#test1:hover {
   width: 100vw;
   z-index: 2;
 }
+
 
 /* スタブレット写した時 */
 @media screen and (max-width: 959px){
