@@ -3,7 +3,9 @@ history.pushState(null, null, location.href);
 window.addEventListener('popstate', (e) => {
   history.go(1);
 });
-//リロード前の警告
+var reloadflg = 0
+
+  //リロード前の警告
 window.addEventListener('beforeunload', function(e){
   /** 更新される直前の処理 */
   console.log('beforeunload');
@@ -15,6 +17,7 @@ window.addEventListener('beforeunload', function(e){
 if(window.performance.navigation.type === 1){
   window.location.href = document.URL.replace('alien','waiting');
 }
+
 
 // Peerモデルを変更
 const Peer = window.Peer;
@@ -210,6 +213,7 @@ const Peer = window.Peer;
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const toggleSpeaker = document.getElementById('js-toggle-speaker');
+  const reload = document.getElementById('js-reload-trigger');
   const chenge = document.getElementById('change');
   const canvas2 = document.getElementById('canvas2');
 
@@ -255,6 +259,15 @@ toggleSpeaker.addEventListener('click', () => {
         toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
   }
   })
+
+//リロードボタン押したときの動作
+reload.addEventListener('click',(event) => {
+  room.close();
+  // event.preventDefault(); // リンク先に飛ばないようにする
+  location.reload();
+})
+
+
 
 //マスク関係の動作
 if(type=="mask"){
