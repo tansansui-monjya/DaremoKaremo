@@ -179,6 +179,7 @@ const Peer = window.Peer;
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const toggleSpeaker = document.getElementById('js-toggle-speaker');
+  const reload = document.getElementById('js-reload-trigger');
   const chenge = document.getElementById('change');
   const canvas2 = document.getElementById('canvas2');
 
@@ -224,6 +225,10 @@ const Peer = window.Peer;
       toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
     }
   });
+  //リロードボタン押したときの動作
+  reload.addEventListener('click',() => {
+    location.reload();
+  })
 
   //マスク関係の動作
   if(type=="mask"){
