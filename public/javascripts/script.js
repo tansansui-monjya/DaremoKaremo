@@ -165,7 +165,7 @@ const Peer = window.Peer;
    
   // ボタン（leaveTrigger）を押すとroom.close()を発動
   leaveTrigger.addEventListener('click', () => {
-    room.close();
+    // room.close();
     //HPのURLへ遷移
     window.location.href = "/"
   });
