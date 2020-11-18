@@ -10,44 +10,6 @@ video {
   border-radius: 10px;
 }
 
-/* オーバーレイ */
-.overlay-all {
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: fixed;
-  overflow: scroll;
-  z-index: 100;
-  background: #3B1D70;
-  background-image: url('https://kg-alien.s3-ap-northeast-1.amazonaws.com/%E9%80%9A%E8%A9%B1%E8%83%8C%E6%99%AF%E7%B4%A0%E6%9D%90.svg');
-}
-
-img#top_wait{
-  width: auto;
-  height: 25vh;
-  display: block;
-  margin: auto;
-  margin-top: 30vh;
-  
-}
-
-div#title_wait{
-  font-family: 'Megrim', cursive;
-  font-size: 8vh;
-  font-style: normal;
-  color: #DB560E;
-  text-align: center;
-}
-
-p#wait_message{
-  text-align: center;
-  color: #e5e5e5;
-  font-size: 3vh;
-  margin: 0;
-}
-
 /* 時間設定デザイン  時間延長関連のコード*/
 .btn_div{
   position: absolute;
@@ -102,11 +64,6 @@ button#test1:hover {
 
 #js-remote-streams{
   display: grid;
-
-  /* ここいじれ */
-  /* grid-template-columns: 40vw 40vw; */
-  /* ここいじれ */
-  /* grid-template-rows: 40vh 40vh; */
   grid-auto-flow: row;
   grid-template-columns: 40vw 40vw;
   grid-auto-rows: 40vh;
