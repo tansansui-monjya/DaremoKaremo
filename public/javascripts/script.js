@@ -241,6 +241,10 @@ const Peer = window.Peer;
           toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
     }
   });
+  //
+  reload.addEventListener('click',() => {
+    
+  })
 
   //マスク関係の動作
   if(type=="mask"){
