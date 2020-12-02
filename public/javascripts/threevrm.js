@@ -38,7 +38,7 @@ function threevrm(VRM){
 
   // -- avocado (gltf) -------------------------------------------------------------------------------
 
-  const chenge = document.getElementById('change');
+  const change = document.getElementById('change_changing');
 
   function initVRM( gltf ) {
     THREE.VRM.from( gltf ).then( ( vrm ) => {
@@ -77,9 +77,9 @@ function threevrm(VRM){
     //バグ回避の為3Dモデル表示後少し間を置く
     setTimeout(function(){
       //ボタン有効化
-    chenge.disabled = false;
+    change.disabled = false;
     //ボタンデザインを有効時のものに戻す
-    chenge.className = 'alien-btn';
+    change.id = 'change';
     console.log("ボタン有効化")
     },1000);
   }
