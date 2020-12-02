@@ -87,7 +87,7 @@ button#test1:hover {
   border-radius: 10px;
 }
 
-.camera-btn{
+#js-toggle-camera{
   display: inline-block;
   text-decoration: none;
   color: #FFF;
@@ -99,7 +99,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.camera-btn:before {
+#js-toggle-camera:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -108,11 +108,11 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-.camera-btn:hover{
+#js-toggle-camera:hover{
   background: #ffffff;
 }
 
-.camera-btn_OFF{
+#js-toggle-camera_OFF{
   display: inline-block;
   text-decoration: none;
   background: #E26522;
@@ -125,7 +125,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.camera-btn_OFF:before {
+#js-toggle-camera_OFF:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -136,11 +136,11 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 4px;
 }
-.camera-btn_OFF:hover{
+#js-toggle-camera_OFF:hover{
   background: #E26522;
 }
 
-.mic-btn{
+#js-toggle-microphone{
   display: inline-block;
   text-decoration: none;
   color: #FFF;
@@ -152,10 +152,10 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.mic-btn:hover{
+#js-toggle-microphone:hover{
   background: #ffffff;
 }
-.mic-btn:before {
+#js-toggle-microphone:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -166,7 +166,7 @@ button#test1:hover {
   margin-left: 10px;
 }
 
-.mic-btn_OFF{
+#js-toggle-microphone_OFF{
   display: inline-block;
   text-decoration: none;
   background: #E26522;
@@ -179,10 +179,10 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.mic-btn_OFF:hover{
+#js-toggle-microphone_OFF:hover{
   background: #E26522;
 }
-.mic-btn_OFF:before {
+#js-toggle-microphone_OFF:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -194,7 +194,7 @@ button#test1:hover {
   margin-top: 2px;
 }
 
-.leave-btn{
+#js-leave-trigger{
   display: inline-block;
   text-decoration: none;
   background: #FF0404;
@@ -207,7 +207,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.leave-btn:before {
+#js-leave-trigger:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -217,7 +217,7 @@ button#test1:hover {
   vertical-align: middle;
 }
 
-.share-btn{
+#js-share-trigger{
   display: inline-block;
   text-decoration: none;
   color: #FFF;
@@ -229,7 +229,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.share-btn:before {
+#js-share-trigger:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -238,13 +238,13 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-.share-btn:hover{
+#js-share-trigger:hover{
   background: #FFFFFF;
 }
 
 /*エイリアンボタンオンオフ実装予定(次サイクル)*/
 
-.alien-btn{
+#change{
   display: inline-block;
   text-decoration: none;
   background: orange;
@@ -257,7 +257,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.alien-btn:before {
+#change:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -266,7 +266,7 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-.alien-btn_changing{
+#change_changing{
   background: #ffffff;
   text-decoration: none;
   color: #FFF;
@@ -278,7 +278,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.alien-btn_changing:before {
+#change_changing:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -288,7 +288,7 @@ button#test1:hover {
   vertical-align: middle;
 }
 /* スピーカーボタン */
-.speaker-btn{
+#js-toggle-speaker{
   display: inline-block;
   text-decoration: none;
   color: #FFF;
@@ -300,10 +300,10 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.speaker-btn:hover{
+#js-toggle-speaker:hover{
   background: #ffffff;
 }
-.speaker-btn:before {
+#js-toggle-speaker:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -315,7 +315,7 @@ button#test1:hover {
   margin-top: 4px;
 }
 
-.speaker-btn_OFF{
+#js-toggle-speaker_OFF{
   display: inline-block;
   text-decoration: none;
   background: #E26522;
@@ -328,10 +328,10 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.speaker-btn_OFF:hover{
+#js-toggle-speaker_OFF:hover{
   background: #E26522;
 }
-.speaker-btn_OFF:before {
+#js-toggle-speaker_OFF:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -342,7 +342,7 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 4px;
 }
-.reload-btn{
+#js-reload-trigger{
   display: inline-block;
   text-decoration: none;
   background: #22e2a2;
@@ -355,7 +355,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-.reload-btn:before {
+#js-reload-trigger:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -381,92 +381,109 @@ button#test1:hover {
 /* スタブレット写した時 */
 @media screen and (max-width: 959px){
   /* 相手のビデオ画面変更 */
-  .camera-btn{
+  #js-toggle-camera{
     width: 60px;
     height: 60px;
   }
-  .camera-btn:before {
+  #js-toggle-camera:before {
     width: 25px;
     height: 25px;
   }
 
-  .camera-btn_OFF{
+  #js-toggle-camera_OFF{
     width: 60px;
     height: 60px;
   }
-  .camera-btn_OFF:before {
+  #js-toggle-camera_OFF:before {
     width: 25px;
     height: 25px;
     margin-left: 4px;
     margin-top: 4px;
   }
 
-  .mic-btn{
+  #js-toggle-microphone{
     width: 60px;
     height: 60px;
   }
 
-  .mic-btn:before {
+  #js-toggle-microphone:before {
     width: 25px;
     height: 25px;
     margin-left: 10px;
   }
 
-  .mic-btn_OFF{
+  #js-toggle-microphone_OFF{
     width: 60px;
     height: 60px;
   }
 
-  .mic-btn_OFF:before {
+  #js-toggle-microphone_OFF:before {
     width: 25px;
     height: 25px;
     margin-left: 4px;
     margin-top: 2px;
   }
 
-  .leave-btn{
+  #change{
     width: 60px;
     height: 60px;
   }
-  .leave-btn:before {
+  #change:before {
+    width: 25px;
+    height: 25px;
+  }
+  #change_changing{
+    width: 60px;
+    height: 60px;
+  }
+  #change_changing:before {
     width: 25px;
     height: 25px;
   }
 
-  .share-btn{
+  #js-leave-trigger{
     width: 60px;
     height: 60px;
   }
-  .share-btn:before {
+  #js-leave-trigger:before {
     width: 25px;
     height: 25px;
   }
 
-  .speaker-btn{
+  #js-share-trigger{
+    width: 60px;
+    height: 60px;
+  }
+  #js-share-trigger:before {
+    width: 25px;
+    height: 25px;
+  }
+
+  #js-toggle-speaker{
     width: 60px;
     height: 60px;
   }
 
-  .speaker-btn:before {
+  #js-toggle-speaker:before {
     width: 25px;
     height: 25px;
     margin-left: 5px;
     margin-top: 4px;
   }
 
-  .speaker-btn_OFF{
+  #js-toggle-speaker_OFF{
     width: 60px;
     height: 60px;
   }
 
-  .speaker-btn_OFF:before {
+  #js-toggle-speaker_OFF:before {
     width: 25px;
     height: 25px;
     margin-left: 4px;
     margin-top: 4px;
   }
 
-  .reload-btn{
+  #js-reload-trigger{
     width: 60px;
     height: 60px;
   }
@@ -475,79 +492,97 @@ button#test1:hover {
 /* スマホ写した時 */
 @media screen and (max-width: 480px){
   /* 相手のビデオ画面変更 */
-  .camera-btn{
+  #js-toggle-camera{
     width: 55px;
     height: 55px;
   }
-  .camera-btn:before {
+  #js-toggle-camera:before {
     width: 25px;
     height: 25px;
   }
 
-  .camera-btn_OFF{
+  #js-toggle-camera_OFF{
     width: 55px;
     height: 55px;
   }
-  .camera-btn_OFF:before {
+  #js-toggle-camera_OFF:before {
     width: 25px;
     height: 25px;
     margin-left: 4px;
     margin-top: 4px;
   }
 
-  .mic-btn{
+  #js-toggle-microphone{
     width: 55px;
     height: 55px;
   }
 
-  .mic-btn:before {
+  #js-toggle-microphone:before {
     width: 25px;
     height: 25px;
     margin-left: 10px;
   }
 
-  .mic-btn_OFF{
+  #js-toggle-microphone_OFF{
     width: 55px;
     height: 55px;
   }
 
-  .mic-btn_OFF:before {
+  #js-toggle-microphone_OFF:before {
     width: 25px;
     height: 25px;
     margin-left: 4px;
     margin-top: 2px;
   }
-  .leave-btn{
-    width: 55px;
-    height: 55px;
+
+  #change{
+    width: 60px;
+    height: 60px;
   }
-  .leave-btn:before {
+  #change:before {
+    width: 25px;
+    height: 25px;
+  }
+  #change_changing{
+    width: 60px;
+    height: 60px;
+  }
+  #change_changing:before {
     width: 25px;
     height: 25px;
   }
 
-  .share-btn{
+  #js-leave-trigger{
     width: 55px;
     height: 55px;
   }
-  .share-btn:before {
+  #js-leave-trigger:before {
     width: 25px;
     height: 25px;
   }
 
-  .speaker-btn{
+  #js-share-trigger{
+    width: 55px;
+    height: 55px;
+  }
+  #js-share-trigger:before {
+    width: 25px;
+    height: 25px;
+  }
+
+  #js-toggle-speaker{
     width: 55px;
     height: 55px;
   }
 
-  .speaker-btn:before {
+  #js-toggle-speaker:before {
     width: 25px;
     height: 25px;
     margin-left: 5px;
     margin-top: 4px;
   }
 
-  .speaker-btn_OFF{
+  #js-toggle-speaker_OFF{
     display: inline-block;
     text-decoration: none;
     background: #E26522;
@@ -560,10 +595,10 @@ button#test1:hover {
     overflow: hidden;
     transition: .4s;
   }
-  .speaker-btn_OFF:hover{
+  #js-toggle-speaker_OFF:hover{
     background: #E26522;
   }
-  .speaker-btn_OFF:before {
+  #js-toggle-speaker_OFF:before {
     content: "";
     display: inline-block;
     width: 25px;
@@ -575,7 +610,7 @@ button#test1:hover {
     margin-top: 4px;
   }
 
-  .reload-btn{
+  #js-reload-trigger{
     width: 55px;
     height: 55px;
   }
