@@ -180,7 +180,7 @@ const Peer = window.Peer;
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const toggleSpeaker = document.getElementById('js-toggle-speaker');
   const reload = document.getElementById('js-reload-trigger');
-  const chenge = document.getElementById('change');
+  const change = document.getElementById('change');
   const canvas2 = document.getElementById('canvas2');
 
   // ボタン押した時のカメラ関係の動作
@@ -191,7 +191,7 @@ const Peer = window.Peer;
     videoTracks.enabled = !videoTracks.enabled;
     console.log(videoTracks.enabled)
 
-    toggleCamera.className = `${videoTracks.enabled ? 'camera-btn' : 'camera-btn_OFF'}`;
+    toggleCamera.id = `${videoTracks.enabled ? 'js-toggle-camera' : 'js-toggle-camera_OFF'}`;
     canvas2.className = `${videoTracks.enabled  ? '' : 'canvas2_cover'}`;
 
   });
@@ -201,18 +201,18 @@ const Peer = window.Peer;
     const audioTracks = audioStream.getAudioTracks()[0];
     audioTracks.enabled = !audioTracks.enabled;
     console.log(audioTracks.enabled)
-    toggleMicrophone.className = `${audioTracks.enabled ? 'mic-btn' : 'mic-btn_OFF'}`;
+    toggleMicrophone.id = `${audioTracks.enabled ? 'js-toggle-microphone' : 'js-toggle-microphone_OFF'}`;
   });
 
   //スピーカー押したときの音量の動作
   toggleSpeaker.addEventListener('click', () => {
     console.log(remoteVideo_Array)
     if(remoteVideo_Array.length == 0){
-      if(toggleSpeaker.className == 'speaker-btn_OFF'){
-        toggleSpeaker.className = 'speaker-btn';
+      if(toggleSpeaker.id == 'js-toggle-speaker_OFF'){
+        toggleSpeaker.id = 'js-toggle-speaker';
       }
-      else if(toggleSpeaker.className == 'speaker-btn'){
-        toggleSpeaker.className = 'speaker-btn_OFF';
+      else if(toggleSpeaker.id == 'js-toggle-speaker'){
+        toggleSpeaker.id = 'js-toggle-speaker_OFF';
       }
     }
     else {
@@ -222,7 +222,7 @@ const Peer = window.Peer;
         videoElem.muted = !videoElem.muted;
         console.log("id="+remoteVideo_Array[i]+videoElem.muted)
       }
-      toggleSpeaker.className = `${videoElem.muted? 'speaker-btn_OFF' : 'speaker-btn'}`
+      toggleSpeaker.id = `${videoElem.muted? 'js-toggle-speaker_OFF' : 'js-toggle-speaker'}`
     }
   });
   //リロードボタン押したときの動作
@@ -247,11 +247,11 @@ const Peer = window.Peer;
   }
 
   // alienボタン押した時の処理
-  chenge.addEventListener('click', () => {
+  change.addEventListener('click', () => {
     //alienボタンを無効化
-    chenge.disabled = true;
+    change.disabled = true;
     //無効化中のボタンデザインを変更
-    chenge.className = 'alien-btn_changing'
+    change.id = 'change_changing'
     //モデル変更処理
     if(type=="mask"){
     }else if(type=='babiniku'){
