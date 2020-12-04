@@ -1,92 +1,59 @@
-<!-- 複数人のビデオチャット -->
-<!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
-    <meta charset="UTF-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">
-    <link rel="stylesheet" href="./stylesheets/style.css">
-    
-  </head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/call.css"/>
+  </head>    
   <body>
-    <!-- Loading -->
-    <div id="loader-bg">
-      <div id="loader">
-        <img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/lod2.gif" width="80" height="80" alt="Now Loading..." />
-        <p>Now Loading...</p>
-      </div>
-    </div>
-    <!-- オーバーレイ -->
-    <div class="overlay-all" id="js-join-trigger">
-      <img id="top_wait" src="./Top.png"><br>
-      <div id="title_wait">ALIEN</div>
-      <p id="wait_message">Tap to start video call</p>
-    </div>
-
-  <div class="container">
-
-    <div class="room">
-      <div id = "container">
-        <div class="remote-streams" id="js-remote-streams">
-          
-        </div>
-        <!-- ルーム検索 -->
-          <div>
-            <span id="js-room-mode"></span>
-            <!-- ルームに接続 -->
-            <button id="js-toggle-microphone" class="mic-btn"></button>
-            <button id="js-toggle-camera" class="camera-btn"></button>
-            <button id="js-share-trigger" class="share-btn">share</button>
-            <button id="js-leave-trigger" class="leave-btn">Leave</button>
-            <button id="change" class="alien-btn"></button>
-          </div>
-          <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
-      </div>
-      <p class="meta" id="js-meta"></p>
-    </div> <!-- container -->
-    <!-- threevrm関連 -->
-    <script src="https://unpkg.com/three@0.108"></script>
-    <script src="https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://unpkg.com/@pixiv/three-vrm@0.1/lib/three-vrm.js"></script>
-    <script src="./javascripts/jeelizFaceFilter.js"></script>
-    <script src="./javascripts/JeelizResizer.js"></script>
-    <script src="./javascripts/threevrm.js"></script>
-    <!-- マスク関連 -->
-    <script src="./javascripts/mask.js"></script>
-    <!-- jquery関連 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- skyway関連 -->
-    <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-    <script src="./key.js"></script>
-    <script src="./javascripts/SharedUrl.js"></script>
-    <script src="./javascripts/Loading.js"></script>
-    <script src="./javascripts/Overlayout.js"></script>
-    <script src="./javascripts/script.js"></script>
-    <div class="btn_div">
-<!--     <button id="test1">時間</button>--> 
-  </div>
-
-    <!-- <script>
-              document.getElementById('test1').onclick=function(){
-              }
-              window.onload = function(){
-                var params = window.location.search;
-                var element = params.split('&');
-                var getparams = [];
-                for(var i = 0;i <element.length; i++){
-                  var low = element[i].split('=');
-                  getparams.push(low[1]);
-                }
-                const hi = new Date();
-                hi.setMinutes(hi.getMinutes()+getparams[1]);
-                var butobj = document.getElementById('test1');
-                butobj.innerHTML = hi.toLocaleString();
-
-                
-              }
-
-    </script> -->
   </body>
+  <form action="/alien" method="GET"><img id="top_wait" src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/top.png"/><img id="top_wait_pc" src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/pc%E5%AE%87%E5%AE%99%E4%BA%BA.svg"/>
+    <!-- <div id="title_wait">ALIEN</div>-->
+    <div class="balloon">
+      <p id="wait_message">使用したいモデルを
+  <br/>選択してください         
+      </p>
+    </div>
+    <input id="roomid" type="hidden" value="" name="roomid"/>
+    <input id="type" type="hidden" value="" name="type"/>
+    <!-- <input type="hidden" value="" id="time" name="time">-->
+    <div id="center_grid">
+      <div class="grid_layout">
+        <div id="character1" class="character">
+          <label>
+            <input type="radio" name="model" value="1" checked="" class="radio"/><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test1_1014.png" class="radio_image"/>
+          </label>
+        </div>
+        <div id="character2" class="character">
+          <label>
+            <input type="radio" name="model" value="2" class="radio"/><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test2_1014.png" class="radio_image"/>
+          </label>
+        </div>
+        <div id="character3" class="character">
+          <label>
+            <input type="radio" name="model" value="3" class="radio"/><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test3_1014.png" class="radio_image"/>
+          </label>
+        </div>
+        <div id="character4" class="character">
+          <label>
+            <input type="radio" name="model" value="4" class="radio"/><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test4_1014.png" class="radio_image"/>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="makeroom">
+      <button id="calling" type="submit">&#x901A;&#x8A71;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;
+      </button>
+    </div>
+  </form>  
+<script src="./javascripts/Waiting.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171485531-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-171485531-1');
+</script>
 
 </html>

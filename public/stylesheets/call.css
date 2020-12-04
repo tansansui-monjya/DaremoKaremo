@@ -1,0 +1,13 @@
+@font-face{
+    font-family: 'bananaslipplus';
+    font-style: normal;
+    src: url('assets/bananaslipplus.woff2') format('woff2');
+}
+#title_id{
+    font-family: 'bananaslipplus';
+    font-size: 7vh;
+    font-style: normal;
+    color: #000000;
+    margin-top: 35vh;
+    text-align: center;
+}
