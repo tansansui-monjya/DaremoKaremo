@@ -230,20 +230,16 @@ const Peer = window.Peer;
     location.reload();
   })
 
-  //マスク関係の動作
-  if(type=="mask"){
-    maskhyouzi();
-  }else if(type=='babiniku'){
-    if(typeof model == "string" ){
-      syokika = true
-      let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-      threevrm(VRM[model]);
-    }else{
+  //3Dモデルの動作
+  if(typeof model == "string" ){
     syokika = true
-    let VRMnum = Math.floor( Math.random() * 4 )+1 ;
     let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-    threevrm(VRM[VRMnum]);
-    }
+    threevrm(VRM[model]);
+  }else{
+  syokika = true
+  let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+  let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+  threevrm(VRM[VRMnum]);
   }
 
   // alienボタン押した時の処理
@@ -253,17 +249,14 @@ const Peer = window.Peer;
     //無効化中のボタンデザインを変更
     change.id = 'change_changing'
     //モデル変更処理
-    if(type=="mask"){
-    }else if(type=='babiniku'){
-      if (syokika) {
-        scene.remove.apply(scene, scene.children);
-      }
-      syokika = true
-      currentVRM = null;
-      let VRMnum = Math.floor( Math.random() * 4 )+1 ;
-      let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
-      threevrm(VRM[VRMnum]);
+    if (syokika) {
+      scene.remove.apply(scene, scene.children);
     }
+    syokika = true
+    currentVRM = null;
+    let VRMnum = Math.floor( Math.random() * 4 )+1 ;
+    let VRM = ['','../assets/test1.vrm','../assets/test2.vrm','../assets/test3.vrm','../assets/test4.vrm']
+    threevrm(VRM[VRMnum]);
   });
 
   // エラー時のダイアログ表示
@@ -275,8 +268,6 @@ const Peer = window.Peer;
   function getParam(){
     let params = (new URL(document.location)).searchParams;
     roomId = params.get('roomid');
-    time = params.get('time');
-    type = params.get('type');
     model = params.get('model');
   }
   peer.on('error', console.error);
