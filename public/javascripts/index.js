@@ -1,4 +1,3 @@
-const room = document.getElementById("room");
 const roomId = document.getElementById("roomid");
 const room_make = document.getElementById("room_make");
 
@@ -13,13 +12,12 @@ room_make.addEventListener('click',() => {
 				date1.getSeconds() + "" +
 				date1.getMilliseconds();
         console.log(date2);
-    roomId.value = room.value;
-    roomId.value += date2
+    roomId.value = date2;
     let hashID = await sha256(roomId.value);
     roomId.value = hashID;
   })();  
 	return;
-})
+});
 
 //ハッシュ関数
 async function sha256(str) {
@@ -32,4 +30,4 @@ async function sha256(str) {
     let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
     // console.log(hash)
     return hash
-  }
+}
