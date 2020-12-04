@@ -10,6 +10,13 @@ video {
   border-radius: 10px;
 }
 
+#js-local-stream{
+  visibility: hidden;
+  width: 0vw;
+  height: 0vh;
+  margin: 7.5vh;
+}
+
 /* 時間設定デザイン  時間延長関連のコード*/
 .btn_div{
   position: absolute;
