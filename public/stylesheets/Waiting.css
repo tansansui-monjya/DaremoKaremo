@@ -6,31 +6,26 @@ body {
 }
   
 img#top_wait{
-   text-align: left;
-    height: 20vh;
+    font-family: 'bananaslipplus';
+    text-align: left;
+    height: 20px;
     display: block;
-    margin-top: 3vh;
 }
-
-img#top_wait_pc{
-    display: none;
-}
-
-div#title_wait{
-    font-family: 'Megrim', cursive;
-    font-size: 100px;
-    font-style: normal;
-    color: #DB560E;
-    text-align: left;
-}
-
 p#wait_message{
-    text-align: center;
-    color: #e5e5e5;
-    font-size: 5vh;
+    font-family: 'bananaslipplus';
+    margin: 50px 10px 20px 30px;
     text-align: left;
+    color: gray;
+    font-size: 20px;
 }
-
+p#select_message{
+    font-family: 'bananaslipplus';
+    margin: 50px;
+    text-align: left;
+    color: gray;
+    font-size: 20px;
+}
+/*3Dモデルデザイン*/
 #center_grid{
     text-align: center;
     /* margin-top: 5vh; */
@@ -38,211 +33,63 @@ p#wait_message{
 
 .grid_layout {
     display: grid;
-    grid-template-columns: 45vw 45vw;
-    grid-template-rows: 22vh 22vh;
-    row-gap: 3vh;
+    grid-template-columns: 13vw 13vw 13vw 13vw;
+    grid-template-rows: 1fr;
+    column-gap: 4vw;
     justify-content: center;
 }
-
 .radio {
     display: none;
 }
-
 .radio:checked + .radio_image {
     border: 3px  #DB560E solid;
 }
-
 .character {
     position: relative;
     overflow: hidden;
-    height: 22vh;
+    height: 40vh;
 }
-
 .character img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35vw;
-    height: 20vh;
+    width: 17vw;
+    height: 47vh;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 20px;
 }
-
 #character1 {
     grid-row: 1/2;
     grid-column: 1/2;
 }
-
 #character2 {
     grid-row: 1/2;
     grid-column: 2/3;
 }
-
 #character3 {
-    grid-row: 2/3;
-    grid-column: 1/2;
+    grid-row: 1/2;
+    grid-column: 3/4;
 }   
-
 #character4 {
-    grid-row: 2/3;
-    grid-column: 2/3;
+    grid-row: 1/2;
+    grid-column: 4/5;
 }
 
-button#calling{
-    margin-top:8vh;
-
-    /* ボタン */
-    /* width: 298px;
-    height: 40px; */
-    width: 60vw;
-    height: 5vh;
-    background: #DB560E;
-    border-radius: 5vh;
-
-    /* 文字 */
-    font-style: normal;
-    font-weight: normal;
-    font-size: 2vh;
-    line-height: 16px;
-
-    color: #E5E5E5;
+/*画像の土台*/
+.box {
+    position     : relative;
+    margin       : auto;
+    width        : 1000px;
+    height       : 30px;
 }
-
-#calling:active{
-    transform: translateY(4px);
-    border-bottom: none;
-}
-
-div#makeroom{
-    text-align:center;
-}
-
-@media screen and (min-width: 481px){
-    p#wait_message{
-        font-size: 3vh;
-    }
-
-    .character{
-        height: 22vh;
-    }
-
-    .character img {
-        width: 20vw;
-        height: 20vh;
-    }
-
-    .grid_layout {
-        grid-template-columns: 25vw 25vw;
-        grid-template-rows: 22vh 22vh;
-        row-gap: 2vh;
-        column-gap: 0vw;
-    }
-
-    button#calling{
-        font-size: 2vh;
-        margin-top: 5vh;
-        width: 40vw;
-        height: 5vh;
-        border-radius: 10vh;
-    }
-}
-
-@media screen and (min-width: 960px){
-    body{
-        background-position: right bottom;
-    }
-
-    img#top_wait{
-        display: none;
-    }
-
-    img#top_wait_pc{
-        display: block;
-        width: auto;
-        height: 30vh;
-        margin : 0 auto;
-        margin-top: 5vh;
-    }
-
-    p#wait_message{
-        text-align: center;
-        color: silver;
-    }
-
-    p#select_message{
-        text-align: center;
-        color: silver;
-    }
-
-    .balloon{
-        display: inline-block;
-        position: absolute; 
-        top: 10vh;
-        right: 60vw;
-        left: 5vw;
-        padding: 1vh 1vw;
-        border-radius: 12px;
-        background:white;
-    }
-
-    .balloon::before{
-        content: "";
-        position: absolute;
-        top: 80%;
-        right: -24px;
-        margin-top: -70px;
-        border: 12px solid transparent;
-        border-left: 12px solid white;
-        z-index: 2;
-    }
-    
-    .character {
-        position: relative;
-        padding-top: 0;
-        padding-left: 0;
-        height: 35vh;
-    }
-
-    .character img{
-        width: 10vw;
-        height: 30vh;
-    }
-
-    #center_grid{
-        text-align: center;
-        margin-top: 5vh;
-    }
-
-    .grid_layout{
-        display: grid;
-        grid-template-columns: 13vw 13vw 13vw 13vw;
-        grid-template-rows: 1fr;
-        justify-content: center;
-    }
-
-    #character1 {
-        grid-row: 1/2;
-        grid-column: 1/2;
-    }
-    
-    #character2 {
-        grid-row: 1/2;
-        grid-column: 2/3;
-    }
-    
-    #character3 {
-        grid-row: 1/2;
-        grid-column: 3/4;
-    }   
-    
-    #character4 {
-        grid-row: 1/2;
-        grid-column: 4/5;
-    }
-
-    button#calling{
-        width: 25vw;
-        margin-top: 10vh;
-    }
+  .box::after {
+    content      : "";
+    top          : 0;
+    left         : 0;
+    position     : absolute;
+    width        : 1000px;
+    height       : 30px;
+    background   : #999999;
+    transform    : skewX(-70deg);
 }
