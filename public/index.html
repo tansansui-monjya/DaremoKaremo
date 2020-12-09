@@ -2,9 +2,16 @@
 <html lang="ja">
 <link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+    <script src="./javascripts/OBJLoader.js"></script>
+    <script src="./javascripts/MTLLoader.js"></script>
+    <script src="./javascripts/OrbitControls.js"></script>
+    <script src="./javascripts/index.js"></script>
+    <script src="./javascripts/index3D.js"></script>
+
   <title>だれもかれも</title>
 </head>
 <body>
@@ -17,12 +24,10 @@
         <input type="hidden" name="type" value="babiniku">
 
         <div id="makeroom">
-            <button id="room_make" type="submit">部屋をつくる</button>
-        </div>
-        <div>
-            <script src="./javascripts/HP.js"></script>
+            <button id="room_make" type="submit">通話を開始する</button>
         </div>
     </form>
+    <canvas id="myCanvas"></canvas>
 </body>
 </html>
 
