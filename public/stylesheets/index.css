@@ -1,0 +1,118 @@
+@font-face{
+    font-family: 'bananaslipplus';
+    font-style: normal;
+    src: url('assets/bananaslipplus.woff2') format('woff2');
+}
+#title_id{
+    font-family: 'bananaslipplus';
+    font-size: 7vh;
+    font-style: normal;
+    color: #000000;
+    margin-top: 35vh;
+    text-align: center;
+}
+
+/*レスポンシブ対応-スマホ*/
+/*
+@media screen and (min-width: 481px){
+
+    img#top_id{
+        display: none;
+    }
+
+    img#top_id_pc{
+        display: block;
+        width: auto;
+        height: 20vh;
+        margin : 0 auto;
+        margin-top: 5vh;
+    }
+
+    #composite_id{
+        font-size: 3vh;
+    }
+
+    #title_id{
+        font-size: 10vh;
+    }
+}
+*/
+/*レスポンシブ対応-タブレット*/
+/*
+@media screen and (min-width: 960px){
+
+    #centerImg{
+        text-align: center;
+    }
+    img#top_id{
+        display: none;
+    }
+
+    img#top_id_pc{
+        display: block;
+        width: auto;
+        height: 40vh;
+        margin : 0 auto;
+        margin-top: 26vh;
+    }
+
+    #composite_id{
+        font-size: 3vh;
+    }
+
+    #title_id{
+        margin: 0;
+        font-size: 8vh;
+    }
+
+    body{
+        background-position: right bottom;
+    }
+
+    .balloon{
+        display: inline-block;
+        position: absolute; 
+        top: 2vh;
+        right: 60vw;
+        left: 2vw;
+        padding: 2vh 2vw;
+        border-radius: 2vh;
+        background:white;
+    }
+
+    .balloon::before{
+        content: "";
+        position: absolute;
+        margin: 0;
+        bottom: -3vh;
+        right: 2vw;
+        width: 0;
+        height: 0;
+        border-top: 5vh solid white;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        transform: rotate(-30deg);
+    }
+
+    #composite_id{
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        color: black;
+    }
+
+    .wrap{
+        text-align: center;
+        margin-top: 1.5vh;
+    }
+
+    input[type=text] {
+        width: 15vw;
+    }
+
+    button#room_make{
+        margin-top: 3vh;
+        width: 25vw;
+    }
+}
+*/
