@@ -9,14 +9,16 @@ img#top_wait{
     font-family: 'bananaslipplus';
     text-align: left;
     height: 20px;
-    display: block;
+    margin: 50px;
 }
 p#wait_message{
     font-family: 'bananaslipplus';
-    margin: 50px 10px 20px 30px;
+    font-weight: bold;
+    margin: 35px 20px 10px 25px;
     text-align: left;
     color: gray;
-    font-size: 20px;
+    font-size: 50px;
+    letter-spacing: 5px;
 }
 p#select_message{
     font-family: 'bananaslipplus';
@@ -37,6 +39,7 @@ p#select_message{
     grid-template-rows: 1fr;
     column-gap: 4vw;
     justify-content: center;
+    z-index: 30;
 }
 .radio {
     display: none;
@@ -48,6 +51,7 @@ p#select_message{
     position: relative;
     overflow: hidden;
     height: 40vh;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.205);
 }
 .character img {
     position: absolute;
@@ -92,4 +96,5 @@ p#select_message{
     height       : 30px;
     background   : #999999;
     transform    : skewX(-70deg);
+    margin-top: 14.5vw;
 }
