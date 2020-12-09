@@ -1,8 +1,8 @@
 /* normalize */
 body {
    margin: 0; 
-   background-color: #3B1D70;
-   background-image: url('https://kg-alien.s3-ap-northeast-1.amazonaws.com/%E9%80%9A%E8%A9%B1%E8%83%8C%E6%99%AF%E7%B4%A0%E6%9D%90.svg');
+   background-color: black;
+   background-image: url('');
 }
 
 video {
@@ -67,7 +67,6 @@ button#test1:hover {
   grid-auto-flow: row;
   grid-template-columns: 40vw 40vw;
   grid-auto-rows: 40vh;
-
   column-gap: 2vh;
   row-gap: 2vh;
   justify-content: center;
@@ -84,17 +83,15 @@ button#test1:hover {
 #canvas2{
   grid-row: 1;
   grid-column: 1;
-  border-radius: 10px;
 }
 
 #js-toggle-camera{
   display: inline-block;
   text-decoration: none;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -116,11 +113,10 @@ button#test1:hover {
   display: inline-block;
   text-decoration: none;
   background: #E26522;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -143,11 +139,10 @@ button#test1:hover {
 #js-toggle-microphone{
   display: inline-block;
   text-decoration: none;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -170,11 +165,10 @@ button#test1:hover {
   display: inline-block;
   text-decoration: none;
   background: #E26522;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -198,11 +192,9 @@ button#test1:hover {
   display: inline-block;
   text-decoration: none;
   background: #FF0404;
-  color: #FFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -220,11 +212,10 @@ button#test1:hover {
 #js-share-trigger{
   display: inline-block;
   text-decoration: none;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -248,11 +239,10 @@ button#test1:hover {
   display: inline-block;
   text-decoration: none;
   background: orange;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -262,7 +252,7 @@ button#test1:hover {
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%AA%E3%83%B3.svg") no-repeat;
+  background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%AA%E3%83%95.svg") no-repeat;
   background-size: contain;
   vertical-align: middle;
 }
@@ -273,7 +263,6 @@ button#test1:hover {
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -291,11 +280,10 @@ button#test1:hover {
 #js-toggle-speaker{
   display: inline-block;
   text-decoration: none;
-  color: #FFF;
+  background-color: #FFFFFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -323,7 +311,6 @@ button#test1:hover {
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -350,7 +337,6 @@ button#test1:hover {
   width: 60px;
   height: 60px;
   line-height: 60px;
-  border-radius: 50%;
   text-align: center;
   overflow: hidden;
   transition: .4s;
@@ -360,7 +346,7 @@ button#test1:hover {
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: url("") no-repeat;    /*画像URL待ち*/
+  background: url("https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien%E3%83%9B%E3%82%99%E3%82%BF%E3%83%B3/%E3%83%AA%E3%83%AD%E3%83%BC%E3%83%88%E3%82%99.svg") no-repeat;
   background-size: contain;
   vertical-align: middle;
 }
@@ -372,8 +358,6 @@ button#test1:hover {
 .button-center{
   text-align: center;
   position: absolute;
-  margin-top: 5vh;
-  width: 100vw;
   z-index: 2;
 }
 
