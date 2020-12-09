@@ -3,7 +3,6 @@ const roomId = document.getElementById("roomid");
 const room_make = document.getElementById("room_make");
 
 room_make.addEventListener('click',() => {
-  (async () => {
     const date1 = new Date();
 	const date2 = date1.getFullYear() + "" +
 				(date1.getMonth() + 1)  + "" +
@@ -17,8 +16,7 @@ room_make.addEventListener('click',() => {
     roomId.value += date2
     let hashID = await sha256(roomId.value);
     roomId.value = hashID;
-  })();  
-	return;
+    return 
 })
 
 //ハッシュ関数
@@ -30,6 +28,6 @@ async function sha256(str) {
     // Convert ArrayBuffer to hex string
     // (from: https://stackoverflow.com/a/40031979)
     let hash = [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
-    // console.log(hash)
+    console.log(hash)
     return hash
   }
