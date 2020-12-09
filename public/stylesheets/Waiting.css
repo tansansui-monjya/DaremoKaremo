@@ -2,7 +2,6 @@ body {
     background: white;
     background-repeat: no-repeat;
     background-position: left bottom;
-    background-size: auto 100%;
 }
   
 img#top_wait{
@@ -22,10 +21,10 @@ p#wait_message{
 }
 p#select_message{
     font-family: 'bananaslipplus';
-    margin: 50px;
+    margin: 45px 0px 20px 35px;
     text-align: left;
     color: gray;
-    font-size: 20px;
+    font-size: 30px;
 }
 /*3Dモデルデザイン*/
 #center_grid{
@@ -35,7 +34,7 @@ p#select_message{
 
 .grid_layout {
     display: grid;
-    grid-template-columns: 13vw 13vw 13vw 13vw;
+    grid-template-columns: 17vw 17vw 17vw 17vw;
     grid-template-rows: 1fr;
     column-gap: 4vw;
     justify-content: center;
@@ -52,16 +51,16 @@ p#select_message{
     overflow: hidden;
     height: 40vh;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.205);
+    border-radius: 10px;
 }
 .character img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 17vw;
-    height: 47vh;
+    width: 25vw;
+    height: 45vh;
     object-fit: cover;
-    border-radius: 20px;
 }
 #character1 {
     grid-row: 1/2;
@@ -84,17 +83,18 @@ p#select_message{
 .box {
     position     : relative;
     margin       : auto;
-    width        : 1000px;
-    height       : 30px;
+    top          : 45px;
+    width        : 1100px;
+    height       : 35px;
 }
   .box::after {
     content      : "";
     top          : 0;
     left         : 0;
     position     : absolute;
-    width        : 1000px;
-    height       : 30px;
+    width        : 1100px;
+    height       : 40px;
     background   : #999999;
     transform    : skewX(-70deg);
-    margin-top: 14.5vw;
+    margin-top: 35vh;
 }

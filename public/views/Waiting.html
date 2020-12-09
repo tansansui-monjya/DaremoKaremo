@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="../stylesheets/Waiting.css">
     </head>
     <body>
-        <form action="./call.html" method="GET">
+        <form action="./call.html" method="GET" name="haruka">
             <!-- <div id="title_wait">ALIEN</div> -->
             <p id="wait_message">
                 CHARACTER<br>SELECTION
@@ -15,19 +15,20 @@
             </p>
             <input type="hidden" value="" id="roomid" name="roomid">
             <!-- <input type="hidden" value="" id="time" name="time"> -->
+            <div class="box" id="makeImg"></div>
             <div id="center_grid">
                 <div class="grid_layout">
                     <div class="character" id="character1">
-                        <label><input type="radio" name="model" value="1" class="radio" checked><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test1_1014.png" class="radio_image"></label>
+                        <label><input type="radio" name="model" value="1" class="radio" checked><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test1_1014.png" class="radio_image" onclick="document.haruka.submit();"></label>
                     </div>
                     <div class="character" id="character2">
-                        <label><input type="radio" name="model" value="2" class="radio"><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test2_1014.png" class="radio_image"></label>
+                        <label><input type="radio" name="model" value="2" class="radio"><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test2_1014.png" class="radio_image" onclick="document.haruka.submit();"></label>
                     </div>
                     <div class="character" id="character3">
-                        <label><input type="radio" name="model" value="3" class="radio"><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test3_1014.png" class="radio_image"></label>
+                        <label><input type="radio" name="model" value="3" class="radio"><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test3_1014.png" class="radio_image" onclick="document.haruka.submit();"></label>
                     </div>
                     <div class="character" id="character4">
-                        <label><input type="radio" name="model" value="4" class="radio" id="calling"><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test4_1014.png" class="radio_image"></label>           
+                        <label><input type="radio" name="model" value="4" class="radio" id="calling"><img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/alien3D%E3%83%A2%E3%83%86%E3%82%99%E3%83%AB/test4_1014.png" class="radio_image" onclick="document.haruka.submit();"></label>           
                     </div>
                 </div>
             </div>
