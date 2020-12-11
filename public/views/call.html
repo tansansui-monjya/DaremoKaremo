@@ -1,12 +1,12 @@
-<!-- 複数人のビデオチャット -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="UTF-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">
-    <link rel="stylesheet" href="./stylesheets/style.css">
-    
+    <meta charset='UTF-8'>
+<!--    <meta name=“viewport” content=“width=device-width, initial-scale=1"> -->
+<!--    <meta name=“viewport” content=“width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">-->
+    <meta name='viewport' content='width=device-width, user-scalable=no'>
+    <link rel='stylesheet' href='../stylesheets/style.css'>
+    <link href='https://fonts.googleapis.com/css2?family=Megrim&display=swap' rel='stylesheet'>
   </head>
   <body>
     <!-- Loading -->
@@ -16,77 +16,65 @@
         <p>Now Loading...</p>
       </div>
     </div>
-    <!-- オーバーレイ -->
-    <div class="overlay-all" id="js-join-trigger">
-      <img id="top_wait" src="./Top.png"><br>
-      <div id="title_wait">ALIEN</div>
-      <p id="wait_message">Tap to start video call</p>
-    </div>
-
-  <div class="container">
-
-    <div class="room">
-      <div id = "container">
-        <div class="remote-streams" id="js-remote-streams">
-          
-        </div>
-        <!-- ルーム検索 -->
-          <div>
-            <span id="js-room-mode"></span>
-            <!-- ルームに接続 -->
-            <button id="js-toggle-microphone" class="mic-btn"></button>
-            <button id="js-toggle-camera" class="camera-btn"></button>
-            <button id="js-share-trigger" class="share-btn">share</button>
-            <button id="js-leave-trigger" class="leave-btn">Leave</button>
-            <button id="change" class="alien-btn"></button>
-          </div>
-          <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
+    <!-- オーバーレイ
+    <div class=“overlay-all” id=“js-join-trigger”>
+      <img id=“top_wait” src=“./Top.png”><br>
+      <div id=“title_wait”>ALIEN</div>
+      <p id=“wait_message”>Tap to start video call</p>
+    </div>-->
+    <div class="container">
+      <div id="remote-streams">
+        <div id="js-remote-streams"></div>
       </div>
-      <p class="meta" id="js-meta"></p>
+      <!-- ルーム検索 -->
+      <div class="button-center">
+        <span id="js-room-mode"></span>
+        <!-- ボタン -->
+        <button id="js-reload-trigger" class="btn">
+          <span class="pop">りろーど</span>
+        </button>
+        <button id="change" class="btn">
+          <span class="pop">きゃらきりかえ</span>
+        </button>
+        <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
+          <span class="pop">みゅーと</span>
+        </button>
+        <button id="js-toggle-speaker" class="btn">
+          <span class="pop">すぴーかーきりかえ</span>
+        </button>
+        <button id="js-toggle-camera" class="btn">
+          <span class="pop">かめらきりかえ</span>
+        </button>
+        <button id="js-share-trigger" class="btn">
+          <span class="pop">きょうゆう</span>
+        </button>
+        <button id="js-leave-trigger" class="btn">
+          <span class="pop">たいしゅつ</span>
+        </button>
+      </div>
+      <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
     </div> <!-- container -->
     <!-- threevrm関連 -->
     <script src="https://unpkg.com/three@0.108"></script>
     <script src="https://unpkg.com/three@0.108/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://unpkg.com/@pixiv/three-vrm@0.1/lib/three-vrm.js"></script>
-    <script src="./javascripts/jeelizFaceFilter.js"></script>
-    <script src="./javascripts/JeelizResizer.js"></script>
-    <script src="./javascripts/threevrm.js"></script>
-    <!-- マスク関連 -->
-    <script src="./javascripts/mask.js"></script>
+    <script src="../javascripts/jeelizFaceFilter.js"></script>
+    <script src="../javascripts/JeelizResizer.js"></script>
+    <script src="../javascripts/threevrm.js"></script>
     <!-- jquery関連 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- skyway関連 -->
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-    <script src="./key.js"></script>
-    <script src="./javascripts/SharedUrl.js"></script>
-    <script src="./javascripts/Loading.js"></script>
-    <script src="./javascripts/Overlayout.js"></script>
-    <script src="./javascripts/script.js"></script>
-    <div class="btn_div">
-<!--     <button id="test1">時間</button>--> 
-  </div>
-
-    <!-- <script>
-              document.getElementById('test1').onclick=function(){
-              }
-              window.onload = function(){
-                var params = window.location.search;
-                var element = params.split('&');
-                var getparams = [];
-                for(var i = 0;i <element.length; i++){
-                  var low = element[i].split('=');
-                  getparams.push(low[1]);
-                }
-                const hi = new Date();
-                hi.setMinutes(hi.getMinutes()+getparams[1]);
-                var butobj = document.getElementById('test1');
-                butobj.innerHTML = hi.toLocaleString();
-
-                
-              }
-
-    </script> -->
+    <script src="../key.js"></script>
+    <script src="../javascripts/SharedUrl.js"></script>
+    <script src="../javascripts/Loading.js"></script>
+    <script src="../javascripts/script.js"></script>
+    <script async = "" src="https://www.googletagmanager.com/gtag/js?id=UA-171485531-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-171485531-1');
+    </script>
   </body>
-
-
 </html>

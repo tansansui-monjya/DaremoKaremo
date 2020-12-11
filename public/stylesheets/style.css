@@ -10,6 +10,7 @@ video {
   border-radius: 10px;
 }
 
+
 #js-local-stream{
   visibility: hidden;
   width: 0vw;
