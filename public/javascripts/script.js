@@ -79,8 +79,6 @@ const Peer = window.Peer;
     room.on('stream', async stream => {
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
-      //newNameオブジェクト(名前のタグ)の生成
-      const newName = document.createElement('textarea');
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
       newVideo.srcObject = stream;
       //他ユーザーの総数に配列として追加
@@ -91,8 +89,6 @@ const Peer = window.Peer;
       // 誰かが退出した時どの人が退出したかわかるように、data-peer-idを付与
       newVideo.setAttribute('data-peer-id', stream.peerId);
       newVideo.setAttribute('id', stream.peerId);
-      //映像と一緒に名前を表示するように、data-peer-idを付与
-      newName.setAttribute('id',stream.peerId + 'Name');
       //スマホの大きさに調節
       newVideo.setAttribute('style','height:40vh;width:40vw');
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
