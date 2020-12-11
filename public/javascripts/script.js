@@ -217,7 +217,7 @@ const Peer = window.Peer;
     //alienボタンを無効化
     change.disabled = true;
     //無効化中のボタンデザインを変更
-    change.id = 'change_changing'
+    change.class = 'change_changing'
     //モデル変更処理
     if (syokika) {
       scene.remove.apply(scene, scene.children);

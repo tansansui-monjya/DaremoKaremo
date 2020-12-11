@@ -72,9 +72,9 @@ button#test1:hover {
 #js-remote-streams{
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: 40vw 40vw;
-  grid-auto-rows: 40vh;
-  column-gap: 2vh;
+  grid-template-columns: 50vw 50vw;
+  grid-auto-rows: 50vh;
+  column-gap: 0vh;
   row-gap: 2vh;
   justify-content: center;
 }
@@ -241,8 +241,7 @@ button#test1:hover {
 }
 
 /*エイリアンボタンオンオフ実装予定(次サイクル)*/
-
-#change{
+.change{
   display: inline-block;
   text-decoration: none;
   background: orange;
@@ -254,7 +253,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-#change:before {
+.change:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -263,7 +262,7 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-#change_changing{
+.change_changing{
   background: #ffffff;
   text-decoration: none;
   color: #FFF;
@@ -274,7 +273,7 @@ button#test1:hover {
   overflow: hidden;
   transition: .4s;
 }
-#change_changing:before {
+.change_changing:before {
   content: "";
   display: inline-block;
   width: 25px;
@@ -366,6 +365,8 @@ button#test1:hover {
   width: 100vw;
   text-align: right;
   position: absolute;
+  top: 0vh;
+  right: 0vw;
 }
 
 
