@@ -1,7 +1,7 @@
 /* normalize */
 body {
    margin: 0; 
-   background-color: black;
+   background-color: #FFFFFF;
    background-image: url('');
 }
 
@@ -363,9 +363,9 @@ button#test1:hover {
 }
 
 .button-center{
-  text-align: center;
+  width: 100vw;
+  text-align: right;
   position: absolute;
-  z-index: 2;
 }
 
 
