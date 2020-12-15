@@ -5,23 +5,24 @@
 <!--    <meta name=“viewport” content=“width=device-width, initial-scale=1"> -->
 <!--    <meta name=“viewport” content=“width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">-->
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!--3Dモデル読み込み-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+    <script src="./javascripts/OBJLoader.js"></script>
+    <script src="./javascripts/MTLLoader.js"></script>
+    <script src="./javascripts/index3D.js"></script>
     <!-- Loading -->
-    <div id="loader-bg">
-      <div id="loader">
-        <img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/lod2.gif" width="80" height="80" alt="Now Loading..." />
-        <p>Now Loading...</p>
-      </div>
-    </div>
-    <!-- オーバーレイ
-    <div class=“overlay-all” id=“js-join-trigger”>
-      <img id=“top_wait” src=“./Top.png”><br>
-      <div id=“title_wait”>ALIEN</div>
-      <p id=“wait_message”>Tap to start video call</p>
-    </div>-->
+    <p id="load_message">
+      LOADING...
+    </p>
+    <p id="loading_message">
+      通話が開始されるまでお待ちください...
+    </p>
+    <div id="BG"></div>
+
     <div class="container">
       <div id="remote-streams">
         <div id="js-remote-streams"></div>
