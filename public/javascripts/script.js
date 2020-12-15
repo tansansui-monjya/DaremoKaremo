@@ -20,7 +20,7 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream(30);
-  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);height:40vh;width:40vw;";
+  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);height:50vh;width:50vw;";
   }
   
   const meta = document.getElementById('js-meta');
@@ -217,7 +217,7 @@ const Peer = window.Peer;
     //alienボタンを無効化
     change.disabled = true;
     //無効化中のボタンデザインを変更
-    change.id = 'change_changing'
+    change.class = 'change_changing'
     //モデル変更処理
     if (syokika) {
       scene.remove.apply(scene, scene.children);

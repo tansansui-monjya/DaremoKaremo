@@ -7,6 +7,32 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="../stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+    <p>だれもかれも</p>
+    <div class="button-center">
+      <span id="js-room-mode"></span>
+      <!-- ボタン -->
+      <button id="js-reload-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="change" class="change">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-speaker" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-camera" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-share-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-leave-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+    </div>
   </head>
   <body>
     <!-- Loading -->
@@ -22,36 +48,12 @@
       <div id=“title_wait”>ALIEN</div>
       <p id=“wait_message”>Tap to start video call</p>
     </div>-->
-    <div class="container">
+    
+    <div class="container" style="position: relative;padding-top: 0px;">
       <div id="remote-streams">
         <div id="js-remote-streams"></div>
       </div>
       <!-- ルーム検索 -->
-      <div class="button-center">
-        <span id="js-room-mode"></span>
-        <!-- ボタン -->
-        <button id="js-reload-trigger" class="btn">
-          <span class="pop">りろーど</span>
-        </button>
-        <button id="change" class="btn">
-          <span class="pop">きゃらきりかえ</span>
-        </button>
-        <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
-          <span class="pop">みゅーと</span>
-        </button>
-        <button id="js-toggle-speaker" class="btn">
-          <span class="pop">すぴーかーきりかえ</span>
-        </button>
-        <button id="js-toggle-camera" class="btn">
-          <span class="pop">かめらきりかえ</span>
-        </button>
-        <button id="js-share-trigger" class="btn">
-          <span class="pop">きょうゆう</span>
-        </button>
-        <button id="js-leave-trigger" class="btn">
-          <span class="pop">たいしゅつ</span>
-        </button>
-      </div>
       <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
     </div> <!-- container -->
     <!-- threevrm関連 -->
