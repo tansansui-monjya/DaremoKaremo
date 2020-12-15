@@ -97,12 +97,12 @@ button#test1:hover {
 }
 
 /*ツールチップ*/
-.btn{
+.btn,.change{
   position: relative;
   cursor: pointer;
   display: inline-block;
 }
-.btn{
+.btn,.change{
   margin:0;
   padding:0;
 }
@@ -115,14 +115,14 @@ button#test1:hover {
   color: #fff;
   border-radius: 5px;
   background: #000;
-  width: 100px;
+  width: 45px;
 }
 .pop:before {
   content: "";
   position: absolute;
   top: -24px;
   right: 60%;
-  border: 15px solid transparent;
+  border: 10px solid transparent;
   border-top: 15px solid #000;
   margin-left: -15px;
   transform: rotateZ(180deg);
@@ -130,9 +130,13 @@ button#test1:hover {
 }
 .btn:hover .pop{
   display: inline-block;
-  top: 30px;
+  top: 65px;
   left: 0px;
-  
+}
+.change:hover .pop{
+  display: inline-block;
+  top: 65px;
+  left: 0px;
 }
 
 #js-toggle-camera{
@@ -143,7 +147,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-camera:before {
@@ -168,7 +172,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-camera_OFF:before {
@@ -194,7 +198,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-microphone:hover{
@@ -220,7 +224,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-microphone_OFF:hover{
@@ -246,7 +250,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-leave-trigger:before {
@@ -267,7 +271,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-share-trigger:before {
@@ -293,7 +297,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 .change:before {
@@ -313,7 +317,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 .change_changing:before {
@@ -334,7 +338,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-speaker:hover{
@@ -361,7 +365,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-speaker_OFF:hover{
@@ -387,7 +391,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-reload-trigger:before {
