@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
 <!--    <meta name=“viewport” content=“width=device-width, initial-scale=1"> -->
@@ -7,6 +7,32 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+    <p>だれもかれも</p>
+    <div class="button-center">
+      <span id="js-room-mode"></span>
+      <!-- ボタン -->
+      <button id="js-reload-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="change" class="change">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-speaker" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-camera" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-share-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-leave-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+    </div>
   </head>
   <body>
     <!--3Dモデル読み込み-->
@@ -15,44 +41,25 @@
     <script src="./javascripts/MTLLoader.js"></script>
     <script src="./javascripts/index3D.js"></script>
     <!-- Loading -->
-    <p id="load_message">
-      LOADING...
-    </p>
-    <p id="loading_message">
-      通話が開始されるまでお待ちください...
-    </p>
-    <div id="BG"></div>
-
-    <div class="container">
+    <div id="loader-bg">
+      <div id="loader">
+        <p id="load_message">Loading...</p>
+        <p id="loading_message">通話が開始されるまで<br>お待ちください...</p>
+        <div id="BG"></div>
+      </div>
+    </div>
+    <!-- オーバーレイ
+    <div class=“overlay-all” id=“js-join-trigger”>
+      <img id=“top_wait” src=“./Top.png”><br>
+      <div id=“title_wait”>ALIEN</div>
+      <p id=“wait_message”>Tap to start video call</p>
+    </div>-->
+    
+    <div class="container" style="position: relative;padding-top: 0px;">
       <div id="remote-streams">
         <div id="js-remote-streams"></div>
       </div>
       <!-- ルーム検索 -->
-      <div class="button-center">
-        <span id="js-room-mode"></span>
-        <!-- ボタン -->
-        <button id="js-reload-trigger" class="btn">
-          <span class="pop">りろーど</span>
-        </button>
-        <button id="change" class="btn">
-          <span class="pop">きゃらきりかえ</span>
-        </button>
-        <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
-          <span class="pop">みゅーと</span>
-        </button>
-        <button id="js-toggle-speaker" class="btn">
-          <span class="pop">すぴーかーきりかえ</span>
-        </button>
-        <button id="js-toggle-camera" class="btn">
-          <span class="pop">かめらきりかえ</span>
-        </button>
-        <button id="js-share-trigger" class="btn">
-          <span class="pop">きょうゆう</span>
-        </button>
-        <button id="js-leave-trigger" class="btn">
-          <span class="pop">たいしゅつ</span>
-        </button>
-      </div>
       <video class="local-video" id="js-local-stream" style="transform: scaleX(-1);"></video>
     </div> <!-- container -->
     <!-- threevrm関連 -->
