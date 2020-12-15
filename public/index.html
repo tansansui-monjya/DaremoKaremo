@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
-    <script src="./javascripts/OrbitControls.js"></script>
-    <script src="./javascripts/OBJLoader.js"></script>
-    <script src="./javascripts/MTLLoader.js"></script>
-    <script src="./javascripts/index.js"></script>
-    <script src="./javascripts/index3D.js"></script>
 
   <title>だれもかれも</title>
 </head>
 <body>
+    <!--3Dモデル読み込み-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+    <script src="./javascripts/index.js"></script>
+    <script src="./javascripts/OBJLoader.js"></script>
+    <script src="./javascripts/MTLLoader.js"></script>
+    
+    <div id="BG"></div>
     <div id="title_id">だれもかれも</div>
-
-    <canvas id="myCanvas"></canvas>
-
+    
     <form action="./views/Waiting.html" method="GET">
         <input type="hidden" id="roomid" name="roomid">
         
@@ -29,5 +28,7 @@
             <button id="room_make" type="submit">通話を開始する</button>
         </div>
     </form>
+    <script src="./javascripts/index3D.js"></script>
+</body>
 </html>
 
