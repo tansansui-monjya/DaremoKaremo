@@ -38,9 +38,10 @@ function threevrm(VRM){
 
   // -- avocado (gltf) -------------------------------------------------------------------------------
 
-  const change = document.getElementById('change_changing');
+  const change = document.getElementById('change');
 
   function initVRM( gltf ) {
+   
     THREE.VRM.from( gltf ).then( ( vrm ) => {
       scene.add( vrm.scene );
       currentVRM = vrm;
@@ -77,11 +78,11 @@ function threevrm(VRM){
     //バグ回避の為3Dモデル表示後少し間を置く
     setTimeout(function(){
       //ボタン有効化
-    change.disabled = false;
-    //ボタンデザインを有効時のものに戻す
-    change.id = 'change';
-    console.log("ボタン有効化")
-    },1000);
+      change.disabled = false;
+      //ボタンデザインを有効時のものに戻す
+      change.class = 'change';
+      console.log("ボタン有効化")
+      },1000);
   }
 
   const loader = new THREE.GLTFLoader();
