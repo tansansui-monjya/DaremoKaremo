@@ -29,10 +29,10 @@ const Peer = window.Peer;
   var remoteVideo_Array= new Array;
   //共有機能の変数
   const shareTrigger = document.getElementById('js-share-trigger');
+  //自分の名前を入力するテキストボックス
+  const myNameTrigger = document.getElementById('myName');
   //GETパラメータ(部屋名)を取得
   let roomId
-  let time
-  let type
   let model
   getParam();
   
@@ -77,6 +77,16 @@ const Peer = window.Peer;
     });
     // 重要：streamの内容に変更があった時（stream）videoタグを作って流す
     room.on('stream', async stream => {
+      //１ユーザー用のdivタグ(エリア)の生成
+      const newDiv = document.createElement('div');
+      //divの設定
+      newDiv.setAttribute('style','position:relative');
+      //nameテキスト(タグ)の生成
+      const newName = document.createElement('input');
+      //nameの設定
+      newName.setAttribute('type','text');
+      newName.setAttribute('id','N'+stream.peerId);
+      newName.setAttribute('style','position:absolute;height:5vh;width:10vw;bottom:0;right:0;z-index:100;font-size:3vh;text-align:right;');
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
@@ -90,20 +100,27 @@ const Peer = window.Peer;
       newVideo.setAttribute('data-peer-id', stream.peerId);
       newVideo.setAttribute('id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','height:40vh;width:40vw');
+      newVideo.setAttribute('style','position:absolute;height:40vh;width:40vw');
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         newVideo.muted = true;
       }
       else{
         newVideo.muted = false;
       }
-
-      // 配列に追加する(remoteVideosという配列にnewVideoを追加)
-      remoteVideos.append(newVideo);
+      //配列に追加する
+      newDiv.append(newName);
+      newDiv.append(newVideo);
+      // 配列に追加する(remoteVideosという配列にnewDivを追加)
+      remoteVideos.append(newDiv);
       // awaitはasync streamの実行を一時停止し、Promiseの解決または拒否を待ちます。
       await newVideo.play().catch(console.error);
     });
     
+    room.on('data',({src,data}) => {
+      const NameText = document.getElementById('N'+src);
+      NameText.value = data;
+    });
+
     // 誰かが退出した場合、div（remoteVideos）内にある任意のdata-peer-idがついたvideoタグの内容を空にして削除する
     room.on('peerLeave', peerId => {
       const remoteVideo = remoteVideos.querySelector(
@@ -130,6 +147,12 @@ const Peer = window.Peer;
     });
   });
    
+  //自分の名前を入力するテキストボックス以外にフォーカスが当たるとその状態の名前が他のユーザーに共有される
+  myNameTrigger.addEventListener('change',() => {
+    console.log(myNameTrigger.value);
+    room.send(myNameTrigger.value);
+  });
+
   // ボタン（leaveTrigger）を押すとroom.close()を発動
   leaveTrigger.addEventListener('click', () => {
     // room.close(); === リロード処理で画面を離れるとcloseするようにしているから必要なし

@@ -15,7 +15,7 @@ var h = obj.getBoundingClientRect().height;
 // var h1 = h/2;
 //renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.4);
 renderer.setSize(w, h);
-let element = document.getElementById('js-remote-streams').appendChild( renderer.domElement );
+let element = document.getElementById('myVideo').appendChild( renderer.domElement );
 element.id = 'canvas2'
 element.class = 'canvas3'
 // document.body.appendChild( renderer.domElement );

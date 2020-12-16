@@ -88,12 +88,28 @@ button#test1:hover {
   
 }
 
+#myVideo{
+  position: relative;
+}
+
 #canvas2{
+  position: absolute;
   grid-row: 1;
   grid-column: 1;
   height: 50vh;
   width: 50vw;
   border: #1B1B1B;
+}
+
+#myName{
+  position: absolute;
+  grid-row: 1;
+  grid-column: 1;
+  height: 5vh;
+  width: 10vw;
+  bottom:0;
+  right: 0;
+  z-index: 100;
 }
 
 #js-toggle-camera{
