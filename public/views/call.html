@@ -8,31 +8,6 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
     <p>だれもかれも</p>
-    <div class="button-center">
-      <span id="js-room-mode"></span>
-      <!-- ボタン -->
-      <button id="js-reload-trigger" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="change" class="change">
-        <span class="pop"></span>
-      </button>
-      <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
-        <span class="pop"></span>
-      </button>
-      <button id="js-toggle-speaker" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="js-toggle-camera" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="js-share-trigger" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="js-leave-trigger" class="btn">
-        <span class="pop"></span>
-      </button>
-    </div>
   </head>
   <body>
     <!--3Dモデル読み込み-->
@@ -48,13 +23,6 @@
         <div id="BG"></div>
       </div>
     </div>
-    <!-- オーバーレイ
-    <div class=“overlay-all” id=“js-join-trigger”>
-      <img id=“top_wait” src=“./Top.png”><br>
-      <div id=“title_wait”>ALIEN</div>
-      <p id=“wait_message”>Tap to start video call</p>
-    </div>-->
-    
     <div class="container" style="position: relative;padding-top: 0px;">
       <div id="remote-streams">
         <div id="js-remote-streams"></div>
@@ -84,5 +52,30 @@
       gtag('js', new Date());
       gtag('config', 'UA-171485531-1');
     </script>
+    <div class="button-center">
+      <span id="js-room-mode"></span>
+      <!-- ボタン -->
+      <button id="js-reload-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="change" class="change">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-speaker" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-camera" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-share-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-leave-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+    </div>
   </body>
 </html>
