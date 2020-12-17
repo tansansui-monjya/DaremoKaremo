@@ -49,6 +49,7 @@ p#load_message{
   font-family: 'bananaslipplus';
   font-weight: bold;
   margin: 35px 20px 10px 25px;
+  padding: fixed;
   text-align: left;
   color: gray;
   font-size: 50px;
@@ -58,6 +59,7 @@ p#load_message{
 p#loading_message{
   font-family: 'bananaslipplus';
   margin: 45px 0px 20px 35px;
+  position: fixed;
   text-align: left;
   color: gray;
   font-size: 30px;
