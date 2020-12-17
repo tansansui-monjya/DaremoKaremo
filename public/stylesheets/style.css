@@ -110,6 +110,8 @@ button#test1:hover {
   bottom:0;
   right: 0;
   z-index: 100;
+  font-size: 3vh;
+  text-align: right;
 }
 
 #js-toggle-camera{
