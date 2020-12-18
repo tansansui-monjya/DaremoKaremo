@@ -1,3 +1,10 @@
+.container{
+  position: relative;
+  padding-top: 0;
+  width: 100vw;
+  height: 95vh;
+}
+
 /* normalize */
 body {
    margin: 0; 
@@ -14,7 +21,7 @@ video {
   visibility: hidden;
   width: 0vw;
   height: 0vh;
-  margin: 7.5vh;
+  /* margin: 7.5vh; */
 }
 
 /* 時間設定デザイン  時間延長関連のコード*/
@@ -70,23 +77,24 @@ button#test1:hover {
 }
 
 #js-remote-streams{
-  margin-top: -3vh;
   display: grid;
+  width: 100%;
+  height: 100%;
   grid-auto-flow: row;
-  grid-template-columns: 50vw 50vw;
-  grid-auto-rows: 50vh;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: 50%;
   column-gap: 0vh;
   row-gap: 2vh;
   justify-content: center;
 }
 
 /*人数変更*/
-#remote-streams {
-  margin-top: 5vh;
+/* #remote-streams {
+  position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 95vh;
   
-}
+} */
 
 #myVideo{
   position: relative;
@@ -96,8 +104,6 @@ button#test1:hover {
   position: absolute;
   grid-row: 1;
   grid-column: 1;
-  height: 50vh;
-  width: 50vw;
   border: #1B1B1B;
 }
 
@@ -105,12 +111,12 @@ button#test1:hover {
   position: absolute;
   grid-row: 1;
   grid-column: 1;
-  height: 5vh;
+  height: 4vh;
   width: 10vw;
   bottom:0;
   right: 0;
   z-index: 100;
-  font-size: 3vh;
+  font-size: 2vh;
   text-align: right;
 }
 

@@ -20,7 +20,7 @@ const Peer = window.Peer;
   let canvas = null;
   while(canvas == null){
   canvas = document.getElementById("canvas2").captureStream(30);
-  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);height:50vh;width:50vw;";
+  document.getElementById("canvas2").style.cssText += "transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);height:100%;width:100%;";
   }
   
   const meta = document.getElementById('js-meta');
@@ -100,7 +100,7 @@ const Peer = window.Peer;
       newVideo.setAttribute('data-peer-id', stream.peerId);
       newVideo.setAttribute('id', stream.peerId);
       //スマホの大きさに調節
-      newVideo.setAttribute('style','position:absolute;height:40vh;width:40vw');
+      newVideo.setAttribute('style','position:absolute;height:100%;width:100%');
       if(toggleSpeaker.className == 'speaker-btn_OFF'){
         newVideo.muted = true;
       }
