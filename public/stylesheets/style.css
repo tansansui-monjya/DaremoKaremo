@@ -140,8 +140,10 @@ button#test1:hover {
   top: 65px;
   left: 0px;
 }
-
+/*カメラ*/
 #js-toggle-camera{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -191,8 +193,10 @@ button#test1:hover {
 #js-toggle-camera_OFF:hover{
   background: #E26522;
 }
-
+/*マイク*/
 #js-toggle-microphone{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -243,11 +247,14 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 2px;
 }
-
+/*退出*/
 #js-leave-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
-  background: #FF0404;
+  /*background: #FF0404;*/
+  background-color: #FF0404;
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -264,8 +271,10 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-
+/*共有*/
 #js-share-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -291,6 +300,8 @@ button#test1:hover {
 
 /*エイリアンボタンオンオフ実装予定(次サイクル)*/
 .change{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background: orange;
@@ -333,6 +344,8 @@ button#test1:hover {
 }
 /* スピーカーボタン */
 #js-toggle-speaker{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -384,10 +397,13 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 4px;
 }
+/*再読み込み*/
 #js-reload-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
-  background: #22e2a2;
+  background-color: #FFFFFF;
   color: #FFF;
   width: 60px;
   height: 60px;
@@ -416,6 +432,8 @@ button#test1:hover {
   position: absolute;
   top: 0vh;
   right: 0vw;
+  float: right;
+  margin: 0%;
 }
 
 
