@@ -7,6 +7,7 @@ window.onload = function(){
     let ambientLight;
     let directionLight;
     let objmodel;
+    const makeroom = document
     
     init();
     animate();
@@ -75,10 +76,11 @@ window.onload = function(){
     };
     function render() {
         // y軸方向に回転
-        objmodel.rotation.y -= 0.01;
-        // 再描画
-        renderer.render(scene, camera); 
+        while(true){
+            objmodel.rotation.y -= 0.01;
+            // 再描画
+            renderer.render(scene, camera); 
+        }
     };
-    
 };
 

@@ -7,22 +7,41 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
-    <p>だれもかれも</p>
+    <p id="midashi">だれもかれも</p>
+    <div class="button-center">
+      <span id="js-room-mode"></span>
+      <!-- ボタン -->
+      <button id="js-reload-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="change" class="change">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-speaker" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-toggle-camera" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-share-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+      <button id="js-leave-trigger" class="btn">
+        <span class="pop"></span>
+      </button>
+    </div>
   </head>
   <body>
-    <!--3Dモデル読み込み-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
-    <script src="../javascripts/OBJLoader.js"></script>
-    <script src="../javascripts/MTLLoader.js"></script>
     <!-- Loading -->
     <div id="loader-bg">
       <div id="loader">
-        <p id="load_message">Loading...</p>
-        <p id="loading_message">通話が開始されるまで<br>お待ちください...</p>
-        <div id="BG"></div>
+        <p id="load-message">Loading...</p>
+        <p id="loading-message">通話が開始されるまで<br>お待ちください...</p>
       </div>
     </div>
-    <script src="../javascripts/index3D.js"></script>
     <div class="container" style="position: relative;padding-top: 0px;">
       <div id="remote-streams">
         <div id="js-remote-streams"></div>
@@ -52,30 +71,5 @@
       gtag('js', new Date());
       gtag('config', 'UA-171485531-1');
     </script>
-    <div class="button-center">
-      <span id="js-room-mode"></span>
-      <!-- ボタン -->
-      <button id="js-reload-trigger" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="change" class="change">
-        <span class="pop"></span>
-      </button>
-      <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
-        <span class="pop"></span>
-      </button>
-      <button id="js-toggle-speaker" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="js-toggle-camera" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="js-share-trigger" class="btn">
-        <span class="pop"></span>
-      </button>
-      <button id="js-leave-trigger" class="btn">
-        <span class="pop"></span>
-      </button>
-    </div>
   </body>
 </html>

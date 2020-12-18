@@ -45,28 +45,30 @@ button#test1:hover {
 }
 
 /* Loading */
-p#load_message{
+p#load-message{
   font-family: 'bananaslipplus';
   font-weight: bold;
-  margin: 35px 20px 10px 25px;
   padding: fixed;
   text-align: left;
-  color: gray;
+  color:#707070;
   font-size: 50px;
+  margin-left: 3vh;
   letter-spacing: 5px;
   z-index: 101;
 }
-p#loading_message{
+p#loading-message{
   font-family: 'bananaslipplus';
-  margin: 45px 0px 20px 35px;
+
   position: fixed;
   text-align: left;
-  color: gray;
+  color:#707070;
   font-size: 30px;
+  margin-left: 3vh;
   z-index: 102;
 }
-#BG{
-  position: absolute;
+#loader-bg{
+  display: none;
+  position: fixed;
   z-index: 100;
   width: 100vw;
   height: 100vh;
@@ -89,7 +91,6 @@ p#loading_message{
   margin-top: 5vh;
   width: 100vw;
   height: 80vh;
-  
 }
 
 #canvas2{
@@ -369,13 +370,25 @@ p#loading_message{
   filter: brightness(0%);
 }
 
+
 .button-center{
   width: 100vw;
   text-align: right;
   position: absolute;
   top: 0vh;
   right: 0vw;
+  z-index: 90;
 }
+p#midashi{
+  font-family: 'bananaslipplus';
+  font-weight: bold;
+  text-align: left;
+  color: #707070;
+  margin-left: 2vw;
+  position: relative;
+  z-index: 91;
+}
+
 
 
 /* タブレット写した時 */
