@@ -87,6 +87,7 @@ const Peer = window.Peer;
       newName.setAttribute('type','text');
       newName.setAttribute('id','N'+stream.peerId);
       newName.setAttribute('style','position:absolute;height:5vh;width:10vw;bottom:0;right:0;z-index:100;font-size:3vh;text-align:right;');
+      newName.readOnly = true;
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
       // Webコンテンツ上で表示／再生するメディアのソースとなるストリーム（MediaStream）を取得／設定するために使用する。
@@ -126,6 +127,9 @@ const Peer = window.Peer;
       const remoteVideo = remoteVideos.querySelector(
         `[data-peer-id=${peerId}]`
       );
+      const remoteDiv = remoteVideos.querySelector(
+        `[id=N${peerId}]`
+      );
       console.log(peerId)
       //peerIdが一致したものを配列から削除
       var idx = $.inArray(peerId,remoteVideo_Array)
@@ -133,6 +137,8 @@ const Peer = window.Peer;
         remoteVideo_Array.splice(idx,1);
       }
       //remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+      remoteDiv.srcObject = null;
+      remoteDiv.remove();
       remoteVideo.srcObject = null;
       remoteVideo.remove();
     });
