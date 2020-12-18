@@ -125,7 +125,7 @@ const Peer = window.Peer;
     // 誰かが退出した場合、div（remoteVideos）内にある任意のdata-peer-idがついたvideoタグの内容を空にして削除する
     room.on('peerLeave', peerId => {
       const remoteVideo = remoteVideos.querySelector(
-        `[data-peer-id=${peerId}]`
+        `[id=${peerId}]`
       );
       const remoteDiv = remoteVideos.querySelector(
         `[id=N${peerId}]`
