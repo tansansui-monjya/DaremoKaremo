@@ -147,6 +147,8 @@ p#loading-message{
 }
 
 #js-toggle-camera{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -196,8 +198,10 @@ p#loading-message{
 #js-toggle-camera_OFF:hover{
   background: #E26522;
 }
-
+/*マイク*/
 #js-toggle-microphone{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -248,8 +252,10 @@ p#loading-message{
   margin-left: 4px;
   margin-top: 2px;
 }
-
+/*退出*/
 #js-leave-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background: #FF0404;
@@ -269,8 +275,10 @@ p#loading-message{
   background-size: contain;
   vertical-align: middle;
 }
-
+/*共有*/
 #js-share-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -296,6 +304,8 @@ p#loading-message{
 
 /*エイリアンボタン*/
 .change{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background: orange;
@@ -338,6 +348,8 @@ p#loading-message{
 }
 /* スピーカーボタン */
 #js-toggle-speaker{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -389,10 +401,13 @@ p#loading-message{
   margin-left: 4px;
   margin-top: 4px;
 }
+/*読み込み*/
 #js-reload-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
-  background: #22e2a2;
+  background: #FFFFFF;
   color: #FFF;
   width: 60px;
   height: 60px;
