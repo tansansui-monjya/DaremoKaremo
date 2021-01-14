@@ -86,7 +86,8 @@ const Peer = window.Peer;
       //nameの設定
       newName.setAttribute('type','text');
       newName.setAttribute('id','N'+stream.peerId);
-      newName.setAttribute('style','position:absolute;height:5vh;width:10vw;bottom:0;right:0;z-index:100;font-size:3vh;text-align:right;');
+      newName.placeholder = "名無しの権兵衛";
+      newName.setAttribute('style','position:absolute;height:4vh;width:10vw;bottom:0;right:0;z-index:100;font-size:24px;text-align:right;font-family:‘bananaslipplus’;');
       newName.readOnly = true;
       // newVideoオブジェクト(タグ)の生成
       const newVideo = document.createElement('video');
