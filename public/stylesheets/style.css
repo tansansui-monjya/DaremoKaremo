@@ -106,7 +106,7 @@ p#loading-message{
 
 #myVideo{
   position: relative;
-
+  z-index: 10;
 }
 
 #canvas2{
