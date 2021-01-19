@@ -92,7 +92,7 @@ p#loading-message{
   grid-template-columns: 50% 50%;
   grid-auto-rows: 50%;
   column-gap: 0vh;
-  row-gap: 2vh;
+  row-gap: 0vh;
   justify-content: center;
 }
 
@@ -125,7 +125,7 @@ p#loading-message{
   bottom:0;
   right: 0;
   z-index: 100;
-  font-size: 24px;
+  font-size: 2vh;
   text-align: right;
 }
 
